@@ -35,5 +35,5 @@ Links
 Here's a list of *live* sites that I've been an instrumental part of:
 
 
-*http://aucklandcoastguard.org.nz/
-*http://www.lesmills.co.nz/
+* http://aucklandcoastguard.org.nz/
+* http://www.lesmills.co.nz/
