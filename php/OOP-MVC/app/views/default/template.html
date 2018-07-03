@@ -1,0 +1,78 @@
+<div class="hero">
+    <div class="hero__crop">
+        <!-- foreach home hero image. -->
+        <?php foreach($heros as $key => $img) : ?>
+            <img src="/img/hero/<?php echo $img['filename']; ?>" alt="" <?php echo ($key == 0) ? 'class="active"': ''; ?>  />
+        <?php endforeach; ?>
+        <!-- /foreach home hero image. -->
+    
+    </div>
+</div>
+
+<ul class="hero__pager layout pager-list">
+    <?php for($i = 0; $i < count($heros); $i++) : ?>
+        <li><?php echo $i; ?></li>
+    <?php endfor; ?>
+</ul>
+
+<div class="quote quote--single">
+    <div class="layout">
+        <div class="quote__item active">
+            <p></p>
+
+            <!-- <a id="showModal" href="#" class="txt-w-icon">learn about me <i class="icon-add"></i></a> -->
+        </div>
+    </div>
+</div>
+
+
+<div class="gbl__content">
+    
+            
+    <div class="section section--shows" id="showSection">
+        <div class="media-grid layout">
+            <h1>Strip<br>Shows</h1>
+
+            <div class="gridify">
+                
+                <?php foreach($shows as $key => $show): ?>
+                
+                    <div class="grid__item g-tablet-1-3">
+                        <div class="media-block">
+                            <div class="media-block__content">
+                                <button class="btn--control btn--close">
+                                    <i class="icon-close"></i>
+                                </button>       
+
+                                <img src="/img/show-intro/<?php echo $show['image']; ?>" alt="">
+
+                                <div class="media-block__detail">
+                                    <h4 class="heading-w-sub"><?php echo $show['title']; ?> <span>from $<?php echo $show['price']; ?></span></h4>
+
+                                    <?php echo $show['short_desc']; ?>
+
+                                    <a href="index.php?view=service&amp;id=<?php echo $show['id'] ?>" class="txt-w-icon icon--right">find out more <i class="icon-arrow-forward"></i></a>     
+                                </div>         
+                            </div>
+
+                            <h3 class="media-block__title"><?php echo $show['title']; ?></h3>
+                        </div>      
+                    </div>
+                    
+                <?php endforeach; ?>
+
+            </div>
+            
+            <footer class="media-grid__footer">
+                <a id="viewServices" href="#" class="txt-w-icon media-grid__btn"><span>show</span> other services <i class="icon-add"></i></a>
+            </footer>
+        </div>
+    </div>
+
+
+    <div class="section section--invert">
+        <div class="layout">
+            <?php include(TMPL_DIR.'/_partials/booking_form.php'); ?>
+        </div>
+    </div>
+</div>

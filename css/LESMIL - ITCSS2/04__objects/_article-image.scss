@@ -1,0 +1,23 @@
+.article-image {
+	margin:40px;
+
+	img {
+		
+		@media (min-width: $screen-md-min) {
+			max-width:50%;
+		}
+	}
+
+	&.pull-right {
+		margin-right:0;
+	}
+	&.pull-left {
+		margin-left:0;
+	}
+}
+
+.article-image--fullWidth {
+	img {
+		max-width:100%;
+	}
+}

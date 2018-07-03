@@ -1,0 +1,175 @@
+.c-banner {
+	padding:rem(19px) 0 rem(50px);
+    
+    @include breakpoint($lg) {
+		padding: 0px 0 rem(180px);
+    }
+}
+
+.c-banner--block {
+	display: block;
+	padding:rem(100px) 0 rem(200px);
+	position: relative;
+	z-index:$base-z;
+
+	@include breakpoint($lg) {
+		padding: rem(200px) 0 rem(250px);
+	}
+
+	&.c-banner--reverseSlant {
+		@include breakpoint($lg) {
+			padding: rem(100px) 0 rem(200px);
+		}
+	}
+
+	&:after {
+		@include position(null, null, -34px, 0);
+		position: absolute;
+
+		content:"";
+		background:inherit;
+		transform: skewY(-2deg);
+		width:100%;
+		height: 120px;
+		z-index: $slanty-parent;
+
+		@include breakpoint($xxl) {
+			@include position(null, null, -63px, 0);
+		}
+	}
+
+	.c-hero + & {
+		@include breakpoint($lg) {
+			padding: rem(100px) 0 rem(200px);
+		}
+
+		&:before {
+			@include position(-34px, null, null, 0);
+			position: absolute;
+
+			content:"";
+			background:inherit;
+			transform: skewY(-1.5deg);
+			width:100%;
+			height: 120px;
+			z-index: $slanty-parent;
+
+			@include breakpoint($xxl) {
+				@include position(-52px, null, null, 0);
+			}
+		}
+	}
+
+	&:nth-child(2n) {
+		&:after {
+			transform: skewY(2deg);
+		}
+	}
+}
+.c-banner--reverseSlant {
+	&:after {
+		bottom:initial;
+
+		@include position(-34px, null, null, 0);
+
+		@include breakpoint($xxl) {
+			@include position(-52px, null, null, 0);
+		}
+	}
+}
+
+.c-banner--red {
+	background: $banner-red-bg;
+}
+.c-banner--blue {
+	background: $banner-blue-bg;
+}
+.c-banner--white {
+	background: $banner-white-bg;
+}
+
+.c-banner__title {
+	@include f-banner-title;
+	text-transform: uppercase;
+	align-self: center;
+
+	@include breakpoint($lg) {
+		margin-right:rem(75px);
+		margin-top:rem(10px);
+	}
+}
+.c-banner__col {
+	&:first-child {
+		padding-right:rem(30px);
+	}
+}
+.c-banner__body {
+	@include f-banner-body;
+	margin-top:rem(40px);
+	color: $banner-body-color;
+	
+	@include breakpoint(max-width $lg) {
+		margin:rem(30px) 0;
+	}
+}
+.c-banner__body--flex {
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	
+	@include breakpoint($lg) {
+		flex-direction:row;
+	}
+
+	.c-banner--alignRight & {
+		@include breakpoint($lg) {
+			justify-content: flex-end;
+		}
+	}
+}
+
+.c-banner__list {
+	display: flex;
+	justify-content: center;
+	margin-top: rem(10px); 
+	
+	@include breakpoint($lg) {
+		display: inline-block;
+		margin-top: 0px;
+	}
+}
+
+.c-banner__listItem {
+	@include f-banner-contact;
+	display: inline-block;
+	list-style: none;
+	margin:0 rem(10px);
+	
+	@include breakpoint($lg) {
+		font-size:rem(70px);
+		margin:0 rem(60px) 0 0;
+	}
+
+	span {
+		font-weight:400;
+	}
+	strong {
+		@include breakpoint($lg) {
+			font-size:rem(73px);
+		}
+	}
+}
+
+.c-banner__icon {
+	font-size:rem(25px);
+
+	@include breakpoint(max-width $lg) {
+		display: block;
+		text-align: center;
+		margin-bottom:rem(5px);
+	}
+
+	@include breakpoint($lg) {
+		font-size: rem(40px);
+	}
+}

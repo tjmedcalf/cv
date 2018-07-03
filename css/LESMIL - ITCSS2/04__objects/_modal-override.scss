@@ -1,0 +1,196 @@
+// MAIN STYLES FROM modals.scss WHICH IS BOOTSTRAP - THIS FILE JUST OVERRIDES;
+
+.modal-backdrop {
+	background-color: rgba(black, 0.85);
+
+	&.in {
+		opacity: 1;	
+	}
+	&.invert {
+		background:rgba(white, 0.98);
+	}
+}
+
+.modal--app-prompt {
+	background-image: url("/images/mobile-modal-bg.png");
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position: 87%;
+
+	&:before {
+		content: "";
+		position: fixed;
+		top: 0; 
+		bottom: 0;
+		left: 0;
+		right: 0; 
+		background: rgba(0,0,0,0.4);
+		pointer-events: none;
+	}
+
+}
+
+.modal-header {
+	text-align: center;
+	border:none;
+
+	button {
+		@include font-size(30px);
+		color:white;
+
+		.modal--solid-bg & {
+			color:black;
+			position: absolute;
+    		right: 15px;
+    		top: 15px;
+		}
+		.modal--invert & {
+			color:black;
+		}
+	}
+
+	p {
+		@include font-size(18px);
+		color:white;
+		margin:20px 0;
+		font-weight:300;
+		letter-spacing: em(1,18);
+
+		.modal--invert & {
+			color:black;
+		}
+	}
+
+	.modal--solid-bg & {
+		padding:40px 40px 10px;
+		text-align:unset;
+		position:relative;
+	}
+}
+.modal-content {
+	background-color:transparent;
+	border-radius: 0;
+	box-shadow: none;
+	border:none;
+	padding-bottom:89px;
+
+	.modal--solid-bg & {
+		background:$alto;
+		border-radius:4px;
+		padding-bottom:0px;
+	}
+}
+
+.modal-body {
+	.modal--solid-bg & {
+		padding:10px 40px 40px;
+	}
+}
+
+.modal-title {
+	@include font-size(36px);
+	text-align: center;
+	color:white;
+	margin-top:15px;
+
+	.modal--solid-bg & {
+		color:black;
+		margin-top:0;
+	}
+	.modal--invert & {
+		color:black;
+	}
+
+	&:after {
+		height:3px;
+		background:$monza;
+		width:70px;
+		content:"";
+		display: block;
+		margin-top:10px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.modal-body & {
+		margin-bottom:80px;
+	}
+	@media all and (min-width:$bp-tablet) {
+		margin-top:70px;
+	}
+}
+.modal-title--align-left {
+	text-align: left;
+
+	&:after {
+		margin-left:0;
+		margin-right:0;
+	}
+}
+
+.modal-footer {
+	border:none;
+	position:fixed;
+	bottom:0;
+	left:0;
+	background:white;
+	padding:20px;
+	width:100%;
+	text-align: unset;
+	box-shadow: 4px -2px 4px 0 rgba(0,0,0,0.1), 0 2px 2px 0 rgba(0,0,0,0.05);
+
+	.icon-arrow-down {
+		@include font-size(25px);
+		vertical-align: -7px;
+	}
+
+	a {
+		color:black;
+		@include font-size(14px);
+		&:hover {
+			text-decoration: none;
+			color:black;
+		}
+	}
+
+	//Place footer at relative bottom for mobile.
+	@media all and (max-width:$bp-tablet) {
+		position: relative !important;
+	}
+}
+
+.modal__logo {
+	margin-top:80px;
+}
+
+.modal-waypoint {
+	height:0px;
+	display: none;
+
+	.modal & {
+		height:60px;
+		display: block;
+	}
+}
+
+.modal-open {
+	#content,
+	.site-header,
+	.site-footer {
+		filter:blur(10px);
+	}
+}
+
+.modal-lg { 
+	@media (min-width: $bp-desktop) {
+		width: $bp-desktop;
+	}
+	@media (min-width: $bp-widescreen) {
+		width: $bp-widescreen;
+	}
+}
+
+.modal__btn-label {
+	@include font-size(12px);
+	display: block;
+	margin-top:7px;
+}

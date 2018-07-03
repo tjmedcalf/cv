@@ -1,0 +1,161 @@
+﻿<div class="form" ng-controller="ApplicantController">
+    <div class="form__section">
+        <h1 class="form__title">Applicant</h1>
+        <div class="g">
+            <div class="gi gi-9">
+                <div class="g">
+                    <div class="gi gi-6 field">
+                        <label class="c-label">Applicant's first name</label>
+                        <input ng-model="parcel.contents.applicant.FirstName" class="c-input c-input--100" placeholder="Enter a name"/>
+                    </div>
+                    <div class="gi gi-6 field">
+                        <label class="c-label">Applicant's last name</label>
+                        <input ng-model="parcel.contents.applicant.LastName" class="c-input c-input--100" placeholder="Enter a name"/>
+                    </div>
+                </div>
+                <p class="form__helper">Enter the full name of the applicant as it is to appear on the application form.</p>
+                <div class="field">
+                    <label class="c-label">Contact address</label>
+                    <input ng-model="parcel.contents.applicant.contactAddress" class="c-input c-input--100" placeholder="Enter an address"/>
+                </div>
+
+                <p class="form__helper">Address to which documents or correspondence in connection with the application can be posted or delivered.</p>
+            </div>
+        </div>
+    </div>
+    <div class="form__section">
+        <div class="g">
+            <div class="gi gi-6">
+                <div class="g">
+                    <div class="gi gi-6 field">
+                        <label class="c-label">Home phone</label>
+                        <input ng-model="parcel.contents.applicant.homePhone" class="c-input c-input--100" placeholder="(..) xxx xxxx" />
+                    </div>
+                    <div class="gi gi-6 field">
+                        <label class="c-label">Work phone</label>
+                        <input ng-model="parcel.contents.applicant.workPhone" class="c-input c-input--100"  placeholder="(..) xxx xxxx" />
+                    </div>
+                    <div class="gi gi-6 field">
+                        <label class="c-label">Mobile phone</label>
+                        <input ng-model="parcel.contents.applicant.mobilePhone" class="c-input c-input--100"  placeholder="(..) xxx xxxx" />
+                    </div>
+                    <div class="gi gi-6 field">
+                        <label class="c-label">Fax</label>
+                        <input ng-model="parcel.contents.applicant.fax" class="c-input c-input--100"  placeholder="(..) xxx xxxx" />
+                    </div>
+                </div>
+            </div>
+            <div class="gi gi-9">
+                <div class="field">
+                    <label class="c-label">Email address</label>
+                    <input ng-model="parcel.contents.applicant.emailAddress" class="c-input c-input--100" type="text"  placeholder="Enter an email address"/>
+                </div>
+            </div>
+        </div>
+        <p class="form__helper">Where fax or email addresses  are given these may be used as  a means of notice and service.</p>
+    </div>
+    <div class="form__section">
+        <div class="g">
+            <div class="gi gi-7">
+                <h3 class="form__field-intro">Has a grant of administration in the estate been granted or is it intended to apply for a grant?</h3>
+            </div>
+            <div class="gi gi-1">
+            </div>
+            <div class="gi gi-2">
+                <input ng-model="parcel.contents.applicant.hasGrant" id="hasGrantYes" type="radio" value="yes" class="faux-radio" />
+                <label class="faux-radio__label" for="hasGrantYes">Yes</label>
+            </div>
+            <div class="gi gi-2">
+                <input ng-model="parcel.contents.applicant.hasGrant" id="hasGrantNo" type="radio" value="no" class="faux-radio" />
+                <label class="faux-radio__label" for="hasGrantNo">No</label>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="form__section" ng-show="parcel.contents.applicant.hasGrant == 'yes'">
+        <div class="g">
+            <div class="gi gi-7">
+                <h3 class="form__field-intro">I am / We are administrator(s) of this estate</h3>
+            </div>
+            <div class="gi gi-1">
+            </div>
+            <div class="gi gi-2">
+                <input ng-model="form.applicant.isAdmin" id="isAdmininstratorYes" type="radio" value="true" class="faux-radio" />
+                <label class="faux-radio__label" for="isAdmininstratorYes">Yes</label>
+            </div>
+            <div class="gi gi-2">
+                <input ng-model="form.applicant.isAdmin" id="isAdmininstratorNo" type="radio" value="false" class="faux-radio" />
+                <label class="faux-radio__label" for="isAdmininstratorNo">No</label>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="form__section" ng-show="parcel.contents.applicant.hasGrant == 'yes'">
+        <div class="g">
+            <div class="gi gi-7">
+                <h3 class="form__field-intro">I / We seek an order based on this application without formal hearing</h3>
+                <p class="form__helper" ng-show="parcel.contents.applicant.withoutFormalHearing == 'yes'">If you wish to request for the application to be dealt with without  formal hearing and without notice, a declaration will be appended to the generated Māori Land Court form. You will need to read the declarative statements, and all  applicants need to sign the declaration. It will  need to be sworn before an authorised person, e.g. Justice of the Peace.</p>
+            </div>
+            <div class="gi gi-1">
+            </div>
+            <div class="gi gi-2">
+                <input ng-model="parcel.contents.applicant.withoutFormalHearing" id="isSeekingOrderYes" type="radio" value="yes" class="faux-radio" />
+                <label class="faux-radio__label" for="isSeekingOrderYes">Yes</label>
+            </div>
+            <div class="gi gi-2">
+                <input ng-model="parcel.contents.applicant.withoutFormalHearing" id="isSeekingOrderNo" type="radio" value="no" class="faux-radio" />
+                <label class="faux-radio__label" for="isSeekingOrderNo">No</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form__section" ng-show="parcel.contents.applicant.hasGrant == 'yes'">
+        <div class="g">
+            <div class="gi gi-7">
+                <h3 class="form__field-intro">I / We have advised the immediate next of kin of this application</h3>
+            </div>
+            <div class="gi gi-1">
+            </div>
+            <div class="gi gi-2">
+                <input ng-model="parcel.contents.applicant.advisedImmediateNextOfKin" id="hasAdvisedNOKYes" type="radio" value="yes" class="faux-radio" />
+                <label class="faux-radio__label" for="hasAdvisedNOKYes">Yes</label>
+            </div>
+            <div class="gi gi-2">
+                <input ng-model="parcel.contents.applicant.advisedImmediateNextOfKin" id="hasAdvisedNOKNo" type="radio" value="no" class="faux-radio" />
+                <label class="faux-radio__label" for="hasAdvisedNOKNo">No</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form__section">
+        <h3 class="form__field-intro form__field-intro--margin">Please select the district and place in which you would prefer your application to be heard</h3>
+        
+    
+        <div class="g">
+            <div class="gi gi-5 field">
+                <label class="c-label">
+                    District</label>
+                <div class="selectbox">
+                    <select class="selectbox__dropdown selectbox__dropdown--100" name="" id="" ng-model="parcel.contents.applicant.district">
+                        <option value="">Select district</option>
+                        <option ng-repeat="(name, places) in districts" ng-value="name">{{name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="gi gi-5 field">
+                <label class="c-label">
+                    Place
+                </label>
+                <div class="selectbox" ng-class="{'selectbox--disabled': parcel.contents.applicant.district == undefined}">
+
+                    <select class="selectbox__dropdown selectbox__dropdown--100" name="" id="" ng-model="parcel.contents.applicant.place" ng-disabled="parcel.contents.applicant.district == undefined">
+                        <option value="">Select place of hearing</option>
+                        <option ng-repeat="option in districts[parcel.contents.applicant.district]" ng-value="option">{{option}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

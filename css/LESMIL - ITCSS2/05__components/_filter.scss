@@ -1,0 +1,157 @@
+.filter__selector {
+	//display: inline-block;
+	min-height:52px;
+	margin-bottom:$space*2;
+
+	.selectboxit-option {
+		background:black;
+		width:100% !important;
+		position:absolute;
+
+		&:after {
+			@include icon-font;
+			@include font-size(15px);
+			content:'';
+			float:right;
+			position:relative;
+			top: 12px;
+    		right: 12px;
+    		display: block;
+    		width:20px;
+    		height:20px;
+    		padding-left: 3px;
+    		padding-top: 2px;
+    		border-radius: 3px;
+    		background:white;
+		}
+
+		&.selectboxit-focus,
+		&:hover {
+			color:white;
+		}
+
+		&.selectboxit-option-first,
+		&:first-child {
+			border-radius:4px 4px 0 0;
+		}
+		&.selectboxit-option-last,
+		&:last-child {
+			border-bottom:none;
+			border-radius:0 0 4px 4px;
+			padding-bottom:20px;
+		}
+		&.selectboxit-selected {
+			&:after {
+				content:'\E017';
+				background:$chateau-green;
+				color:white;
+			}	
+		}
+
+		a {
+			pointer-events:none;
+		}
+	}
+	.selectboxit-options, 
+	.selectboxit-list {
+		margin-top: 5px;
+		top: 0px;
+		display: block !important;
+		z-index:$layer-hidden;
+		min-width: 200px;
+		width:100%;
+	}
+	.cd-active {
+		+ input + .selectboxit-list {
+			z-index:9998 !important;
+
+			a {
+				pointer-events:all;
+			}
+		}
+
+		z-index:9999 !important;
+	}
+}
+
+.filter--term,
+.selectbox--filter .selectboxit  {
+	border: 3px solid black;
+	border-radius: 4px;
+	background:white;
+	width: 100%;
+	display: inline-block;
+	padding-bottom:10px;
+	position: relative;
+
+	@media (min-width: $screen-xs-min) {
+		max-width:320px;
+	}
+}
+
+.filter--term {
+	display: flex;
+	justify-content: space-between;
+	padding: 8px 20px 3px;
+	align-items: center;
+}
+
+.filter__list {
+	@include clearfix;
+	margin-bottom:20px;
+
+	> li {
+		margin-bottom:10px;
+		
+		.sidebar & {
+			@media (min-width: $screen-md-min) and (max-width: $bp-widescreen) {
+				margin-bottom:0px;
+				margin-right:10px;
+				float:left;
+			}
+		}
+
+		.filter--inline & {
+			@media (min-width: $screen-sm-min) {
+				margin-bottom:0px;
+				margin-right:10px;
+				float:left;
+			}
+		}
+	}
+}
+
+.filter__tag {
+	position: relative;
+
+	&:last-child {
+		margin-right:0px;		
+	}
+
+	button {
+		font-size: 27px;
+    	top:-5px;
+    	position:absolute;
+    	right:0;
+	}
+}
+
+.filter__box {
+	@include heading-style;
+	background:none;
+	border:none;
+	letter-spacing: em(1, 16);
+	color:black;
+	min-width:180px;
+
+	&:focus {
+		outline:none;
+	}
+}
+.filter__btn {
+	background:none;
+	border:none;
+}
+.filter__btn-icon {
+	@include font-size(25px);
+}

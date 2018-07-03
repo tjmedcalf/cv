@@ -1,0 +1,22 @@
+.input-list {
+
+
+}
+
+.input-list__item {
+ 	.input-list--stacked & {
+		margin-bottom:20px;
+	}
+	
+
+	.input-list--inline & {
+		@media (min-width: $screen-sm-min) {
+			display: inline-block;
+			margin-right:35px;
+		}
+
+		&:last-child {
+			margin-right: 0; 
+		}
+	}
+}

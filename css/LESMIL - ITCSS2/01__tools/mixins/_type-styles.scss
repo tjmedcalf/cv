@@ -1,0 +1,21 @@
+@mixin heading-style {
+	font: $font-headings;
+	text-transform: uppercase;
+}
+@mixin title-w-underline-left {
+	font: $font-headings;
+	color:black;
+	@include font-size(26px);
+	letter-spacing: em(3,36);
+	line-height: em(43,36);
+	margin-bottom:$space*2;
+
+	&:after {
+		height:3px; 
+		background:$monza;
+		width:70px;
+		content:"";
+		display: block;
+		margin-top:10px;
+	}
+}

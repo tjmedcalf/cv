@@ -1,0 +1,131 @@
+.c-hero {
+	height:95vh;
+	width:100%;
+	
+	@include breakpoint($lg) {
+		height:85vh;
+	}
+
+	&.c-hero--w-footer {
+		padding-bottom:rem(150px);	
+		
+		@include breakpoint($lg) {
+			height:calc(80vh);
+		}
+		@media screen and (min-width: $lg) and (max-height: 900px) {
+			height:calc(100vh + 290px);
+		}
+	}
+}
+
+.c-hero__wrapper {
+	width:100%;
+
+	@include breakpoint($lg) {
+		height:calc(100% + 154px);
+		top:rem(-154px);
+	}
+}
+
+.c-hero__slide {
+	height:100%;
+	display: flex;
+	align-items:center;
+	background-position: 50% 50%;
+	background-size:cover;
+}
+
+.c-hero__title {
+	@include f-hero-title;
+	color:$hero-title-color;
+	text-transform: uppercase;
+
+	@include breakpoint($lg) {
+		font-size: rem(100px);
+		line-height:90px;
+	}
+
+	@media screen and (min-width: $lg) and (max-height: 900px) {
+		font-size: rem(85px);
+		line-height:74px;
+	}
+}
+.c-hero__subTitle {
+	@include f-hero-sub-title;
+	margin-top: rem(13px);
+	color:$hero-subtitle-color;
+
+	@include breakpoint($lg) {
+		font-size: rem(26px);
+		margin-top: rem(30px);
+	}
+}
+
+.c-hero__cta {
+	margin-top: rem(50px);
+
+	@include breakpoint($lg) {
+		margin-top: rem(45px);
+	}
+}
+
+.c-hero__navButton {
+	color:$hero-nav-button-color;
+
+	.c-hero--w-footer & {
+		@include breakpoint(min-height 900px) {
+			margin-top:-120px;	
+		}
+	}
+}
+
+.c-hero__content {
+	@media screen and (min-width: $lg) and (max-height: 900px) {
+		margin-top:rem(250px);
+	}
+}
+
+.c-hero__pagination.swiper-pagination {
+	@include f-hero-pagination;
+	color:$hero-pagination-color;
+	position: fixed;
+	
+	@include breakpoint(max-width $lg) {
+		top:rem(10px);
+		height:0px;
+		bottom:initial;
+	}
+
+	@include breakpoint($lg) {
+		bottom:calc(50% - 100px);
+		text-align:right;
+		left:initial;
+		width:auto;
+		right:rem(49px);
+	}
+
+	.c-hero--w-footer & {
+		top:rem(100px);
+
+		@include breakpoint($lg) {
+			top:unset;
+			bottom:calc(50% + 50px);
+		}
+	}
+
+	.swiper-pagination-current {
+		font-weight:400;		
+	}
+}
+
+.c-hero__footer {
+	position: absolute;
+    z-index: $hero-footer-z;
+    width: 100%;
+    bottom: 0;
+    color: $hero-footer-color;
+    
+    @include breakpoint(max-width $lg) {
+	    padding-bottom:rem(100px);
+	}
+}

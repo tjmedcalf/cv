@@ -1,0 +1,142 @@
+<div class="form">
+    <div class="form__section">
+        <h1 class="form__title">Checklist &amp; documents</h1>
+        <p class="form__field-intro form__field-intro--margin">Placeholder text: Introductory words. Checklist to help you determine you have everything needed so we can check your application.</p>
+        <h3 class="form__section-subtitle">Checklist</h3>
+        <p class="form__field-intro">Based on information supplied in your application, you need to do the following:</p>
+    </div>
+    <div class="form__section">
+        <div class="g">
+            <div class="gi gi-4 data-list__header">Task</div>
+            <div class="gi gi-7 data-list__header">Description</div>
+            <div class="gi gi-1 data-list__header">Done</div>
+        </div>
+        <div class="data-list">
+
+            <div class="data-list__row">
+                <div class="g">
+                    <div class="gi gi-4 u-vc">
+                        E.G. Certify Letters of administration
+                    </div>
+                    <div class="gi gi-7">
+                        Example text: Get a certified copy of the letters of administration.
+                    </div>
+                    <div class="gi gi-1 data-list__checkbox">
+                        <input type="checkbox" class="faux-checkbox" id="lettersCertified">
+                        <label class="c-label" for="lettersCertified">&nbsp;</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="data-list__row">
+                <div class="g">
+                    <div class="gi gi-4 u-vc">
+                        E.G. Consult with whānau
+                    </div>
+                    <div class="gi gi-7">
+                        Example text: Consult with other beneficiaries and advise them of this application.
+                    </div>
+                    <div class="gi gi-1 data-list__checkbox">
+                        <input type="checkbox" class="faux-checkbox" id="whanauConsultationDone">
+                        <label class="c-label" for="whanauConsultationDone">&nbsp;</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="data-list__row">
+                <div class="g">
+                    <div class="gi gi-4  u-vc">
+                        E.G. Certify the Death certificate
+                    </div>
+                    <div class="gi gi-7">
+                        Example text: Get the original or photocopy of the death certificate, or if this is not readily available by reasonable enquiry, the Court may accept other evidence as to death.
+                    </div>
+                    <div class="gi gi-1 data-list__checkbox">
+                        <input type="checkbox" class="faux-checkbox" id="deathCertAuthenticated">
+                        <label class="c-label" for="deathCertAuthenticated">&nbsp;</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+	<div class="form__section">
+		<h3 class="form__section-subtitle">Documents Required</h3>
+		<p class="form__field-intro">Based on your application details, you need to supply the following documents.</p>
+	</div>
+
+	<div class="form__section">
+	    <div class="g">
+	        <div class="gi gi-3 data-list__header">Documents</div>
+	        <div class="gi gi-5 data-list__header">Description</div>
+	        <div class="gi gi-4 data-list__header">Uploaded</div>
+	    </div>
+	    <div class="data-list">
+	        <div class="data-list__row" ng-controller="DocumentController">
+	            <div class="g">
+	                <div class="gi gi-3 u-vc">
+	                    E.G. Letters of administration
+	                </div>
+	                <div class="gi gi-5">
+                        Example text: Upload a scan of a certified copy of your Letters of administration. This may contain a copy of the will.
+
+	                </div>
+	                <div class="gi gi-4 data-list__upload">
+	                    <div ng-if="fileError">
+	                        <h4>{{fileError.type}}</h4>
+	                        <p>{{fileError.description}}</p>
+	                    </div>
+	                    <i class="faux-upload__indicator faux-upload__indicator--incomplete"  ng-show="vm.uploadme.$file == undefined"></i>
+	                    <i class="fa fa-check-square faux-upload__indicator faux-upload__indicator--complete" ng-show="vm.uploadme.$file != undefined"></i>
+					
+	                    <input type="file" fileread="vm.uploadme" fileread-maxsize="5500000" ng-show="vm.uploadme.$file == undefined" id="adminLetter" class="faux-upload"/>
+	                    <label for="adminLetter">
+	                        <span ng-hide="vm.uploadme.$file != undefined" class="c-btn c-btn--pri">Browse Files</span>
+	                        <span ng-show="vm.uploadme.$file != undefined" class="faux-upload__filename" ng-bind="vm.uploadme.$file.name"></span>
+	                    </label>
+
+                        <i class="material-icons search-results__icon search-results__icon--remove" ng-show="vm.uploadme.$file != undefined" ng-click="removeDocument()">add_circle</i>
+                    </div>
+	            </div>
+	        </div>
+	        <div class="data-list__row">
+	            <div class="g">
+	                <div class="gi gi-3 u-vc">
+	                    E.G. Will
+	                </div>
+	                <div class="gi gi-5">
+	                    Example text: Upload a scan of the original will or a copy certified as a true copy by a solicitor or trustee company (if not contained in the Letters of administration).
+	                </div>
+	                <div class="gi gi-4 data-list__upload">
+	                    <i class="faux-upload__indicator faux-upload__indicator--incomplete"></i>
+	                    <!--<i class="fa fa-check-square faux-upload__indicator faux-upload__indicator--complete"></i>-->
+	                    <input type="file" id="will" class="faux-upload"/>
+	                    <label for="will">
+	                        <span class="c-btn c-btn--pri">Browse Files</span>
+	                    </label>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="data-list__row">
+	            <div class="g">
+	                <div class="gi gi-3 u-vc">
+	                    E.G. Death Certificate
+	                </div>
+	                <div class="gi gi-5">
+	                    Example text: Upload a scan of the original or photocopy of death certificate, or if not readily available, other evidence as to death.
+	                </div>
+                    <div class="gi gi-4 data-list__upload">
+                        <i class="faux-upload__indicator faux-upload__indicator faux-upload__indicator--incomplete"></i>
+                        <!-- <i class="fa fa-check-square faux-upload__indicator faux-upload__indicator--complete"></i> -->
+                        <input type="file" id="deathCertificate" class="faux-upload" />
+                        <label for="deathCertificate">
+                            <span class="c-btn c-btn--pri">Browse Files</span>
+                            <!-- <span>DeathCertificate.pdf</span> -->
+                        </label>
+                    </div>
+	            </div>
+	        </div>
+        </div>
+	</div>
+</div>

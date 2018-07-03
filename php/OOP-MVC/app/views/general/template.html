@@ -1,0 +1,68 @@
+<div class="gbl__content">
+    <div class="layout">
+        <nav class="crumbs layout crumbs--noheader">
+            <ul>
+                <li><a href="#">home</a></li>
+                <li class="crumb__current"><?php echo strtolower($content['title']); ?></li>
+            </ul>
+        </nav>
+
+        <div class="gridify main">
+            <div class="grid__item g-tablet-8-12 layout__copy">
+                <h1 class="page-heading"><?php echo $content['title']; ?></h1>
+
+                <div class="copy">
+                    <?php echo $content['body_copy'];  ?>
+                </div>
+            </div>
+            
+            <?php if($showContactForm): ?>
+                <div class="grid__item g-tablet-4-12 layout__sidebar">
+                    <div class="sidebar__block">
+                        <h1 class="sidebar__heading">Contact Me</h1>
+
+                        <form name="contactform" action="/" method="post" class="form--block">
+                            <input type="hidden" value="send" name="task" />
+                            <input type="hidden" value="contactform" name="formName" />
+                            <input type="hidden" value="general" name="view" />
+                            <input type="hidden" value="11" name="id" />
+                            <input type="hidden" value="view=general&id=11" name="redirect" />
+
+                            <fieldset>
+                                <div class="field">
+                                    <label for="input" class="field__label">Name</label>
+                                    <input name="Name" id="input" type="text" class="field__input" data-constraints="@Required">
+                                </div>
+
+                                <div class="field">
+                                    <label for="input2" class="field__label">Email</label>
+                                    <input name="Email" id="input2" type="email" class="field__input" data-constraints="@Required @Email">
+                                </div>
+
+                                <div class="field">
+                                    <label class="field__label" for="textarea">Message</label>
+                                    
+                                    <textarea class="field__input" name="" id="textarea" cols="30" rows="10" name="Message"></textarea>
+                                </div>
+
+                                <div class="form__submit">
+                                    <button class="btn--submit">
+                                        <input value="send" type="submit">
+                                        <i class="icon-send"></i>
+                                    </button>       
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <!-- <div class="section section--invert">
+        <div class="layout">
+            <?php include(TMPL_DIR.'/_partials/booking_form.php'); ?>
+        </div>
+    </div> -->
+</div>

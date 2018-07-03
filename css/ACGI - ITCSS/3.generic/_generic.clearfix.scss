@@ -1,0 +1,14 @@
+/**
+ * GENERIC.CLEARFIX
+ *
+ * @description : Force an element to self-clear floated children
+ *
+ */
+
+.clearfix {
+	&::after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+}

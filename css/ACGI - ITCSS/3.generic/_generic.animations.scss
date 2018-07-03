@@ -1,0 +1,32 @@
+.js.csstransitions .anim-reveal-hidden {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"
+    }
+}
+
+.anim-slideUp {
+    -webkit-animation: slideUp .6s cubic-bezier(.215,.61,.355,1) backwards;
+    animation: slideUp .6s cubic-bezier(.215,.61,.355,1) backwards;
+}
+
+@for $i from 1 through 6 {
+	.anim-delay-#{$i*200} {
+	    -webkit-animation-delay: #{$i*200}ms;
+	    animation-delay: #{$i*200}ms;
+	}
+}

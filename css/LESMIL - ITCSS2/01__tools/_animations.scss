@@ -1,0 +1,57 @@
+.js.csstransitions .anim-reveal-hidden,
+.js.csstransitions .anim-reveal-hidden--hero {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+.anim-slideUp {
+	-webkit-animation: slideUp .6s cubic-bezier(.215,.61,.355,1) backwards;
+    animation: slideUp .6s cubic-bezier(.215,.61,.355,1) backwards;
+}
+
+@for $i from 1 through 6 {
+	.anim-delay-#{$i*200} {
+	    -webkit-animation-delay: #{$i*200}ms;
+	    animation-delay: #{$i*200}ms;
+	}
+}
+
+
+@keyframes slideUp{
+	0% {
+	    -webkit-transform: translateY(50%);
+	    transform: translateY(50%);
+	    opacity: 0;
+	}
+	
+	100% {
+	    -webkit-transform: translateY(0);
+	    transform: translateY(0);
+	    opacity: 1;
+	}
+}
+
+@mixin accordion-animation($initial-delay: 0.5) {
+	transition-property:opacity, top;
+	transition-duration:#{$initial-delay}s;
+	transition-timing-function:cubic-bezier(0,0,0,1.2);
+	top:0;
+	position:relative;
+	opacity:1;
+
+	@for $i from 1 through 15 {
+	  
+
+	  &:nth-child( n + #{$i} ) {
+	  	transition-delay:#{($initial-delay - 0.2)*$i}s;
+	  }
+	}
+
+	[data-accordion="shut"] & {
+		@media (max-width: $screen-sm-min) {
+			opacity:0;
+			top:-10px;
+		}
+	}
+}
+

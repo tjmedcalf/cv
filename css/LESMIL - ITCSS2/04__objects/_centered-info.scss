@@ -1,0 +1,29 @@
+.centered-info {
+    @include clearfix;
+
+    @media (min-width: $screen-sm-min) {
+        text-align:center;
+    }
+}
+
+.centered-info__data {
+    padding:10px 15px;
+
+    @media (min-width: $screen-sm-min) {
+        width:50%;
+        float:left;
+        text-align:left;
+        box-sizing:border-box;
+        font-weight:500;
+    }
+}
+.centered-info__data--label {
+    color:$aluminium;
+    font-weight:300;
+    padding-bottom:0;
+    
+    @media (min-width: $screen-sm-min) {
+        text-align: right;
+        padding-bottom:10px;
+    }
+}

@@ -1,0 +1,97 @@
+.media {
+	@include clearfix;
+	
+	@include css-vars((
+		--media-bg:white,
+	));
+	
+
+	background:var(--media-bg);
+	position:relative;
+	transition:box-shadow 0.35s ease, transform 0.35s ease;
+	overflow: hidden;
+
+	.zebra:nth-child(even) {
+		--media-bg: $wild-sand;
+	}
+	.zebra--even & {
+		--media-bg: $wild-sand !important;
+	}
+	.zebra:nth-child(odd) {
+		--media-bg: white;
+	}
+	.zebra--odd & {
+		--media-bg: white !important;
+	}
+
+	&:after {
+		content: "";
+	    border: 4px solid black;
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+	    left: 0;
+	    position: absolute;
+	    display: block;
+	    margin: auto;
+	    opacity:0;
+	    transition:opacity 0.3s ease;
+	}
+	&:hover:after {
+		opacity:1;
+	}
+	&:hover {
+		box-shadow: 10px 10px 10px 0 rgba(black, 0.13);
+		cursor:pointer;
+
+		@media (min-width: $screen-md-min) {
+			//transform: perspective(1000px) scale(1.01);
+		}
+	}
+
+	@media (min-width: $screen-xs-min) {
+		display:flex;
+	}
+}
+
+.media__content {
+	box-sizing:border-box;
+	padding:15px $space*2 30px;
+	border-bottom: 4px solid $boulder;
+
+	@media (min-width: $screen-xs-min) {
+		padding:40px $space*2;
+		width:75%;
+	}
+}
+
+.media__image {
+	@media (max-width: $screen-xs-min) {
+		width:calc(100% - 30px);
+		height:auto;
+		margin:15px;
+	}
+
+	@media (min-width: $screen-xs-min) {
+		float:left;
+		object-fit:cover;
+	}
+
+	height:155px;
+	width:25%;
+	transition:transform 0.35s cubic-bezier(0, 0.81, 0.55, 1.41);
+
+	.media:hover & {
+		transform: scale(1.12);
+	}
+}
+
+.media__title {
+	margin-bottom:$space;
+}
+
+.media__body {
+	@include font-size(14px);
+	font-weight: 300;
+	line-height: em(18, 14);
+}

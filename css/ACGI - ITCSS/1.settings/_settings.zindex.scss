@@ -1,0 +1,47 @@
+$layer-hidden: -1;
+$layer0: 1;
+$layer1: 5;
+$layer2: 10;
+$layer3: 50;
+$layer4: 100;
+$layer5: 200;
+$layer6: 400;
+$layer7: 500;
+$layer8: 1000;
+$layer9: 2000;
+$layer10: 4000;
+$layer11: 5000;
+$layer12:9999;
+
+$info-pane-close-z:$layer11;
+$header-z:$layer10;
+$morph-z:$layer9;
+$info-pane-z:$layer9;
+
+$switcharoo-caption-z:$layer5;
+$footer-z:$layer5;
+$hero-footer-z:$layer5;
+$last-child-content-z:$layer5;
+$flag-z:$layer4;
+$offcanvas-z:$layer4;
+
+
+$nav-menu-z:$layer3;
+$panel-content-z:$layer3;
+$nav-control-z:$layer2;
+$panel-psuedo-z:$layer2;
+
+
+$nav-burger-icon-z:$layer1;
+$footer-social-text-z:$layer1;
+$nav-faux-bg-z:$layer0;
+$nav-sub-menu-fill-z:$layer0;
+
+$switcharoo-mobile-z:$layer0;
+$slanty-parent:$layer1;
+$slanty-child:$layer0;
+$footer-icon-z:$layer0;
+$base-z:$layer0;
+
+$slanty-child--footer:$layer-hidden;
+

@@ -1,0 +1,66 @@
+.o-carousel {
+	padding:20px;
+	left:-90px;
+	width:calc(100% + 160px);
+	margin-bottom:rem(100px);
+
+	@include breakpoint($md) {
+		width:calc(100% + 190px);
+	}
+	
+	@include breakpoint($lg) {
+		padding:20px 90px;
+	}
+}
+
+.o-carousel--hero {
+	padding:0;
+	margin-bottom:0;
+	left:0;
+}
+
+.o-carousel__nav {
+	display: block;
+	width:30px;
+	height:43px;
+	background-repeat:no-repeat;
+	background-size:initial;
+	top:calc(50% - 20px);
+
+	.o-carousel--hero & {
+		position: fixed;
+	}
+}
+
+.o-carousel__nav--next {
+	background-image:url("/img/ic_chevron_right.png");
+
+	@include breakpoint($lg) {
+		right:0px;
+	}	
+
+	.o-carousel--hero & {
+		@include breakpoint($lg) {
+			right:rem(50px);
+		}	
+	}
+}
+
+.o-carousel__nav--prev {
+	background-image:url("/img/ic_chevron_left.png");
+
+	@include breakpoint($lg) {
+		left:0px;
+	}
+
+	.o-carousel--hero & {
+		@include breakpoint($lg) {
+			left:rem(50px);
+		}
+	}
+}
+
+.o-carousel__footer {
+	margin-top: 70px;
+	justify-content:center;
+}

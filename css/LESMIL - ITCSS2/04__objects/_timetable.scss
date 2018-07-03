@@ -1,0 +1,637 @@
+.timetable__row {
+	@include clearfix;
+	position:relative;
+	
+	@media (max-width: $screen-md-min) {
+		padding:0 20px;
+	}
+
+	@media (min-width: $screen-md-min) {
+		background:$pampas;
+		padding-left:5%;
+		background:$alto;
+		border-bottom:$dusty-grey 2px solid;
+	}
+	
+	.timetable--multi & {
+		@media (max-width: $screen-md-min) {
+			padding:0 0 0 0;
+		}
+		@media (min-width: $screen-md-min) and (max-width: $bp-highdef) {
+			padding-right:40px;
+		}
+	}
+
+	@media (min-width: $bp-widescreen) and (max-width: $bp-highdef) {
+    	padding-left:3%;
+    }
+
+	.timetable__head & {
+		border-bottom:none;
+		background:$wild-sand;
+
+		@media (max-width: $screen-md-min) {
+			padding:0;
+		}
+	}
+
+	&:last-child {
+		border-bottom:none;
+	}
+
+	&.timetable__row--schedule {
+		@media (max-width: $screen-md-min) {
+			padding:0;
+		}
+		@media (min-width: $screen-md-min) {
+			display: none;
+		}
+	}
+}
+
+.timetable {
+	@include clearfix;
+
+	@media (max-width: $screen-md-min) {
+		position:relative;
+	}
+}
+
+.timetable__sidebar {
+	z-index:$sidebar-z;
+
+	@media (min-width: $bp-widescreen) {
+		left:0;
+		float:left;
+		position:absolute;
+		height:100%;
+		width:280px;
+		overflow: visible;
+	}
+
+	.timetable--sticky & {
+		@media (max-width: $bp-widescreen) {
+			position:fixed;
+			top:86px;
+			left:0;
+			width:100%;
+		}
+	}
+	.timetable--isolated.timetable--sticky & {
+		@media (max-width: $bp-widescreen) {
+			top:0;
+		}
+	}
+}
+
+.timetable__app {
+	@media (min-width: $bp-widescreen) {
+		min-height:75vh;
+		width:calc(100% - 280px);
+		margin-left:280px;
+		float:left;
+	}
+
+	.sidebar-is-sticky & {
+		@media (max-width: $screen-md-min) {
+			margin-top:40px;
+		}
+	}
+}
+
+.timetable__head {
+	.timetable--sticky & {
+		position:fixed;
+		width:100%;
+		left:0;
+		top:127px;
+		z-index:$timetable-sticky-header-z;
+
+		@media (min-width: $bp-widescreen) {
+			top:86px;
+			left:280px;
+			width:calc(100% - 280px);
+		}
+	}
+	.timetable--isolated.timetable--sticky & {
+		top:41px;
+
+		@media (min-width: $bp-widescreen) {
+			top:0;
+		}
+	}
+
+	@media (max-width: $screen-md-min) {
+		position:relative;
+
+		&:after {
+			content: "";
+			width:calc(100% - 20px);
+			height:1px;
+			display: block;
+			position:absolute;
+			background:$quill-grey;
+			top:50%;
+			margin-top: -7px;
+    		left: 10px;
+		}
+	}
+}
+
+.timetable__body {
+	position:relative;
+
+	.timetable--sticky & {
+		margin-top:100px;
+
+		@media (min-width: $bp-widescreen) {
+			margin-top: 57px;
+		}
+	}
+	.timetable--sticky.timetable--multi & {
+		margin-top: 174px;
+
+		@media (min-width: $bp-widescreen) {
+			margin-top: 112px;
+		}
+	}
+}
+.timetable__section {
+	background:transparent;
+
+	@media (max-width: $screen-md-min) {
+		position:absolute;
+		top:0;
+		z-index:$timetable-section-inactive-z;
+		width:100%;
+		pointer-events:none;
+	}
+
+	&.accordion--locked,
+	&[data-accordion="open"] {
+		position:relative;
+		z-index:$timetable-section-active-z;
+	}
+	.accordion__content {
+		pointer-events:all;
+	}
+}
+.timetable__section-title {
+	@include font-size(14px);
+	letter-spacing: em(1,14);
+	padding:17px 0px 11px;
+	background:$boulder;
+	color:$quill-grey;
+
+	@media (max-width: $screen-md-min) {
+		pointer-events:all;
+	}
+
+	.accordion--locked &,
+	[data-accordion="open"] & {
+		background:black;
+		color:white;
+		
+		@media (max-width: $screen-md-min) {
+			border-right: none;
+
+			&:after {
+				content:"";
+				background:$frolly;
+				height:3px;
+				width:25px;
+				display: block;
+				margin:5px auto 0;
+			}
+		}
+	}
+
+	@media (max-width: $screen-md-min) {
+		display: inline-block;
+		width:25%;
+		text-align:center;
+		border-right: 1px solid $dusty-grey;
+
+		.timetable__section:nth-child(2n) & {
+			margin-left:25%;
+		}
+		.timetable__section:nth-child(3n) & {
+			margin-left:50%;
+		}
+		.timetable__section:nth-child(4n) & {
+			margin-left:75%;
+		}
+		.timetable__section:last-child & {
+			border-right: none;
+		}	
+	}
+
+	@media (min-width: $screen-md-min) {
+		padding-left:60px;
+		padding-right:20px;
+		//background:black;
+		color:white;
+	}
+}
+
+.timetable__scroll-wrapper {
+	overflow:hidden;
+	max-width: 100%;
+	padding:12px 0;
+
+	@media (min-width: $screen-md-min) {
+		padding:0;
+	}
+}
+.timetable__scrollable {
+	@include clearfix;
+	height:auto !important;
+	
+	@media (max-width: $screen-md-min) {
+		display:block;
+	}
+
+	.timetable--multi & {
+		@media (min-width: $screen-md-min) {
+			min-width:2300px;
+		}
+
+		@media (min-width: $bp-widescreen) {
+			min-width:3200px;
+		}
+	}
+}
+
+.timetable__row-anchor {
+	display: block;
+	color:black;
+
+	@media (min-width: $screen-md-min) {
+		white-space: nowrap;
+		transform: rotate(90deg);
+		text-align: center;
+		@include font-size(25px);
+		line-height: 1;
+		padding-top: 6px;
+
+		@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+			/* IE10+ CSS styles go here */
+			padding-top: 25px;
+		}
+	}
+	
+	small {
+		@include font-size(16px);
+		display: inline;
+		
+		@media (min-width: $screen-md-min) {
+			color:$boulder;
+		}
+	}
+
+	.timetable--multi & {
+		@media (max-width: $screen-md-min) {
+			padding-left:20px;
+		}
+	}
+}
+
+.timetable__col {
+	box-sizing:border-box;
+	display: none;
+
+	@media (min-width: $screen-md-min) {
+		background-color: #ECECEC;
+		width:calc(14% - 0px);
+		margin:0 2px;
+		float:left;
+		padding:1px;
+		display: block;
+	}
+
+	@media (min-width: $bp-highdef) {
+		padding:10px;
+	}
+
+	.timetable--multi & {
+		@media (min-width: $screen-md-min) {
+			padding:10px;
+		}
+	}
+
+	&.container-fluid {
+		padding:0;
+		
+		@media (min-width: $bp-highdef) {
+			padding:5px;
+		}
+		.timetable--multi & {
+			padding:5px;
+		}
+	}
+
+	&.swiper-slide {
+		height:auto;	
+	}
+
+	&.timetable__col--current {
+		display: block;
+
+		@media (min-width: $screen-md-min) {
+			background:white;
+		}
+	}
+
+	.timetable__head & {
+		padding:5px 0;
+		background-color: transparent;
+		display: block;
+		
+		@media (max-width: $screen-md-min) {
+			width:calc(14% - 3px);
+			margin:0 2px;
+			float:left;
+			padding:1px;
+		}
+	}
+
+	&:last-child {
+		margin-right:0;
+	}
+
+	.row {
+		margin-left:0px;
+		margin-right:0px;
+
+		@media (min-width: $bp-highdef) {
+			margin-right:-5px;
+			margin-left:-5px;
+		}
+
+		.timetable--multi & {
+			margin-right:-5px;
+			margin-left:-5px;
+		}
+	}
+}
+
+.timetable__track {
+	padding-left:1px;
+	padding-right:1px;
+
+	@media (min-width: $bp-highdef) {
+		padding-left:5px;
+		padding-right:5px;
+	}
+	.timetable__col--current & {
+		//display: block; 
+	}
+	&:not(.col-md-12) {
+		//@media (min-width: $screen-md-min) {
+			display:none;
+		//}
+
+		&:first-child {
+			display: block;
+
+			.timetable:not(.timetable--multi) & {
+				width:100%;
+			}
+		}
+	}
+	.timetable--multi & {
+		display: block;
+		padding-left:5px;
+		padding-right:5px;
+	}
+
+	.timetable__head & {
+		border-right:1px solid $quill-grey;
+		margin-top:5px;
+		display: block;
+		
+		.timetable:not(.timetable--multi) & {
+			display:none !important;
+		}
+
+		&:last-child {
+			border:none;
+		}
+
+		@media (max-width: $screen-md-min) {
+			display:none !important;
+		}
+	}
+	.timetable__row--schedule & {
+		padding-left:0px;
+		padding-right:0px;
+
+		.container-fluid {
+			padding-left: 0px;
+    		padding-right: 0px;
+		}
+	}
+
+	.timetable__col--sticky & {
+		@media (min-width: $screen-md-min) {
+			display: none !important;
+		}
+	}
+}
+.timetable__track-title {
+	@include font-size(18px);
+	padding:20px 0 8px;
+	
+	@media (max-width: $screen-md-min) {
+		display: none;
+	}
+
+	.timetable--multi .timetable__row:first-child & {
+		@media (max-width: $screen-md-min) {
+			display: block;
+		}
+	}
+
+	@media (min-width: $screen-md-min) {
+		text-align: center;
+	}
+}
+
+.timetable__col--sticky {
+	display: block;
+
+	.timetable:not(.timetable--multi) & {
+		@media (max-width: $screen-md-min) {
+			margin-top:20px;
+		}
+	}
+
+	@media (min-width: $screen-md-min) {
+		align-self:center;
+		text-align: center;
+		display: flex;
+    	justify-content: center;
+    	align-items: center;
+		background:$pampas;
+		position:absolute;
+		height:100%;
+		width:5%;
+		left:0;
+		box-shadow: 5px -2px 9px -4px rgba(0, 0, 0, 0.5);
+		z-index:$timetable-sticky-z;
+		border-bottom: 2px solid $dusty-grey;
+		border-top: 2px solid $dusty-grey;
+		margin:0 0 0 0;
+	}
+
+	@media (min-width: $screen-lg-min) {
+		left:5px;
+		margin:0 2px;
+	}
+	@media (min-width: $bp-widescreen) and (max-width: $bp-highdef) {
+    	width:3%;
+    }
+
+	.timetable__row:first-child & {
+		border-top:none;
+	}
+	.timetable__row:last-child & {
+		border-bottom:none;
+	}
+
+    .timetable__row--schedule & {
+		@include font-size(20px);
+		text-align: center;
+
+		@media (max-width: $screen-md-min) {
+			margin:20px 0;
+		}
+    }
+}
+
+.timetable__head-btn {
+	@include heading-style;
+	@include font-size(18px);
+	background:$tundora;
+	width:100%;
+	text-align: center;
+	color:black;
+
+	.timetable__col--weekend & {
+		color: $dusty-grey;
+	}
+
+	@media (max-width: $screen-md-min) {
+		background:transparent;
+		max-width:100%;
+		overflow: hidden;
+		display: block;
+		height:26px;
+	}
+
+	@media (min-width: $screen-md-min) {
+		color:white;
+		border-radius: 4px;
+		display: block;
+		padding:15px 0 10px;
+	}
+
+	.timetable__col--current & {
+		@media (min-width: $screen-md-min) {
+			background:black;
+		}
+	}
+
+	&:hover,&:active,&:focus {
+		outline:none;
+		color:white;
+		text-decoration: none;
+	}
+}
+
+.timetable__nav {
+	position:absolute;
+	box-shadow: -2px 0 2px 0 rgba(0,0,0,0.31);
+	background-color: rgba(#FFFFFF, 0.91);
+	top:0;
+	height:100%;
+	z-index:$sidebar-z;
+	transition:right 0.2s ease;
+	padding-top:107px;
+	display: none;
+	
+	.timetable--multi & {
+		right:0;
+
+		@media (min-width: $screen-md-min) {
+			display: block;
+		}
+
+		@media (min-width: $bp-highdef) {
+			right:-50px;
+		}	
+	}
+
+	a {
+		color:black;
+
+		&:hover {
+			color:black;
+		}
+	}
+}
+.timetable__nav-icon {
+	@include font-size(40px);
+}
+
+.timetable__date {
+	@include heading-style;
+	@include font-size(15px);
+	color: black;
+	border:1px solid $dusty-grey;
+	border-radius:100%;
+	width:30px;
+	height:30px;
+	padding-top: 3px;
+	align-items:center;
+	display: flex;
+	justify-content:center;
+	margin:15px auto 0;
+
+	@media (min-width: $screen-md-min) {
+		display:none;
+	}
+
+	.timetable__col--weekend & {
+		color: $dusty-grey;
+	}
+
+	.timetable__col--current & {
+		background:$monza;
+		width:36px;
+		height:36px;
+		color:white;
+		border:none;
+		margin-top:12px;
+
+		&:after {
+			content:"";
+			position:absolute;
+			display: block;
+			width:100%;
+			height:3px;
+			bottom:-12px;
+			background:$monza;
+			left:0;
+		}
+	}
+}
+
+.timetable__head-abv {
+	display:block;
+	padding:4px 0;
+
+	@media (min-width: $screen-md-min) {
+		display:none;
+	}
+}

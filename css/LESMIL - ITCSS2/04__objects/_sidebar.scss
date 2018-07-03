@@ -1,0 +1,141 @@
+.sidebar {
+	&.timetable__sidebar {
+		background:white;
+
+		@media (min-width: $bp-widescreen) {
+			box-shadow: 2px 3px 3px 0 rgba(black,0.31);
+		}
+	}
+
+	.sidebar-is-sticky & {
+		position:fixed;
+		width:100%;
+		top:70px;
+
+		.timetable--isolated & {
+			top:0px;
+		}
+	}
+}
+
+
+.sidebar__item {
+	position:relative;
+	z-index:$layer0;
+	margin-bottom:$space*2;
+	
+	@media (min-width: $bp-widescreen) {
+		width:100%;
+	}
+
+	&.sidebar__item--front {
+		z-index:$section-front-z;
+	}
+}
+
+.sidebar__inner {
+	position:absolute;
+	background: white;
+	z-index:$sidebar-z;
+	
+	@media (max-width: $screen-md-min) {
+		left:-275px;
+		top:41px;
+		box-shadow: 2px 3px 3px 0 rgba(black,0.31);
+		width:270px;
+		padding:20px;
+		transition:left 0.2s ease;
+	    z-index: $sidebar-z;
+	    overflow: scroll;
+	    padding-bottom: 50px;
+	    height:calc(100vh - 70px);
+	}
+
+	.sidebar-is-sticky & {
+		@media (max-width: $screen-md-min) {
+			height:calc(100vh - 110px);
+		}
+	}
+
+	@media (min-width: $screen-md-min) {
+		top: 42px;
+		width: 100%;
+		border-bottom:3px solid black;
+		padding:40px 5% 0;
+		overflow: hidden;
+	}
+
+	@media (min-width: $screen-md-min) and (max-width:$bp-widescreen) {
+		opacity:0;
+		max-height:0;
+		transition:max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+	}
+
+	@media (min-width: $bp-widescreen) {
+		border-bottom:none;
+		padding:40px 30px;
+		display: block;
+		position:relative;
+		top: 0px;
+		overflow: visible;
+	}
+
+	[data-state="true"] & {
+		left:0;
+
+		@media (min-width: $screen-md-min) {
+			//display: block;
+			padding-bottom:40px;
+			max-height:320px;
+			overflow: visible;
+			opacity:1;
+		}
+	}
+}
+
+.sidebar__header {
+	background:$tuna;
+	color:white;
+	text-align: center;
+	padding:13px 20px 7px;
+
+	@media (min-width: $bp-widescreen) {
+		display: none;
+	}
+}
+
+.sidebar__title {
+	font:$font-headings--lite;
+	letter-spacing: 1px;
+	@include font-size(14px);
+	line-height:1.5;
+
+}
+
+.sidebar__util {
+	@include font-size(24px);
+	float:right;
+	margin-top:-5px;
+	
+	.timetable--multi & {
+		@media (min-width: $screen-md-min) and (max-width: $bp-highdef) {
+			margin-right:40px;	
+		}
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		color:white;
+		text-decoration: none;
+	}
+}
+
+.sidebar__btn {
+	display: block;
+	text-align: center;
+
+	@media (min-width: $screen-md-min) and (max-width: $bp-widescreen){
+		display: inline-block;
+	}
+}

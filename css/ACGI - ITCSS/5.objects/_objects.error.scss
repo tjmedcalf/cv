@@ -1,0 +1,32 @@
+.o-error {
+    padding:100px 0;
+    
+    @include breakpoint($lg) {
+        padding:200px 0;
+    }
+}
+
+.o-error__title {
+    @include f-error-title;
+	color:$error-title-color;
+    margin-bottom:rem(30px);
+	padding-bottom:rem(30px);
+	position:relative;
+    
+    @include breakpoint($lg) {
+        font-size:rem(70px);
+        width:50%;
+        margin-top: 50px;
+    }
+
+	&:before {
+		content:"";
+		position: absolute;
+		left:0;
+		bottom:0px;
+		width:60px;
+		height:5px;
+		background:$error-title-accent-color;
+		transition: width 0.2s ease;
+	}
+}

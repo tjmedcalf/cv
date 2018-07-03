@@ -1,0 +1,25 @@
+<div class="form-nav form-nav--fixed">
+    <div class="g">
+        <div class="gi gi-3">&nbsp;</div>
+        <div class="gi gi-9 form-nav__actions">
+            <p class="form-nav__save"><a href="#">Save and return later</a></p>
+            <a class="c-btn c-btn--pri c-btn--alt form-nav__prev" ng-show="pageIndex > 0" href="{{sections[pageIndex - 1].route}}">
+                Previous - {{sections[pageIndex - 1].name}}
+            </a>
+
+            <a class="c-btn c-btn--pri form-nav__next" ng-if="pageIndex + 1 < sections.length" ng-hide="navOptions.hideNext" ng-click="sections[pageIndex].complete = true" href="{{sections[pageIndex + 1].route}}">
+                Next - {{sections[pageIndex + 1].name}}
+            </a>
+            
+            <div class="vertical-flip form-nav__next" ng-class="{'vertical-flip--flip': loading}">
+                <div class="vertical-flip__flipper">
+                    <button ng-click="formSubmit()" class="vertical-flip__side vertical-flip__side--front c-btn c-btn--pri" ng-class="{'form-nav__next--loading': loading}" ng-show="pageIndex + 1 == sections.length">{{submitBtnText || "Submit"}}</button>    
+                    <button disabled="disabled" class="vertical-flip__side vertical-flip__side--back c-btn c-btn--pri"><img style="width: 75px;display: inline-block;vertical-align: -5px;" src="/img/three-dots.svg" alt=""></button>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+    
+</div>

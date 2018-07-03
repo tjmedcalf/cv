@@ -1,0 +1,9 @@
+.fixedElement {
+	padding-top:100vh !important;
+	position: relative;
+}
+
+.fixedElement__child {
+	position:fixed;
+	top:0;
+}

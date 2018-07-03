@@ -1,0 +1,37 @@
+.o-selectbox {
+	position: relative;
+
+	&:after {
+		@extend .material-icons;
+		content:"arrow_drop_down_circle";
+
+		pointer-events:none;
+	}
+}
+
+.o-selectbox__dropdown {
+	@include f-selectbox;
+
+	html.shit-browser-detected & {
+		font-size: 14px !important;	
+	}
+
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    padding:0.5em;
+
+    background:$selectbox-bg;
+
+    border:none;
+    border-radius: 0px;
+    outline:none;
+    display: block;
+    
+    font-size: 1em;
+
+    &::-ms-expand {
+		display: none;
+	}
+}

@@ -1,0 +1,31 @@
+.big-input {
+	border-bottom: 3px solid $tundora;
+}
+
+.big-input__textfield {
+	@include heading-style;
+	@include font-size(50px);
+	background:none;
+	border:none;
+	color:$boulder;
+	max-width:calc(100% - 50px);
+
+	@media (min-width: $screen-lg-min) {
+		@include font-size(70px);
+		max-width:unset;
+	}
+
+	&:hover, &:focus, &:active {
+		outline:none;
+	}
+}
+
+.big-input__icon {
+	@include font-size(50px);
+	color:$dusty-gray;
+	float:right;
+
+	@media (min-width: $screen-lg-min) {
+		padding:15px 15px 0 0;
+	}
+}

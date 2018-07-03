@@ -1,0 +1,95 @@
+.alert {
+	background:$monza;
+	padding:15px;
+	color:white;
+	position:relative;
+	z-index:$global-alert-z;
+	box-shadow: 0px 2px 10px -2px rgba(black, 0.5);
+	
+	@media (min-width: $screen-md-min) {
+		box-shadow: 0px 2px 10px -3px rgba(0, 0, 0, 0.5) inset;
+		padding:12px 15px;
+	}
+}
+.alert--global {
+	position:fixed;
+	top:70px;
+	width:100%;
+	left:0;
+	opacity:0.9;
+
+	@media (min-width: $screen-md-min) {
+		top:86px;
+		position:absolute;
+	}
+}
+.alert__content {
+	margin-bottom:15px;
+	text-align: center;
+
+	@media (min-width: $screen-md-min) {
+		text-align: left;
+		padding-right:20px;
+		margin-bottom:0px;
+	}
+	@media (min-width: $screen-lg-min) {
+		padding-top:10px;
+	}
+
+	strong {
+		display: inline-block;
+	}
+}
+
+.alert__title {
+	font-weight:bold;
+	
+	@include font-size(24px);
+	margin-bottom:10px;
+
+	@media (min-width: $screen-md-min) {
+		float:left;
+		margin-right:10px;
+		text-transform: none;
+		font:$font-default;
+		font-weight:bold;
+		@include font-size(16px);
+
+		&:after {
+			content:":";
+		}
+	}
+}
+
+.alert__icon {
+	@include font-size(40px);
+	display: block;
+	width:40px;
+	margin:0 auto 15px;
+
+	@media (min-width: $screen-md-min) {
+		margin-bottom:0;
+		width:auto;
+	}
+	
+	&:before {
+		display: block;
+	}
+}
+
+.alert__close {
+	@include font-size(18px);
+	
+	@media (max-width: $screen-md-min) {
+		position:absolute;
+		top: 2px;
+    	right: 1px;
+		z-index:1;
+	}
+
+	@media (min-width: $screen-md-min) {
+		float:right;
+		@include font-size(25px);
+		margin: 7px -15px 0 -20px;
+	}
+}

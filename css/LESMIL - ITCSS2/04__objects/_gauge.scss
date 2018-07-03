@@ -1,0 +1,22 @@
+.gauge {
+	--gauage-on-color:white;
+	--gauage-off-color:black;
+
+	display: inline-block;
+	vertical-align: -3px;
+	margin-left:10px;
+}
+
+.gauge__item {
+	display: inline;
+}
+
+.gauge__indicator {
+	color:var(--gauage-off-color);
+	display: inline-block;
+	width:10px;
+
+	[data-fill="true"] & {
+		color:var(--gauage-on-color);
+	}
+}

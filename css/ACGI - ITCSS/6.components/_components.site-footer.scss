@@ -1,0 +1,224 @@
+.c-site-footer {
+	background-color: $footer-bg;
+	position: relative;
+	z-index: $footer-z;
+	
+	//TODO: need to account for slanty possibly overlapping content directly above it.
+	margin-top:rem(25px);
+
+	@include breakpoint($xl) {
+		margin-top:0;
+	}
+	
+	&:before {
+		@include position(-34px, null, null, 0);
+		position: absolute;
+
+		content:"";
+		background:inherit;
+		transform: skewY(-2deg);
+		width:100%;
+		height: 100%;
+		z-index: $slanty-child--footer;
+
+		@include breakpoint($xxl) {
+			@include position(-60px, null, null, 0);
+		}
+	}
+
+	
+}
+
+.c-site-footer__inner {
+	display: flex;
+	flex-direction:column;
+
+	@include breakpoint($lg) {
+		flex-direction:row;
+		justify-content: space-between;
+		padding:rem(100px) 0 rem(40px);
+		align-items:center;
+		flex-flow:wrap;
+	}
+}
+
+.c-site-footer__section {
+	@include breakpoint(max-width $lg) {
+		text-align: center;
+		width: 100%;
+		margin:20px 0;
+		padding-bottom:40px;
+		border-bottom:1px solid $footer-section-border;
+	}
+	&:first-child {
+		@include breakpoint(max-width $lg) {
+			border-bottom:none;
+			padding-bottom:0px;
+		}
+	}
+	&:last-child {
+		@include breakpoint(max-width $lg) {
+			border-bottom:none;
+		}
+	}
+}
+.c-site-footer__section--menu {
+	@include breakpoint(max-width $lg) {
+		order:2;
+	}
+}
+.c-site-footer__section--emergency {
+	@include breakpoint(max-width $lg) {
+		order:1;
+	}
+}
+.c-site-footer__section--social {
+	@include breakpoint(max-width $lg) {
+		order:3;
+	}
+}
+.c-site-footer__section--wide {
+	@include breakpoint(min-width $lg) {
+		flex-grow:2;
+	}
+}
+
+.c-site-footer__finePrint {
+	@include breakpoint(max-width $lg) {
+		order:4;
+	}
+
+	@include breakpoint(max-width $xl) {
+		width: 100%;
+	}
+	
+	@include breakpoint($lg) {
+		margin-top:rem(150px);
+	}
+
+	@include breakpoint($xl) {
+		display: flex;
+	    flex-direction: row;
+	    justify-content: space-between;
+	    align-items: flex-end;
+	    width: 100%;
+	    
+	}
+}
+
+.c-site-footer__section--alignTop {
+	align-self:flex-start;
+}
+
+.c-site-footer__logo {
+	@include breakpoint(max-width $lg) {
+		display: inline-block;
+	}
+}
+
+.c-site-footer__title {
+	@include f-footer-title;
+
+	text-transform: uppercase;
+	color:$footer-text-color;
+	margin-bottom:rem(45px);
+}
+
+.c-site-footer__list {
+	color:$footer-text-color;
+}
+
+.c-site-footer__listItem {
+	@include f-footer-list;
+	margin-bottom:rem(20px);
+	text-transform: uppercase;
+	color:$footer-text-color;
+
+	strong {
+		color:$footer-text-color--strong;
+		font-weight:600;
+	}
+
+	.c-site-footer__list--emergencyContacts & {
+		@include f-footer-list--emergencyContacts;
+	}
+
+	&:last-child {
+		margin-bottom:0;
+	}
+}
+
+.c-site-footer__listLabel {
+	display: inline-block;
+	min-width:90px;
+}
+
+
+.c-site-footer__link {
+	text-decoration: none;
+
+	.c-site-footer__list--menu & {
+		color:$footer-text-color;
+	}
+
+	&:hover {
+		color:$footer-text-link-hover;
+	}
+}
+
+.c-site-footer__social {
+	@include f-footer-social;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.c-site-footer__socialText {
+	position: relative;
+	transition: all 0.3s ease;
+	color:$footer-text-color;
+	display: inline-block;
+	transform:translateX(0px);
+
+	a:hover & {
+		z-index:$footer-social-text-z;
+		//color:$facebook-blue;
+		transform:translateX(-3px);
+	}
+}
+
+.c-site-footer__socialIcon {
+	position: relative;
+	margin-right:rem(15px);
+	display: inline-block;
+	vertical-align: -2px;
+}
+
+.c-site-footer__copyrightCopy {
+	@include f-footer-copyright;
+	color:$footer-copyright-color;
+
+	a {
+		color:$footer-copyright-link-color;
+	}
+}
+
+.c-site-footer__nvLogo {
+	@include breakpoint(max-width $lg) {
+		display: block;
+		margin-bottom:20px;
+	}
+
+	@include breakpoint($lg) {
+		float:left;
+		padding-right:20px;
+		position: relative;
+    	top: 3px;
+	}
+}
+
+.c-site-footer__copyrightCopy--noLogo {
+	@media all and (min-width: $lg) and (max-width: $xl) {
+		margin-left: 54px;
+    	margin-top: 20px;
+	}
+}

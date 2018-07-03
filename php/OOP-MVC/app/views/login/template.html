@@ -1,0 +1,17 @@
+<h3>Login</h3>
+
+<div>
+    <form action="/" method="post" name="<?php echo $form->name; ?>">
+        <?php foreach($form->fields as $field): ?>
+            <?php if(isset($field->label)) : ?>
+                <label for="<?php echo $field->name; ?>"><?php echo $field->label; ?>: </label>
+            <?php endif; ?>
+        
+            <?php echo $field->input; ?>
+        <?php endforeach; ?>
+        
+        <input type="hidden" value="<?php echo $page->redirect; ?>" name="view" />
+        <input type="hidden" value="<?php echo $form->task; ?>" name="task" />
+        <input type="submit" value="<?php echo $form->submit ?>" name="submit" />
+    </form>
+</div>

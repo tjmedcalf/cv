@@ -1,0 +1,145 @@
+.c-card {
+	@include drop-shadow;
+	position: relative;
+	transition:transform 0.2s ease;
+
+	&:not(.c-card--contact) {
+		&:hover {
+			transform:scale(1.05);
+			box-shadow: 0 12px 12px 0 rgba(black, 0.5);
+		}	
+	}
+}
+
+.c-card--slim {
+	height:auto;
+
+	@include breakpoint($md) {
+		//margin:0 20px;
+	}
+}
+.c-card--gridItem {
+	margin-bottom: rem(60px);
+}
+
+.c-card__image {
+	height:234px;
+	width:100%;
+	object-fit:cover;
+}
+
+.c-card__content {
+	background:$card-content-bg;
+	padding:23px 30px 120px;
+	height:298px;
+
+	.c-card--gridItem & {
+		@include breakpoint("max-width" $md) {
+			padding-bottom: 50px;
+		}
+	}
+}
+
+.c-card__title {
+	@include f-card-title;
+	color:$card-title-color;
+	text-transform: uppercase;
+
+	.c-card--contact & {
+		font-size: rem(24px);
+	}
+
+	a {
+		color:inherit;
+	}
+}
+
+.c-card__titleLink {
+	&:before {
+		content:"";
+		width: 100%;
+		height: 100%;
+		position:absolute;
+		top:0;
+		left:0;
+	}
+	&:hover:before {
+		//background:white;
+	}
+}
+
+.c-card__body {
+	@include f-card-body;
+	margin-top:rem(17px);
+	color:$card-body-color;
+}
+
+.c-card__body--condensed {
+	@include f-card-body--condesned;	
+}
+
+.c-card__text--light {
+	font-weight:300;
+}
+
+.c-card__text {
+	max-height: 116px;
+    overflow: hidden;
+
+	.c-card--gridItem & {
+		@include breakpoint("max-width" $md) {
+			display: none;
+		}
+	}
+}
+
+.c-card__list {
+	font-weight:700;
+	margin-top:25px;
+
+	li {
+		margin-bottom:rem(8px);
+
+		&:last-child {
+			margin-bottom:0;
+		}
+	}
+}
+
+.c-card__cta {
+	position: absolute;
+	bottom:30px;
+	display: inline-block;
+
+	.c-card--contact & {
+		bottom:50px;
+	}
+
+	@include breakpoint(max-width $md) {
+		width:calc(100% - 60px)	
+	}
+}
+
+.c-card__tag {
+	@include f-card-tag;
+	background:$card-tag-bg;
+	text-transform: uppercase;
+	color:$card-tag-color;
+	position:absolute;
+	text-align: center;
+	display: block;
+	width:128px;
+	padding:10px 0px;
+	
+	@include breakpoint($md) {
+		top:-10px;
+		left:-10px;
+	}
+}
+
+.c-card__date {
+	@include f-card-date;
+	color:$card-date-color;
+	text-transform: uppercase;
+}
+

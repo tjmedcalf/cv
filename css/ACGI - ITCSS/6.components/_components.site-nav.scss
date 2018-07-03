@@ -1,0 +1,238 @@
+.c-site-nav {
+	@include position(68px, 0, null, null);
+    
+    @include breakpoint(374px) {
+        @include position($mobile-header-height, 0, null, null);
+    }
+	
+	background: $mobile-background-gradient;
+	position:fixed;
+	width: 100vw;
+	height:100vh;
+	z-index:$nav-menu-z;
+
+	//CSS ONLY BURGER - https://codepen.io/erikterwan/pen/EVzeRP
+	.c-site-header__control:checked ~ & {
+		display: block;
+	}
+	@include breakpoint(max-width $lg) {
+		display: none;
+	}
+
+	@include breakpoint($lg) {
+		position:static;
+		display: flex;
+		justify-content:space-between;
+		background:none;
+
+		//Size in Morph..
+		width:100%;
+		height:auto;
+	}
+
+	@include breakpoint($xl) {
+		//width:($morph-nav-width - $morph-nav-offset);
+	}
+
+	@include breakpoint($xxl) {
+		width:1080px;
+		padding-left:rem(40px);
+
+		.shit-browser-detected & {
+			width:1024px;
+		}
+	}
+}
+
+.c-site-nav__menu {
+	@include breakpoint($lg) {
+		display: flex;
+		flex-direction:rows;
+		align-items:center;
+	}
+}
+
+.c-site-nav__menuItem {
+	text-align: center;
+
+	&:nth-child(n + 5) {
+		display: none; //hide any accidentally not switched off nav items;
+	}
+	&:last-child {
+		@include breakpoint($lg) {
+			margin-right:rem(20px);
+		}
+	}
+
+	@include breakpoint($md) {
+		text-align: left;
+		margin-right:rem(45px);
+		position: relative;
+	}
+	@include breakpoint($xxl) {
+		margin-right:rem(70px);
+	}
+}
+
+.c-site-nav__menuLink {
+	@include f-tiles;
+	font-size: rem(22px);
+	text-transform: uppercase;
+	color: $nav-tile-color;
+	text-decoration: none;
+	
+	@include breakpoint(max-width $lg) {
+		line-height:60px;
+	}
+
+	@include breakpoint($lg) {
+		white-space: nowrap;
+	}
+	
+	//:before
+	@include animated-bottom-border($nav-link-hover);
+	
+	.c-site-nav__menuItem--selected & {
+		&:before {
+			width:100%;
+		}
+	}
+	
+	&:after {
+		.c-site-nav__menuItem--hasChild & {
+			@extend .material-icons;
+			display: none;
+			
+			@include breakpoint($lg) {
+				display: block;
+				content:"call_merge";
+				transform:rotate(180deg);
+				position: absolute;
+				font-size:rem(20px);
+				top: 3px;
+		    	right: -25px;
+		    }
+		}
+		.c-site-nav__subMenu & {
+			display: none;
+		}
+	}
+
+	.c-site-nav__subMenu & {
+		&:before {
+			background:$nav-sub-menu-border-hover;
+			height:1px;
+		}
+
+		@include breakpoint($lg) {
+			color: $nav-sub-menu-color;
+			display: block;
+		}
+	}
+}
+
+.c-site-nav__menuSection {
+	border-bottom:1px solid $mobile-navSection-border;
+	padding: rem(30px);
+	
+	@include breakpoint(max-width $lg) {
+		text-align: center;
+	}
+
+	@include breakpoint($lg) {
+		border-bottom:none;
+		padding: 0;
+		display: flex;
+		align-items:flex-end;
+	}
+}
+.c-site-nav__menuSection--intranet {
+	text-align: center;
+	
+	@include breakpoint($lg) {
+		margin-left:10px;
+	}
+}
+
+.c-site-nav__menuSection--weatherWidget {
+	@include breakpoint($lg) {
+		position: absolute;
+		top:8px;
+		width:calc(100% + 55px);
+		display: block;
+	}
+	@include breakpoint($xxl) {
+		width:calc(100% + 14px);
+	}
+
+	.bodyMod--headerShort & {
+		@include breakpoint($lg) {
+			
+		}
+	}
+
+	@include breakpoint(1799px) {
+		width: 1337px;
+		transition:width 0.2s ease;
+	}
+
+	.bodyMod--headerShort & {
+		@include breakpoint(1799px) {
+			width: 1310px;	
+		}	
+	}
+}
+
+.c-site-nav__orhpanNavItem {
+	@include f-nav;
+	color:white;
+	display: block;
+	text-decoration: none;
+	position: relative;
+	transition: color 0.2s ease;
+
+	@include breakpoint($lg) {
+		white-space: nowrap;
+	}
+
+	//:before
+	@include breakpoint($lg) {
+		@include animated-bottom-border($nav-link-hover);
+	}
+
+	&:hover {
+		color:$nav-link-hover;
+
+		&:before {
+			width:100%;
+		}
+	}
+}
+.c-site-nav__otherLink {
+	@include f-nav-other-link;
+	color:$nav-other-link-color;
+	text-decoration: none;
+	white-space: nowrap;
+
+	i {
+		vertical-align: -4px;
+		margin-left:rem(10px);
+	}
+}
+
+.c-site-nav__socialLink {
+	position: relative;
+	text-decoration: none;
+	margin-right:40px;
+	background:black;
+	max-width:41px;
+	height:auto;
+	
+	@include breakpoint($lg) {
+		top:-2px;
+	}
+}
+
+.c-site-nav__subMenu {
+	display: none;
+}

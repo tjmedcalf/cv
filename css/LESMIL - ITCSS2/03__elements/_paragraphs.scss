@@ -1,0 +1,21 @@
+@mixin reading-style {
+	font-weight: 300;
+	line-height: em(24,18);
+	letter-spacing:1px;
+}
+
+p {
+	article & {
+		@include reading-style;
+		color: #000000;
+		margin-bottom:1em;
+
+		@media (min-width: $screen-md-min) {
+			@include font-size(18px);
+		}
+
+		&:last-child {
+			margin-bottom:0;			
+		}
+	}
+}

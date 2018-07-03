@@ -1,0 +1,78 @@
+.c-site-content {
+	overflow: hidden;
+
+	> *:first-child {
+		@include breakpoint($lg) {
+			padding-top:$desktop-header-height + 50px;
+			margin-top:0 !important;
+		}
+
+		.bodyMod--weatherApp & {
+			padding-top:0;
+		}
+
+		&:before {
+			@include breakpoint($lg) {
+				width:24px;
+				content:"";
+				position: absolute;
+				left:0;
+				height:100%;
+				background: $hero-flag-color;
+				top:0;
+				z-index:$flag-z;
+			}
+		}
+	}
+
+	> *:last-child {
+		z-index:$last-child-content-z;
+	}
+
+	.bodyMod--addGridLines & {
+		&:before {
+			@include breakpoint(max-width 90rem) {
+				background-size: 80%;	
+			}
+
+			content:"";
+			background-image: url("/img/grid-lines.png");
+			background-repeat:repeat-y;
+			background-position:center;
+
+			z-index:40;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			
+			height:100vh;
+			width: 100%;
+			max-width: 90rem;
+			opacity: 0.2;
+		}
+	}
+}
+
+.c-site-content__title {
+	@include f-page-title;
+	color:white;
+	text-align: center;
+	text-transform: uppercase;
+
+	@include breakpoint($lg) {
+		font-size:rem(100px);
+		margin-top:rem(50px);
+	}
+
+	&:after {
+		content:"";
+		margin: 30px auto 0;
+		width:80px;
+		height:5px;
+		background:white;
+		display: block;
+	}
+}

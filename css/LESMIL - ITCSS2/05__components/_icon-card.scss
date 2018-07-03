@@ -1,0 +1,184 @@
+.icon-card {
+	text-align:center;
+	padding-top:40px;
+	
+	@include css-vars((
+		--icon-card-border-color:$boulder,
+		--icon-card-content-color:$dusty-gray,
+		--icon-card-title:$quill-grey,
+		--icon-card-selected:$forest-green,
+	));
+
+	[data-state="selected"] & {
+		padding-top:12px
+	}
+}
+
+.icon-card--inline {
+	@media (min-width: $screen-sm-min) {
+		padding-right:40px;
+	}
+
+	li:last-child & {
+		padding-right:0;
+	}
+}
+
+.icon-card__icon {
+	@include font-size(28px);
+	width:60px;
+	height:60px;
+	background:white;
+	border-radius: 100%;
+	display: flex;
+	align-items:center;
+	justify-content:center;
+	margin:0 auto;
+	border:5px solid transparent;
+
+	[data-state="selected"] & {
+		border-color:$forest-green;
+		@media (min-width: $screen-md-min) {
+			@include font-size(45px);
+			width:145px;
+			height:145px;
+
+		}
+	}
+
+	@media (min-width: $screen-md-min) {
+		width:118px;
+		height:118px;
+		@include font-size(35px);
+	}
+
+	.icon-card--inline & {
+		width:60px;
+		height:60px;
+	}
+	&.icon-card__icon--xray {
+		background:transparent;
+	}
+	.hero__addendum & {
+		color:white;
+	}
+}
+
+.icon-card__title {
+	@include font-size(18px);
+	margin-bottom:30px;
+	color:var(--icon-card-title);
+	
+	[data-state="selected"] & {
+		@include font-size(22px);
+		@include css-vars((
+			--icon-card-title: white,
+		));
+		
+		color:var(--icon-card-title);
+
+		@media (min-width: $screen-md-min) {
+			@include font-size(28px);
+		}
+	}
+
+	@media (min-width: $screen-md-min) {
+		@include font-size(22px);
+	}
+
+	small {
+		text-transform: none;
+		font:$font-default;
+		@include font-size(15px);
+		
+		@media (max-width: $screen-md-min) {
+			display: block;
+		}
+	}
+	.hero__addendum & {
+		color:white;
+	}
+	.icon-card--inline & {
+		margin-bottom:0px;
+
+		@media (min-width: $screen-md-min) {
+			margin-bottom:30px;
+		}
+	}
+}
+
+.icon-card__content {
+	margin-top:20px;
+
+	@media (min-width: $screen-md-min) {
+		border-top: 1px solid var(--icon-card-border-color);
+		border-bottom: 1px solid var(--icon-card-border-color);
+		padding:45px 0;
+		margin-top:50px;
+	}
+
+	[data-state="selected"] & {
+		border-color:$dusty-grey;
+		color:white;
+
+		border-top-width: 5px;
+		border-bottom-width: 5px;
+
+		@media (min-width: $screen-md-min) {
+			padding:38px 0;
+		}
+	}
+
+	.icon-card--inline & {
+		margin-top:0;
+		border-bottom:none;
+		border-top-width: 2px;
+		padding:15px;
+	}
+	.hero__addendum & {
+		border-color:$tundora;
+	}
+}
+
+.icon-card__body {
+	color:var(--icon-card-content-color);
+	@include font-size(15px);
+	line-height: em(18,15);
+	
+	[data-state="selected"] & {
+		color:white;
+	}
+}
+
+.icon-card__footer {
+	margin-top:60px;
+
+	.btn {
+		&:active, 
+		&:focus {
+			color:black;
+		}
+		&:hover {
+			color:white;
+		}
+		[data-state="selected"] & {
+			color:white;
+			
+			&:active, 
+			&:focus {
+				color:white;
+			}
+		}
+
+		&:before,
+		&:after {
+			border-radius:0;
+		}
+		&:before {
+			//background:$forest-green;
+		}
+		&:after {
+			background:$forest-green;
+		}
+	}
+}

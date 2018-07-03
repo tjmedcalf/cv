@@ -1,0 +1,97 @@
+ul {
+	&.list--dashed {
+		@media (min-width: $screen-md-min) {
+			margin-left:60px;
+		}
+	}
+	&.list--caps {
+		margin-top:20px;
+		margin-bottom:20px;
+	}
+}
+
+li {
+	article & {
+		font-weight: 300;
+		line-height: em(28, 18);
+		color: #000000;
+		margin-bottom:12px;
+		padding-left:30px;
+		position:relative;
+	}
+
+	.list--dashed & {
+		position:relative;
+		padding-left:40px;
+
+		@media (min-width: $screen-md-min) {
+			@include font-size(18px);
+			margin-bottom:$space*2;
+		}
+	}
+
+	.list--ticks & {
+		padding-left:40px;
+	}
+
+	.list--caps & {
+		@include heading-style;
+		margin-bottom:27px;
+
+		&:last-child {
+			margin-bottom:0px;
+		}
+	}
+
+	.row.list--ticks > &, 
+	.row.list--caps > & {
+		padding-left:45px;
+	}
+
+	&:before {
+		article & {
+			box-sizing: border-box;
+			display: inline-block;
+			position:absolute;
+			margin-left:-30px;
+			top:0px;
+		}
+
+		.list--caps & {
+			@include font-size(23px);
+			top:-6px;
+		}
+
+		.list--dashed & {
+			height: 4px;
+			width: 24px;
+			background:$monza;
+			content:"";
+			top:12px;
+			display: block;
+		}
+
+		.list--ticks & {
+			@include icon-font;
+			color:$monza;
+			content:"\e017";
+			font-size:1.5em;
+			
+			@media (min-width: $screen-md-min) {
+				margin-left:-40px;
+			}
+		}
+	}
+	&.no-tick {
+		&:before {
+			content:"";
+		}
+	}
+}
+
+.list--icons {
+	i {
+		margin-right:15px;
+		vertical-align: -1px;
+	}
+}

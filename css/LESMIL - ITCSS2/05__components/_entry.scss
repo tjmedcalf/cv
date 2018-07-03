@@ -1,0 +1,157 @@
+.entry {
+	font: $font-headings;
+	color:$dusty-gray;
+	border-top:1px solid $quill-grey;
+	padding: 15px 0 0px;
+	align-items:center;
+	
+	@media (min-width: $screen-sm-min) {
+		display: flex;
+		padding: 15px 0 5px;
+	}
+
+	&:first-child {
+		border:none;
+		padding-top:0;
+	}
+
+	.schedule__row--current & {
+		color:black;
+	}
+
+	[data-label] {
+		@media (max-width: $screen-sm-min) {
+			left:40%;
+			width:60%;
+			position:relative;
+			display: flex;
+			align-items:center;
+			margin-bottom: 5px;
+		}
+
+		&:before {
+			@media (max-width: $screen-sm-min) {
+				content:attr(data-label);
+				position:absolute;
+				left:-50%;
+			}
+		}
+	}
+}
+
+.entry--inline {
+	@include accordion-animation(0.35);
+	display: flex;
+	
+	@media (max-width: $screen-sm-min) {
+		margin-bottom:20px;
+	}
+
+	&:first-child {
+		@media (max-width: $screen-sm-max) {
+			padding-top:20px;
+		}
+	}
+}
+
+.entry__class {
+	border-bottom:3px solid;
+	text-transform: uppercase;
+	position:relative;
+	top:-3px;
+}
+
+.entry__meta {
+	@media (max-width: $screen-sm-max) {
+		margin:0 0 0 0;
+	}
+	@media (min-width: $screen-sm-min) {
+		margin-top:12px;
+	}
+
+	&.entry__meta--small {
+		@include font-size(14px);
+	}
+	&.entry__meta--w-icon {
+		@media (min-width: $screen-md-min) {
+			//top: -7px;
+	    	//position: relative;	
+	    }
+	}
+}
+
+.entry__meta-icon {
+	@include font-size(22px);
+	display: inline-block;
+	position:relative;
+	color:black;
+	top:4px;
+	
+	&:before {
+		display: block;
+	}
+}
+
+.entry__meta-item {
+	margin-bottom:5px;
+
+	@media (max-width: $screen-sm-min) {
+		padding:0 0 0 0px;
+	}
+
+	&:last-child {
+		margin-bottom:0;
+	}
+}
+
+.entry__room {
+	color:$tundora;
+
+	.schedule__row--current & {
+		color:black;
+	}
+}
+
+.entry__location {
+	color: $dusty-gray;
+}
+
+.entry__action {
+	@include font-size(26px);
+	
+	@media (min-width: $screen-md-min) {
+		//margin-top:-4px;
+	}
+
+	.entry--inline & {
+		display: flex;
+		justify-content:center;
+		padding:0 0 0 0;
+
+		@media (min-width: $screen-md-min) {
+			justify-content:flex-end;
+			padding: 0 25px 0 0;
+		}
+	}
+}
+
+.entry__message {
+	position:relative;
+	z-index:$schedule-message-z;
+	@include font-size(20px);
+	color:$tundora;
+	padding: 10px 0;
+	
+	@media (min-width: $screen-sm-min) {
+		padding: 0px;
+	}
+}
+
+.entry__col {
+	&.entry__col--tallest {
+		@media (max-width: $screen-md-min) {
+			border-right:1px solid $quill-grey;
+			border-left:1px solid $quill-grey;	
+		}
+	}
+}

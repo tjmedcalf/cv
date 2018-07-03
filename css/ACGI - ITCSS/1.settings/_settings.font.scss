@@ -1,0 +1,287 @@
+$families: ("acumin-pro", "acumin-pro-condensed", "acumin-pro-extra-condensed");
+
+$copy-font:"acumin-pro";
+$body-font: "acumin-pro-condensed";
+$heading-font: "acumin-pro-extra-condensed";
+
+/* $weights: {
+	light: 300,
+	regular: 400
+	semi-bold: 600
+	bold: 700
+}; */
+
+@mixin fontProps($size, $family, $weight, $style, $line-height: $base-line-height) {
+	font-size:$size;
+	font-family:$family;
+	font-weight:$weight;
+	font-style: $style;
+	line-height: $line-height;
+}
+
+@mixin f-page-title {
+	@include fontProps(70px, $heading-font, 600, normal);
+}
+
+@mixin f-body-copy {
+	@include fontProps(16px, $body-font, 400, normal);
+}
+
+@mixin f-tiles {
+	@include fontProps("", $body-font, 700, normal);
+}
+
+/**
+ * NAV
+ */
+@mixin f-nav {
+	@include fontProps(19px, $body-font, 400, normal);
+}
+
+@mixin f-nav-other-link {
+	@include fontProps(16px, $body-font, 400, normal);
+}
+
+/**
+ * WEATHER WIDGET
+ */
+
+@mixin f-weather-widget {
+	@include fontProps(15px, $copy-font, 400, normal);
+}
+
+
+/**
+ * INFO PANE
+ */
+
+@mixin f-infoPane-title {
+	@include fontProps(16px, $body-font, 700, normal);
+}
+@mixin f-infoPane-sectionTitle {
+	@include fontProps(20px, $body-font, 700, normal);
+}
+@mixin f-infoPane-contentTitle {
+	@include fontProps(15px, $body-font, 700, normal);
+}
+@mixin f-infoPane-body {
+	@include fontProps(15px, $body-font, 400, normal);
+}
+@mixin f-infoPane-disclaimer {
+	@include fontProps(11px, $copy-font, 400, normal);
+}
+@mixin f-infoPane-footer {
+	@include fontProps(14px, $copy-font, 300, normal);
+}
+
+
+/**
+ * HERO
+ */
+@mixin f-hero-title {
+	@include fontProps(50px, $heading-font, 700, normal, 1);
+}
+@mixin f-hero-sub-title {
+	@include fontProps(18px, $body-font, 700, normal);
+}
+@mixin f-hero-pagination {
+	@include fontProps(22px, $body-font, 700, normal);
+}
+
+/**
+ * BANNER
+ */
+
+@mixin f-banner-title {
+	@include fontProps(24px, $body-font, 700, normal);
+}
+@mixin f-banner-contact {
+	@include fontProps(40px, $body-font, 700, normal, 1);
+}
+@mixin f-banner-body {
+	@include fontProps(16px, $copy-font, 400, normal, 1.4);
+}
+
+
+/**
+ * FOOTER
+ */
+@mixin f-footer-title {
+	@include fontProps(30px, $body-font, 700, normal);
+}
+
+@mixin f-footer-list {
+	@include fontProps(24px, $body-font, 400, normal);
+}
+
+@mixin f-footer-list--emergencyContacts {
+	@include fontProps(30px, $body-font, 300, normal);
+}
+
+@mixin f-footer-social {
+	@include fontProps(16px, $body-font, 700, normal);
+}
+
+@mixin f-footer-copyright {
+	@include fontProps(14px, $copy-font, 100, normal, 1.5);
+}
+
+/**
+ * ACCORDION
+ */
+
+@mixin f-accordion-headerTitle {
+	@include fontProps(20px, $copy-font, 500, normal, 24px);
+}
+@mixin f-accordion-copy {
+	@include fontProps(16px, $copy-font, 400, normal, 24px);
+}
+
+
+/**
+ * PANEL
+ */
+@mixin f-panel-title {
+	@include fontProps(45px, $heading-font, 700, normal, 1);
+}
+
+
+/**
+ * TEXT-BLOCK
+ */
+@mixin f-text-block-title {
+	@include fontProps(45px, $body-font, 700, normal, 1);
+}
+@mixin f-text-block-body--bold {
+	@include fontProps(16px, $body-font, 700, normal, 24px);
+}
+@mixin f-text-block-body {
+	@include fontProps(16px, $copy-font, 400, normal, 1.75);
+}
+@mixin f-text-block-suppTitle {
+	@include fontProps(18px, $body-font, 400, normal);
+}
+
+/**
+ * ARTICLE
+ */
+@mixin f-article-title {
+	@include fontProps(45px, $body-font, 700, normal, 1);
+}
+@mixin f-article-body {
+	@include fontProps(16px, $copy-font, 400, normal, 1.75);
+}
+@mixin f-blockquote {
+	@include fontProps(24px, $copy-font, 600, normal, 1.9);
+}
+
+/**
+ * ERROR
+ */
+@mixin f-error-title {
+	@include fontProps(45px, $body-font, 700, normal, 1);
+}
+@mixin f-error-sub-title {
+	@include fontProps(24px, $copy-font, 700, normal, 1.9);
+}
+@mixin f-error-body {
+	@include fontProps(18px, $copy-font, 400, normal, 1.75);
+}
+
+/**
+ * O-FIGURE
+ */
+@mixin f-figure-caption {
+	@include fontProps(14px, $copy-font, 700, normal, 1.2);
+}
+
+/**
+ * BTNS
+ */
+
+@mixin f-btn {
+	@include fontProps(16px, $body-font, 700, normal);
+}
+
+/**
+ * POPUP FORM
+ */
+ 
+ @mixin f-popup-form-title {
+	 @include fontProps(50px, $heading-font, 600, normal);
+}
+ @mixin f-popup-form-description {
+	 @include fontProps(24px, $body-font, 600, normal);
+}
+
+/**
+* OPTION CARD
+*/
+@mixin f-option-card-title {
+	@include fontProps(45px, $heading-font, 600, normal);
+}
+@mixin f-option-card-description {
+	@include fontProps(10.8px, $copy-font, 600, normal, 13px);
+}
+
+/**
+* FIELD
+*/
+@mixin f-field-text {
+	@include fontProps(15px, $copy-font, 600, normal);
+}
+@mixin f-submit-text {
+	@include fontProps(16px, $copy-font, 600, normal);
+}
+
+/**
+* FIELD
+*/
+@mixin f-checkbox-text {
+	@include fontProps(14px, $copy-font, 600, normal, 18px);
+}
+@mixin f-checkbox-alt-text {
+	@include fontProps(14px, $copy-font, 500, normal, 18px);
+}
+
+/**
+ * CARD
+ */
+@mixin f-card-title {
+	@include fontProps(26px, $heading-font, 700, normal, 1.1);
+}
+@mixin f-card-body {
+	@include fontProps(14px, $copy-font, 400, normal);
+}
+@mixin f-card-body--condesned {
+	@include fontProps(15px, $body-font, 600, normal);
+}
+@mixin f-card-tag {
+	@include fontProps(14px, $body-font, 400, normal, 25px);
+}
+@mixin f-card-date {
+	@include fontProps(14px, $body-font, 400, normal);
+}
+
+/**
+ * SELECTBOX
+ */
+
+@mixin f-selectbox {
+	@include fontProps(14px, $copy-font, 400, normal);
+}
+@mixin f-filterboxLabel {
+	@include fontProps(15px, $copy-font, 600, normal);
+}
+@mixin f-filterboxResults {
+	@include fontProps(20px, $body-font, 600, normal);
+}
+
+
+/**
+ * SWITCHAROO
+ */
+
+@mixin f-switcharoo-mediaCaption {
+	@include fontProps(34px, $body-font, 600, normal);
+}

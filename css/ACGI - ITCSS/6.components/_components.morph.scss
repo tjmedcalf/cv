@@ -1,0 +1,46 @@
+.c-moprh {
+	@include breakpoint(max-width $lg) {
+		display: none;
+	}
+
+	@include position(0, null, null, 0);
+	position: fixed;
+	height:153px;
+	width:100%;
+	pointer-events:none;
+	z-index:$morph-z;
+}
+
+.c-moprh__shape {
+	@extend .clearfix;
+	position: absolute;
+	top:-1px;
+}
+.c-moprh__shape--logoSide {
+	width:$morph-logo-width;
+	left:0;
+	transition:left 0.1s ease;
+	transition-delay:0.2s;
+
+	.bodyMod--headerShort & {
+		left:-2px;
+	}
+
+	svg {
+		.shit-browser-detected & {
+			position:relative;
+			left:-15px;
+		}
+	}
+}
+.c-moprh__shape--navSide {
+	width:$morph-nav-width;
+	left:$morph-nav-offset;
+
+	svg {
+		.shit-browser-detected & {
+			position:relative;
+			left:-160px;		
+		}
+	}
+}

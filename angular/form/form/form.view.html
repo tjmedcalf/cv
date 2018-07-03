@@ -1,0 +1,27 @@
+<div class="eyebrows"  ng-class="{ 'eyebrows--open' : eyebrowsMessage }"><p class="eyebrows__copy" ng-bind="eyebrowsMessage"></p></div>
+<div class="g form-wrapper">
+    <div class="gi gi-3 form-sidebar">
+        <h2 class="form-sidebar__title" ng-bind="formName">Form</h2>
+        <div class="user-meta">
+            <h4 class="user-meta__label">User:</h4>
+            <h3 class="user-meta__name" ng-bind="username"></h3>
+            <p class="user-meta__location" ng-bind="email"></p>
+        </div>
+
+        <div class="section-nav">
+            <h3 class="section-nav__title">Sections</h3>
+            <ul class="section-nav__list">
+                <li class="section-nav__item" ng-repeat="routeParams in sections" ng-class="{'section-nav__item--selected': $index == pageIndex, 'section-nav__item--completed': routeParams.complete}">
+                    <a class="section-nav__link" href="{{routeParams.route}}">{{routeParams.name}}</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="gi gi-9 form-content">
+        <div ui-view></div>
+
+		<div ng-include="'/js/widgets/components/form/partials/pageNav.partial.html'"></div>
+    </div>
+</div>

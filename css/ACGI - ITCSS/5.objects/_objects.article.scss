@@ -1,0 +1,128 @@
+.o-article {
+	padding:rem(96px) 0 rem(90px);
+	position: relative;
+	z-index:$base-z;
+	background:$article-bg;
+
+	@include breakpoint(max-width $md) {
+		padding-bottom:rem(150px);
+	}
+
+	&:last-child {
+		padding-bottom:rem(175px);
+	}
+
+	& + .o-article {
+		padding-top:rem(0px);
+	}
+}
+.o-article--imageCover {
+	position: relative;
+	padding-bottom:rem(175px);
+}
+
+.o-article__frame {
+	@include breakpoint($lg) {
+		padding:rem(100px) 0;
+	}
+
+	.o-article + .o-article & {
+		@include breakpoint($lg) {
+			padding:0;
+		}
+	}
+
+	.o-article--imageCover & {
+		@include breakpoint($lg) {
+			position:initial;
+		}
+	}
+}
+
+.o-article__primary {
+	border-bottom:5px solid $article-border-color;
+	padding:0 0 rem(40px) 0;
+
+	@include breakpoint($md) {
+		padding:0 rem(30px) rem(40px) 0;
+	}
+	@include breakpoint(max-width $md) {
+		order:2;
+	}
+
+	.o-article--align-right & {
+		@include breakpoint($md) {
+			order:2;
+			padding:0 0 rem(40px) rem(30px);	
+		}
+	}
+}
+
+.o-article__supplementary {
+	@include breakpoint(max-width $md) {
+		order:1;
+		margin-bottom:rem(40px);
+	}
+
+	.o-article--align-right & {
+		@include breakpoint($md) {
+			order:1;
+		}
+	}
+	.o-article--imageCover & {
+		@include breakpoint($lg) {
+			position:absolute;
+			top:0px;
+			left:0px;
+			height:calc(100% - 175px - 96px);
+		}
+	}
+}
+
+.o-article__body {
+	@include f-article-body;
+	color: $article-body;
+}
+
+.o-article__body--twocol {
+	@include breakpoint($md) {
+		column-count: 2;
+		column-width: 45%;	
+	}
+}
+
+.o-article__cta {
+	margin-top:45px;
+}
+
+.o-article__title {
+	@include f-article-title;
+	color:$article-title;
+	text-transform: uppercase;
+	
+	@include breakpoint($lg) {
+		font-size:rem(70px);
+		width:50%;
+	}
+}
+.o-article__title--wAccent {
+	margin-bottom:rem(30px);
+	padding-bottom:rem(30px);
+	position:relative;
+
+	&:before {
+		content:"";
+		position: absolute;
+		left:0;
+		bottom:0px;
+		width:60px;
+		height:5px;
+		background:$article-title-accent-color;
+
+		transition: width 0.2s ease;
+
+		.c-text-block--light & {
+			background:white;
+		}
+	}
+}

@@ -1,0 +1,58 @@
+.zebra {
+	@include css-vars((
+		--section-bg: white,
+		--card-bg:$wild-sand
+	));
+
+	background:var(--section-bg);
+
+	.card,
+	.card__content {
+		background:var(--card-bg);
+	}
+}
+
+.zebra:nth-child(odd) {
+	@include css-vars((
+		--section-bg: $wild-sand,
+		--card-bg:white,
+	))
+
+	background:var(--section-bg);
+
+	.card,
+	.card__content {
+		background:var(--card-bg);
+	}
+}
+
+//OVERRIDES
+.section.zebra--odd {
+	@include css-vars((
+		--section-bg: $wild-sand,
+		--card-bg:white,
+	));
+
+	background:var(--section-bg) !important;
+
+	.card,
+	.card__content {
+		background:var(--card-bg);
+	}
+}
+.section.zebra--even {
+	@include css-vars((
+		--section-bg: white,
+		--card-bg:$wild-sand,
+	));
+
+	background:var(--section-bg) !important;
+
+	.card,
+	.card__content {
+		background:var(--card-bg);
+	}
+}
+.zebra--lite {
+	background:$alabaster !important;
+}

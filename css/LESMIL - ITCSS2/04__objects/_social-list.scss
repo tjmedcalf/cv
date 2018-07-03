@@ -1,0 +1,133 @@
+.social-list {
+	font:$font-headings;
+}
+
+.social-list--footer {
+	font:$font-menus;
+	margin-top:0px;
+
+	@media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
+		margin-bottom:10px;
+	}
+
+	@media (max-width: $screen-md-min) {
+		position:absolute;
+		top: 50px;
+	    width: 50%;
+	    left: 50%;
+	    text-align: right;
+	    padding-right:30px;
+	}
+}
+
+.social-list--nav {
+	float:right;
+	margin-top:-5px;
+}
+.social-list--article {
+	margin-top:40px;
+}
+
+.social-list__item {
+	display: inline-block;
+	margin-right:35px;
+
+	.social-list--article & {
+		@media (max-width: $screen-xs-min) {
+			display: block;
+			margin-bottom:20px;
+		}
+	}
+	
+	.social-list--footer &,
+	.social-list--nav & {
+		margin-right: 8px;
+	}
+
+	&:last-child {
+		margin-right: 0px !important;
+	}
+}
+
+.social-list__title {
+	text-transform: uppercase;
+
+	.social-list--footer & {
+		@include font-size(10px);
+		vertical-align: 9px;
+		color: $tundora;
+
+		@media (max-width: $screen-md-min) {
+			display: none;
+		}
+	}
+	.social-list--article & {
+		@include font-size(24px);
+		letter-spacing: em(1, 24);
+		margin-right:30px;
+		vertical-align: -10px;
+
+		@media (min-width: $screen-md-min) {
+			line-height: em(50,24);
+		}
+	}
+	.social-list--nav & {
+		display: none;
+	}
+}
+
+.social-list__link {
+	color:black;
+	display: block;
+
+	.social-list--footer & {
+		color:$mine-shaft;
+	}
+
+	.social-list--nav & {
+		color:$boulder;
+	}
+
+	&.social-list__link--google {
+		color:#DD4B39;
+	}
+	&.social-list__link--fb {
+		color:#3B5998;
+	}
+
+	.social-list--article & {
+		@include heading-style();
+		@include font-size(18px);
+		letter-spacing: em(1,18);
+		padding-top:0;
+		position: relative;
+    	top: 6px;
+	}
+
+	i {
+		// https://www.iconfinder.com/iconsets/black-white-social-media
+		.social-list--footer &,
+		.social-list--nav & {
+			@include font-size(24px);
+			display: block;
+			position: relative;
+			top:-1px;
+		}
+
+		&:before {
+			.social-list--footer & {
+				display: block;
+			}
+		}
+	}
+
+	&:hover {
+		text-decoration: none;
+
+		.social-list--footer &,
+		.social-list--nav & {
+			color:black;
+		}
+	}
+}
+

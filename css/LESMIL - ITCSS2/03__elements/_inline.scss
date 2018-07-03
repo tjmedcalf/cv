@@ -1,0 +1,39 @@
+u {
+	text-decoration: underline;
+}
+small {
+	font: $font-alt;
+	@include font-size(10px);
+}
+
+a {
+	article & {
+		color:black;
+		text-decoration: underline;	
+		font-weight:400;
+	}
+
+	&:hover {
+		article & {
+			color:$monza;
+		}
+	}
+}
+
+strong {
+	font-weight:600;
+}
+
+b {
+	font-weight:400;
+}
+
+sup {
+	vertical-align: super;
+    font-size: smaller;
+}
+
+.bright-link {
+	color:$monza;
+	text-decoration: underline;
+}

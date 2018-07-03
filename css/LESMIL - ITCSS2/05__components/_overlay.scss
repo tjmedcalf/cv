@@ -1,0 +1,100 @@
+.overlay {
+	//display: none;
+	position:fixed;
+	height:100%;
+	z-index:$layer-hidden;
+	width:100%;
+	top:0;
+	left:0;
+	pointer-events:none;
+
+	.overlay-open & {
+		z-index:$zindex-modal-background;
+		pointer-events:unset;
+	}
+
+	&:after {
+		content:"";
+		height:50%;
+		background:black;
+		display: block;
+		width:100%;
+		position:absolute;
+		top:50%;
+		transform: translate3d(0,100%,0);
+
+		transition:transform 0.6s cubic-bezier(0.2,1,0.3,1);
+	}
+	&.overlay.in:after {
+		transform: translate3d(0,0,0);
+	}
+}
+#content {
+	//transform: scale(1);
+	opacity: 1;
+	transition-property:transform, opacity;
+	transition-timing-function:cubic-bezier(0.2,1,0.3,1);
+	transition-duration:0.6s;
+
+	.overlay-open & {
+		transform:scale3d(0.8,0.8,1);
+		opacity:0;
+	}
+	.overlay-out & {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.overlay__controls {
+	position: relative;
+	z-index:$zindex-modal;
+	transform: translate3d(0,0,0);
+	transition:transform 0.6s cubic-bezier(0.2,1,0.3,1);
+
+	.overlay.out & {
+		transform: translate3d(0,-100px,0);
+	}
+}
+.overlay__close {
+	@include font-size(30px);
+	color:white;
+	display: inline-block;
+	float:right;
+
+	@media (max-width: $screen-sm-min) {
+		text-align: center;
+	}
+	@media (min-width: $screen-sm-min) {
+		float: right;
+		text-align: unset;
+		width:auto;
+		position: relative;
+    	top: 30px;
+    	right: -13px;
+	}
+}
+
+.overlay__container {
+	position: absolute;
+	height:50%;
+	width: 100%;
+	display: flex;
+	top:0;
+	align-items:flex-end;
+	padding-bottom:100px;
+	transform: translate3d(0,-100%,0);
+	background:$shark;
+	box-sizing:border-box;
+	transition:transform 0.6s cubic-bezier(0.2,1,0.3,1);
+
+	.overlay.in & {
+		transform: translate3d(0,0,0);
+	}
+
+	> .container {
+		@media (max-width: $screen-sm-min) {
+			max-width: 100%;
+		}
+	}
+}

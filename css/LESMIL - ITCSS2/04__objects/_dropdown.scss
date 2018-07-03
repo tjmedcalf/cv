@@ -1,0 +1,31 @@
+.dropdown {
+	position:relative;
+}
+
+.dropdown__content {
+	position:absolute;
+	display: none;
+	background:white;
+	padding:30px;
+	z-index:$dropdown-content-z;
+	top:47px;
+	border:3px solid black;
+
+	min-width:100%;
+
+	[aria-expanded="true"] & {
+		display: block;
+	}
+}
+.dropdown__content--wide {
+	@media (min-width: $screen-sm-min) {
+		min-width:480px;
+	}
+}
+.dropdown__toggle--icon {
+	@include font-size(30px);
+
+	.button-cluster--stacked & {
+		margin-top:10px;
+	}
+}

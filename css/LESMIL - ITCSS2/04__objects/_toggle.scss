@@ -1,0 +1,56 @@
+.toggle {
+	margin:0 30px;
+}
+
+.toggle__input {
+	visibility: hidden;
+}
+
+.toggle__slider {
+	background:$gallery;
+	display: block;
+	width: 63px;
+    height: 40px;
+	position:relative;
+	margin: 0 auto;
+	border-radius: 20px;
+	padding:2px;
+
+	@media (min-width: $screen-md-min) {
+		width:40px;
+		border-radius:13px;
+		height:26px;
+	}
+
+	.toggle__input:checked + & {
+		background:$shamrock;
+	}
+}
+
+.toggle__slider:before {
+	background:white;
+	width: 48%;
+	height: calc(100% - 10px);
+	display: block;
+	position: absolute;
+	top: 5px;
+	border-radius:100%;
+	transition:left 0.1s ease;
+	left: 4px;
+	content:"";
+
+	@media (min-width: $screen-md-min) {
+		left:2px;
+		width:50%;
+		height:calc(100% - 4px);
+		top:2px;
+	}
+
+	.toggle__input:checked + & {
+		left:calc(50% - 5px);
+
+		@media (min-width: $screen-md-min) {
+			left:calc(50% - 2px);
+		}
+	}
+}

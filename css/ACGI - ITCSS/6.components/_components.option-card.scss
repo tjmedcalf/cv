@@ -1,0 +1,176 @@
+.c-option-cards {
+    max-width:1334px;
+    margin:50px auto 0 auto;
+    color:$option-card-elements;
+    display: flex;
+    flex-flow:row wrap;
+}
+
+.c-option-card {
+    background-color: $option-card-bg;
+    margin:0 5px 10px 5px;
+    flex-grow: 0;
+    max-width: 255px;
+    text-align: center;
+    padding:10px 10px 60px 10px;
+    position: relative;
+    box-shadow: 0px 31px 62px -16px rgba(0,0,0,0.92);
+    width:calc(100% * (1/2) - 10px);
+    
+    @media all and (min-width:$sm) {
+        padding:30px 25px 120px 25px;
+        flex-grow: 1;
+        width:auto;
+        margin:0 5px 10px 5px;
+        &:after {
+            display: block;
+        }
+    }
+
+    &:after {
+        @extend .material-icons;
+        content:"add_circle_outline";
+        display: none;
+        font-size:rem(25px);
+        margin: 0 auto;
+        position: absolute;
+        left:0;
+        right:0;
+        bottom: 45px;
+        pointer-events: none;
+
+        @media all and (min-width:$sm) {
+            display: block;
+        }
+    }
+}
+
+.c-option-card--number {
+    padding:10px 10px 80px 10px;
+    
+    @media all and (min-width:$sm) {
+        padding:10px 10px 60px 10px;
+        min-height:370px;
+    }
+    
+    &:after {
+        color:$option-card-bg;
+    }
+    
+    &.c-option-card--checked {
+        padding:7.5px 7.5px 75px 7.5px;
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.c-option-card__inputNumber {
+    position: absolute;
+    @include f-field-text;
+    width:auto;
+    padding:15px;
+    border:none;
+    background-color: $option-card-elements;
+    margin:0 auto;
+    left:0;
+    right:0;
+    width:calc(100% - 20px);
+    bottom: 10px;
+    border: 1px solid $option-card-border-color;
+    box-shadow: 0px 6px 45px -1px rgba(0,0,0,0.1);
+    color:$option-card-number-color;
+    
+    @media all and (min-width:$sm) {
+        padding:20px;
+        bottom: 30px;
+        width:calc(100% - 60px);
+    }
+    
+    .c-option-card--checked & {
+        bottom: 5px;
+        width:calc(100% - 15px);
+        
+        @media all and (min-width:$sm) {
+            bottom: 25px;
+            width:calc(100% - 50px);
+        }
+    }
+}
+
+.c-option-card--checked {
+    border: 2.5px solid $option-card-checked;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding:7.5px 7.5px 55px 7.5px;
+    
+    @media all and (min-width:$sm) {
+        padding:25px 20px 115px 20px;
+        border: 5px solid $option-card-checked;
+    }
+    
+    &:after {
+        content:"done";
+        color:$option-card-checked;
+        margin: 0 auto;
+        position: absolute;
+        left:0;
+        right:0;
+        bottom: 15px;
+        display: block;
+        pointer-events: none;
+        font-size:rem(31px);
+        
+        @media all and (min-width:$sm) {
+            bottom: 45px;
+        }
+    }
+}
+
+.c-option-card__clickable {
+    left:0px;
+    right:0px;
+    top:0px;
+    bottom: 0px;
+    position: absolute;
+
+    &:hover {
+        border: 5px solid $option-card-checked;
+        opacity: 0.9;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        cursor: pointer;
+
+        .c-option-card--checked & {
+            border: none;
+        }
+    }
+}
+
+.c-option-card__label {
+    @include f-option-card-title;
+
+    @media all and (min-width:$sm) {
+        font-size: 70px;
+    }
+}
+
+.c-option-card__input {
+    position:fixed;
+    opacity:0;
+}
+
+.c-option-card__description {
+    padding-top:15px;
+    position: relative;
+    @include f-option-card-description;
+    
+    @media all and (min-width:$sm) {
+        padding-top:30px;
+        font-size: 15px;
+        line-height: 25px;
+    }
+}

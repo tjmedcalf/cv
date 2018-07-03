@@ -1,0 +1,31 @@
+.tooltip {
+    background-color:$scorpion;
+    position: absolute;
+    z-index: $tooltip-z;
+    color:white;
+    border-radius:5px;
+    width: 166px;
+    padding:7px;
+    bottom: calc(100% + 15px);
+    right:-70px;
+    line-height: 11px;
+    @include font-size(10px);
+
+    &:after {
+        background-color:$scorpion;
+        content:'';
+        width:15px;
+        height:15px;
+        display:block;
+        position: absolute;
+        margin-left:calc(50% - 14px);
+        transform: rotate(45deg);
+    }
+}
+
+.tooltip__icon {
+    @include font-size(24px);
+    color:$scorpion;
+    margin-left:4px;
+    position: relative;
+}

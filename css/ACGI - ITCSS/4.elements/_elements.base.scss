@@ -1,0 +1,34 @@
+/**
+ * ELEMENTS.BASE
+ *
+ * @description : Base element styles
+ *
+ */
+
+html,
+body {
+	background: #FFFFFF;
+    min-height: 100%;
+    
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    
+    // displays a baseline grid as a background for setting vertical rhythm
+    &.dev_type {
+        @include baseline_grid();
+    }
+}
+
+body {
+    padding-top:68px;
+    
+    @include breakpoint(374px) {
+        padding-top:$mobile-header-height;
+    }
+
+
+    @include breakpoint($lg) {
+        //padding-top:$desktop-header-height;
+        padding-top:0;
+    }
+}

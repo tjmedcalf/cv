@@ -1,0 +1,57 @@
+.o-offcanvas {
+	background:white;
+	padding-left: 25px;
+
+	width:100%;
+	height:100vh;
+	position:fixed;
+	top:0;
+	right:0;
+	transform:translate3D(100vw, 0vh, 0);
+	
+	opacity: 0;
+	pointer-events:none;
+
+	transition-property: opacity, transform;
+	transition-duration:0.4s;
+	transition-timing-function: ease;
+
+	&:after {
+		//content:"";
+	}
+
+	&.o-offcanvas--is-oncanvas {
+		transform:translate3D(0, 0, 0);
+		pointer-events:all;
+		opacity: 1;
+		z-index:$offcanvas-z;
+	}
+}
+
+.o-offcanvas__header {
+	position:fixed;
+	transform:translate3D(-100vw, 0vh, 0);
+	left:0px;
+	z-index:999;
+	width:407px;
+	top:0px;
+
+	transition-property: transform;
+	transition-duration:0.4s;
+	transition-timing-function: ease;
+
+	.o-offcanvas--is-oncanvas & {
+		transform:translate3D(0, 0, 0);
+	}
+
+	img {
+		position: absolute;
+		//width: 216px;
+		top: 35px;
+	    left: 70px;
+	}
+}
+
+.offcanvas__content {
+	width:100%;
+}

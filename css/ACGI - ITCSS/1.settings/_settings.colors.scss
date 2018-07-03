@@ -1,0 +1,248 @@
+/**
+ * SETTINGS.COLORS
+ *
+ * @description : Color variable definitions
+ *
+ */
+
+/**
+ * Main Colours
+ */
+$site-blue:#0000fe;
+$site-blue--dark:#0b0bb4;
+$site-blue--faded: #004990;
+$site-blue--light:#4A90E2;
+$site-blue--baby:#36BDEC;
+$site-blue--mid:#2146A2;
+$site-blue--opacity:#CBEDF6;
+
+$facebook-blue:#1F46A4;
+$error-red:#D73A30;
+$site-red: #f04b3f;
+$site-red-85-opacity:rgba(239,64,53,.85);
+$site-red--dark:#bb0f1d;
+$site-yellow:#fefe05;
+$turquoise: #50E3C2;
+
+/**
+ * Shades of Grey
+ */
+
+$dark-grey:#2A2929;
+$mid-grey:#4A4A4A;
+$pothole-grey: #5D5F62;
+$slow-silver: #A1a2a5;
+$light-grey:#F4F4F4;
+
+/**
+ * NAV
+ */
+
+$mobile-background-gradient: linear-gradient(0deg, $site-blue--dark 0%, $site-blue 100%);
+$mobile-navSection-border: $site-blue--faded;
+$nav-tile-color: $site-yellow;
+$nav-tile-border: $site-blue--light;
+$nav-other-link-color:$site-yellow;
+$nav-link-hover: $site-yellow;
+$nav-sub-menu-bg: white;
+$nav-sub-menu-color:$site-red;
+$nav-sub-menu-color-hover:$site-red--dark;
+$nav-sub-menu-border-hover:$site-blue--baby;
+
+
+/**
+ * FOOTER
+ */
+$footer-bg: $dark-grey;
+$footer-section-border:lighten($dark-grey, 10%);
+$footer-text-color:white;
+$footer-text-link-hover:$site-yellow;
+$footer-text-color--strong:$site-yellow;
+$footer-social-icon-bg:$site-yellow;
+$footer-copyright-color:white;
+$footer-copyright-link-color:$site-yellow;
+
+
+/**
+ * BTNS
+ */
+
+$blue-btn-bg:$site-blue;
+$blue-btn-color:$site-yellow;
+
+$white-btn-bg:white;
+$white-btn-bg-hover:$site-yellow;
+$white-btn-color:$site-blue;
+
+$hollow-btn-color:white;
+$hollow-btn-hover:$site-yellow;
+
+$link-btn-hover-color: $site-red;
+
+/**
+ * TEXT-BLOCK
+ */
+
+ $text-block-title:$facebook-blue;
+ $text-block-body:$mid-grey;
+ $text-block-title-accent-color:$site-red;
+ $text-block-supp-title-color: white;
+
+ /**
+ * HERO
+ */
+
+$hero-title-color:white;
+$hero-subtitle-color:white;
+$hero-nav-button-color:white;
+$hero-pagination-color:white;
+$hero-footer-bg: $site-red;
+$hero-footer-color:white;
+$hero-flag-color:white;
+
+/**
+* BANNER
+*/
+
+$banner-red-bg: $site-red;
+$banner-blue-bg: $facebook-blue;
+$banner-white-bg:white;
+$banner-body-color:white;
+$banner-link-hover:$turquoise;
+
+
+/**
+ * O-FIGURE
+ */
+
+$figure-caption-color: $facebook-blue;
+
+
+/**
+ * ARTICLE
+ */
+
+$article-bg:white;
+$article-border-color:$site-red;
+$article-title:$facebook-blue;
+$article-body:$mid-grey;
+$article-title-accent-color:$site-red;
+$article-blockquote-color:$site-blue--mid;
+
+
+/**
+* ERROR
+*/
+$error-title-color:$facebook-blue;
+$error-title-accent-color:$site-red;
+$error-body-color:$mid-grey;
+
+
+/**
+* CARDS
+*/
+
+$card-content-bg:white;
+$card-title-color:$facebook-blue;
+$card-tag-bg:$site-blue--faded;
+$card-tag-color:white;
+$card-date-color:$site-blue--light;
+$card-body-color:$mid-grey;
+
+
+/**
+ * PANEL
+ */
+$panel-title-color:white;
+$panel-title-accent:$site-red;
+$panel-title-color--dark:$facebook-blue;
+
+
+/**
+* CAROUSEL
+*/
+$carousel-nav-color:white;
+
+/**
+* SELECTBOX / FILTERBOX
+*/
+
+$selectbox-bg:white;
+$filterbox-border: $site-blue;
+$filterbox-caret-color: $site-blue;
+$filterbox-label-color:white;
+$filterbox-results-color:white;
+
+
+/**
+ * ACCORDION
+ */
+$accordion-background:$site-red;
+$accordion-headerTitle-color:white;
+$accordion-control-color:$site-yellow;
+$accordion-bellows-bg:$light-grey;
+$accordion-copy-color:$mid-grey;
+$accordion-active-bg:$site-red--dark;
+
+/**
+ * INFO-PANE
+ */
+
+$info-pane-bg: $site-red;
+$info-pane-color: white;
+$info-pane-link: $site-yellow;
+
+/**
+ * SWITCHAROO
+ */
+
+$switcharoo-footer-bg:white;
+
+
+/**
+ * POPUP FORM
+ */
+$popup-form-text: white;
+
+/**
+ * OPTION CARDS
+ */
+$option-card-bg:$site-red-85-opacity;
+$option-card-elements:white;
+$option-card-checked:$site-yellow;
+$option-card-border-color:$slow-silver;
+$option-card-number-color:$site-blue--faded;
+
+/**
+ * FIELDS
+ */
+$field-bg-color: rgba(203,237,246,1);
+$field-mandatory-color: rgba(203,237,246,1);
+$field-active-bg-color: white;
+$field-text-above-color: white;
+$field-text-color:$pothole-grey;
+$field-valid-color:$site-red;
+$field-active-text-color:$site-blue--faded;
+
+/**
+ * CHECKBOX
+ */
+ $checkbox-bg-color:white;
+ $checkbox-bg-active-color:$site-blue--faded;
+ $checkbox-border-color:$slow-silver;
+
+/**
+ * MODULE HEADING HERE..
+ */
+
+
+
+
+
+/**
+ * UX/Validation colors
+ */
+$notice        : #2ab9ff;  // Blue
+$confirm       : #6fd100;  // Green
+$alert         : #ffa800;  // Orange
+$warning       : #c60000;  // Red

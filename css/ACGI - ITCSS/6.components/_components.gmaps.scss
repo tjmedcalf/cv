@@ -1,0 +1,10 @@
+
+.gm-style {
+    height:86% !important;
+    
+    @include breakpoint($xxl) {
+        height:84% !important;
+        
+    }
+}
+

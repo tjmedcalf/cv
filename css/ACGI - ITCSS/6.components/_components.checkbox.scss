@@ -1,0 +1,43 @@
+.c-checkbox {
+    max-width:414px;
+    margin:10px auto 20px auto;
+}
+
+.c-checkbox__label {
+    @include f-checkbox-text;
+    display: inline-block;
+    margin-left: 45px;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height:25px;
+        width:25px;
+        border: 2px solid $checkbox-border-color;
+        background-color: $checkbox-bg-color;
+        position: absolute;
+        margin-left: -45px;
+
+        .c-checkbox--checked & {
+            border:  2px solid $checkbox-bg-active-color;
+            background-color: $checkbox-bg-active-color;
+            @extend .material-icons;
+            content: 'done';
+            font-size:rem(22px);
+            // padding-left:2px;
+            color:$checkbox-bg-color;
+        }
+    }
+    
+    &:hover {
+        cursor: pointer;
+    }
+
+    .c-checkbox--2 & {
+        @include f-checkbox-alt-text;
+    }
+}
+
+.c-checkbox__input {
+    display: none;
+}

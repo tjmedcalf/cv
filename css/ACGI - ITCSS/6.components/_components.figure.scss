@@ -1,0 +1,13 @@
+.c-figure__caption {
+	@include f-figure-caption;
+	color: $figure-caption-color;
+	margin-top:rem(16px);
+}
+
+.c-figure__image {
+	display: inline-block;
+
+	.o-article--imageCover & {
+		display: block;
+	}
+}

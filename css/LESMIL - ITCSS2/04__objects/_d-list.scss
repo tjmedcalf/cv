@@ -1,0 +1,40 @@
+.d-list {
+	@include font-size(12px);
+	overflow: hidden;
+	display: inline-block;
+	width:100%;
+}
+
+
+
+.d-list__term {
+	font: $font-menus;
+	font-weight: 900;
+	text-transform: uppercase;
+
+	@media (max-width: $screen-sm-min) {
+		@include font-size(14px);
+	}
+}
+
+.d-list__def {
+	padding-bottom:30px;
+	font-weight: bold;
+
+	@media (min-width: $screen-sm-min) {
+		padding-left:45px;
+		border-left:1px solid $dusty-grey;
+	}
+
+	.d-list--deep & {
+		padding-bottom:40px;
+	}
+
+	.row:last-child > & {
+		padding-bottom:0;
+	}
+
+	.d-list--deep .row:last-child & {
+		padding-bottom:10px;
+	}
+}

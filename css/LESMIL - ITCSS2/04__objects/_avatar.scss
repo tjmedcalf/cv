@@ -1,0 +1,38 @@
+.avatar--user {
+	display: flex;
+	align-items:center;
+}
+
+.avatar__image {
+	width:40px;
+	height:40px;
+	border-radius: 100%;
+	overflow: hidden;
+	object-fit: cover;
+
+	.no-objectfit &, 
+    .no-object-fit & {
+    	font-family: 'object-fit: cover;';
+    }
+
+    .avatar--large & {
+    	width:151px;
+		height:151px;
+		border: 1px solid $dusty-grey;
+    }
+}
+
+.avatar__caption {
+	margin-right:15px;
+
+	.avatar--user & {
+		color:white;
+		font: $font-menus;
+		@include font-size(11px);
+		display: block;
+		line-height: em(14, 12);
+		text-transform: uppercase;
+		letter-spacing: em(1, 12);
+		margin-top:8px;
+	}
+}

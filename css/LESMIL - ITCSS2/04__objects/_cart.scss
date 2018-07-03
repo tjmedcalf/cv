@@ -1,0 +1,18 @@
+.cart__item {
+	display: flex;
+	align-items:center;
+	margin-bottom:10px;
+}
+
+.cart__item-label {
+	font:$font-headings;
+}
+.cart__item-cost {
+	display: flex;
+	justify-content:flex-end;
+}
+
+.cart__summary {
+	border-top:1px solid $quill-grey;
+	padding-top:10px;
+}

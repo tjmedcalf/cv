@@ -1,0 +1,39 @@
+.pretty-field {
+	border-bottom: 3px solid black;
+	padding-bottom:$space*2;
+
+	@media (max-width: $screen-md-min) {
+		padding-top:$space*2;
+	}
+}
+
+.pretty-field--gapped {
+	@media (min-width: $screen-md-min) {
+		margin-top:65px;
+	}
+}
+
+.pretty-field__icon {
+	@include font-size(25px);
+	margin-left:10px;
+	
+	@media (min-width: $screen-md-min) {
+		margin-left:20px;
+	}
+}
+
+.pretty-field__text {
+	@include font-size(15px);
+	letter-spacing: em(1,15);
+	line-height: em(20,15);
+	font-weight: 300;
+	margin-bottom:$space*2;
+}
+
+.pretty-field__message {
+	margin:40px 0 10px;
+
+	.field:not(.field--error) & {
+		display: none;
+	}
+}

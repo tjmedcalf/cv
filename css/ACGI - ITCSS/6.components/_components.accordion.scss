@@ -1,0 +1,68 @@
+.c-accordion {
+	@include breakpoint($lg) {
+		margin-top:rem(90px);	
+	}
+}
+
+.c-accordion__key {
+	margin-bottom:2px;
+}
+
+.c-accordion__header {
+	background:$accordion-background;
+	position: relative;
+	padding:rem(30px) rem(50px);
+	transition:background 0.2s ease;
+	
+	.is-active & {
+		background:$accordion-active-bg;
+	}
+
+	&:after {
+		@extend .material-icons;
+		content:"add";
+		color:$accordion-control-color;
+		font-size:rem(40px);
+		position:absolute;
+		right:35px;
+		top:calc(50% - 20px);
+		pointer-events:none;
+		display: block;
+		transition:transform 0.3s ease;
+		transform-origin:center center;
+
+		.is-active & {
+			transform:rotate(45deg);
+		}
+	}
+}
+
+.c-accordion__headerTitle {
+	@include f-accordion-headerTitle;
+	color:$accordion-headerTitle-color;
+}
+
+.c-accordion__key {
+	
+}
+
+.c-accordion__bellows {
+	background:$accordion-bellows-bg;
+	overflow: hidden;
+	visibility: hidden;
+	
+	.has-heightSet & {
+		visibility: visible;
+		transition:max-height 0.5s ease;
+	}
+
+	.has-heightSet:not(.is-active) & {
+		max-height:0 !important;
+	}
+}
+
+.c-accordion__content {
+	@include f-accordion-copy;
+	padding:rem(50px);
+	color: $accordion-copy-color;
+}

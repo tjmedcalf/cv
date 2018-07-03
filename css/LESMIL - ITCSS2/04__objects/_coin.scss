@@ -1,0 +1,120 @@
+.coin {
+	@include font-size(15px);
+
+	width:34px;
+	height:34px;
+	background:black;
+	color:white;
+	border-radius: 100%;
+
+	display: flex;
+	flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4px;
+    line-height: 1;
+
+    .icon-heading--faux & {
+		margin:0 auto;
+    }
+    .align-center & {
+    	margin:0 auto;
+    }
+	
+	.modal & {
+		background:$gallery;
+		color:black;
+	}
+
+	&[data-toggle] {
+		cursor:pointer;
+	}
+}
+
+a.coin:hover {
+	text-decoration: none;
+	color:white;
+}
+
+.coin--small {
+	width:25px;
+	height:25px;
+}
+.coin--large {
+	@include font-size(20px);
+
+	width:50px;
+	height:50px;
+	padding-top: 0px;
+}
+
+.coin--xl {
+	width:104px;
+	height:104px;
+	@include font-size(40px);
+
+	.icon-heading & {
+    	text-transform: uppercase;
+    }
+}
+.coin--credit {
+	@include heading-style;
+	
+	@media (max-width: $screen-sm-max) {
+		margin: 0 auto 20px;
+	}
+}
+.coin--xxl {
+	width:180px;
+	height:180px;
+	
+	@include font-size(75px);
+}
+
+.coin--dull {
+	background:$boulder;
+}
+
+.coin--entry {
+	@media (max-width: $screen-sm-max) {
+		margin:0 auto;
+	}
+
+	@media (min-width: $screen-md-min) {
+		@include font-size(16px);
+		background:transparent;
+		width:auto;
+		height:auto;
+		display: block;
+		border-radius: 0;
+		padding:0;
+		color:black;
+	}
+}
+
+.coin__caption {
+	font:$font-headings;
+	line-height: 0.5;
+	position: relative;
+	top: 3px;
+	
+	.coin--large & {
+		@include font-size(15px);
+	}
+	.coin--xl & {
+		@include font-size(16px);
+		margin-bottom: 5px;
+	}
+	.coin--xxl & {
+		@include font-size(16px);
+		margin-bottom: 5px;
+	}
+	
+	.coin--entry & {
+		@include font-size(16px);
+
+		@media (min-width: $screen-md-min) {
+		    top: 0px;
+		}
+	}
+}

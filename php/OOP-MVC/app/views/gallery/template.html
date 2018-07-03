@@ -1,0 +1,31 @@
+<div class="gbl__content">
+    <div class="layout">
+        <nav class="crumbs layout crumbs--noheader">
+            <ul>
+                <li><a href="/">home</a></li>
+                <li class="crumb__current"><?php echo strtolower($content['title']); ?></li>
+            </ul>
+        </nav>
+
+        <div class="main">
+			<div class="layout__copy">
+                <h1 class="page-heading"><?php echo $content['title']; ?></h1>
+
+            </div>
+			
+			<div class="gridify gallery">
+				<?php if(!empty($images)): ?>
+	        		<?php foreach($images as $key=>$img) :
+						$parts=pathinfo($img);  ?>
+						
+						<?php if($parts['extension'] == 'jpg'): ?>
+							<div class="grid__item g-laptop-1-3">
+								<a href="/img/gallery/<?php echo $img; ?>" class="strip"><img src="/img/gallery/<?php echo $img; ?>" /></a>
+							</div>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+html, body {
+	font-size:16px;
+	font: $font-default;
+}
+
+body {
+	background:white;
+	
+	@media (max-width: $screen-md-min) {
+		//Sticky Header..
+		padding-top:70px;
+	}
+
+	&.sticky-head {
+		@media (min-width: $screen-md-min) {
+			padding-top:70px;
+		}
+	}
+}

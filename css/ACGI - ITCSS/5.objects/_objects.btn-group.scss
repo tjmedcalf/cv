@@ -1,0 +1,43 @@
+.o-btn-group {
+	display: flex;
+	flex-direction:row;
+	flex-wrap: wrap;
+	flex-direction:column;
+
+	@include breakpoint($sm) {
+		flex-direction:row;
+	}
+	@include breakpoint($md) {
+		flex-wrap: nowrap;
+	}
+}
+
+.o-btn-group--strictHor {
+	flex-direction:row;
+}
+
+.o-btn-group--vertical {
+	flex-direction:column;
+	flex-wrap: initial;
+
+	@include breakpoint($sm) {
+		max-width:250px;
+	}
+}
+
+.o-btn-group__item {
+	margin:0 rem(10px) rem(10px) 0;
+
+	@include breakpoint($sm) {
+		margin: 0 rem(20px) rem(10px) 0px;
+	}	
+
+	.o-btn-group--vertical & {
+		margin-bottom: rem(10px);
+		margin-left:0px;
+	}
+}
+
+.o-btn-group__btn {
+	white-space: nowrap;
+}

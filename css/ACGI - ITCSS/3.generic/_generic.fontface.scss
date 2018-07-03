@@ -1,0 +1,60 @@
+/**
+ * GENERIC.FONTFACE
+ *
+ * @description : Declare @fontface blocks
+ * 
+ *
+ */
+
+// Regular
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans/opensans-regular-webfont.woff2') format('woff2'),
+         url('../fonts/opensans/opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style:  normal;
+}
+
+// Italic
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans/opensans-italic-webfont.woff2') format('woff2'),
+         url('../fonts/opensans/opensans-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style:  italic;
+}
+
+// Bold
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/opensans/opensans-bold-webfont.woff2') format('woff2'),
+         url('../fonts/opensans/opensans-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style:  normal;
+}
+
+// Google Material IconFont
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/iconfont/materialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+         local('MaterialIcons-Regular'),
+         url("../fonts/iconfont/MaterialIcons-Regular.woff2") format('woff2'),
+         url("../fonts/iconfont/MaterialIcons-Regular.woff") format('woff'),
+         url("../fonts/iconfont/MaterialIcons-Regular.ttf") format('truetype');
+}
+
+// Social IconFont: Lib/Kit @ fontastic.me -- tjmedcalf@gmail.com / NewStrong
+@font-face {
+  font-family: "social-icons";
+  src:url("../fonts/social-icons.eot");
+  src:url("../fonts/social-icons.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/social-icons.woff") format("woff"),
+    url("../fonts/social-icons.ttf") format("truetype"),
+    url("../fonts/social-icons.svg#social-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}

@@ -1,0 +1,173 @@
+.c-site-header {
+	@include position(0, null, null, 0);
+	position:fixed;
+	box-shadow: 2px 2px 3px 0 rgba(black, 0.5);
+	display: flex;
+	width:100%;
+	z-index:$header-z;
+
+	.bodyMod--weatherApp & {
+		@include breakpoint(max-width $lg) {
+			width:70%;
+			box-shadow: none;
+		}
+	}
+
+	@include breakpoint($lg) {
+		box-shadow: none;
+	}
+}
+
+.c-site-header__logo {
+	display: block;
+	background:white;
+	width:70%;
+
+	//Iphone 10
+	//padding:rem(54px) rem(25px) rem(10px);
+	padding:rem(10px) rem(25px) rem(12px);
+
+	@include breakpoint($lg) {
+		width:$morph-logo-width;
+
+		transition:transform 0.3s cubic-bezier(0, 0.51, 0.22, 1.84);
+		transform:translateY(0px);
+		
+		padding:rem(18px) 0 0 rem(15px);
+		background:none;
+		
+		top: 18px;
+    	position: relative;
+    	left: 35px;
+	}
+
+	.bodyMod--headerShort & {
+		@include breakpoint($lg) {
+			transform:translateY(-20px);
+		}	
+	}
+	.bodyMod--weatherApp & {
+		@include breakpoint(max-width $lg) {
+			width:100%;
+		}
+	}
+
+	img {
+		width:rem(216px);
+		transition:width 0.2s ease;
+
+		@include breakpoint($lg) {
+			width:auto;
+		}
+
+		.bodyMod--headerShort & {
+			@include breakpoint($lg) {
+				width:50%;
+			}
+		}
+	}
+}
+
+.c-site-header__navControl {
+	background:$site-blue;
+	width:30%;
+
+	justify-content: flex-end;
+    align-items: flex-end;
+    display: flex;
+
+	padding-right: 20px;
+    padding-bottom: 20px;
+
+	@include breakpoint(max-width $lg) {    
+	    transform:translate3d(0,0,0);
+	}
+    
+
+    @include breakpoint($lg) {
+		position: relative;
+		top:0px;
+		transition:top 0.3s cubic-bezier(0, 0.51, 0.22, 1.84);
+		background:none;
+		padding:0 0 0 0;
+		width:65%;
+		overflow: visible;
+	}
+	@include breakpoint($xxl) {
+		width:auto;
+	}
+
+	.bodyMod--headerShort & {
+		top:-8px;
+	}
+
+    &:before {
+    	//Iphone 10
+    	//@include position(-5px, null, null, -6px);
+		@include position(-55px, null, null, -4px);
+
+    	content:"";
+    	display: block;
+		border-color: white transparent transparent white;
+	    border-style:solid;
+	    border-width:65px;
+	    width:0;
+	    height:0;
+	    position: absolute;
+	    transform:rotate(-3deg); // iphone 10 - transform:rotate(-5deg)
+	    z-index:$nav-faux-bg-z;
+		
+		@include breakpoint(max-width 374px) {
+	    	top: -72px;
+	    	left: -13px;
+	    	transform: rotate(-10deg);
+	    }
+
+	    @include breakpoint($lg) {
+			display: none;
+		}
+    }
+}
+
+.c-site-header__control {
+	position:absolute;
+	@include position(50%, 21px, null, null);
+	margin-top:-5px;
+    width: rem(25px);
+    height: rem(23px);
+    z-index:$nav-control-z;
+    opacity:0;
+
+	@include breakpoint($lg) {
+		display: none;
+	}
+}
+
+.c-site-header__burgerIcon {
+	color:white;
+	font-size:rem(34px);
+	display: block;
+	position: relative;
+	z-index:$nav-burger-icon-z;
+
+	@include breakpoint($lg) {
+		display: none !important;
+	}
+}
+
+.c-site-header__burgerIcon--burger {
+	display: block;
+
+	.c-site-header__control:checked ~ & {
+		display: none;
+	}
+}
+.c-site-header__burgerIcon--close {
+	display: none;
+
+	.c-site-header__control:checked ~ & {
+		display: block;
+	}
+}
+
+

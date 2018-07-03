@@ -1,0 +1,21 @@
+.intro,  
+.lead {
+	font: $font-headings;
+	@include font-size(24px);
+	letter-spacing: em(2,36);
+	line-height: em(50, 36);
+	text-transform: uppercase;
+	margin-bottom:15px;
+
+	@media (min-width: $screen-md-min) {
+		@include font-size(36px);
+		margin-bottom:50px;
+	}
+
+	&.intro--alt {
+		font: $font-default;
+		font-weight:300;
+		text-transform: none;
+		@include font-size(24px);
+	}
+}

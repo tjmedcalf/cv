@@ -1,0 +1,185 @@
+.carousel {
+	position:relative;
+	
+	@media (max-width: $screen-md-min) {
+		margin-left:-15px;
+		margin-right:-15px;
+	}
+}
+
+//HACK -- this was necessary because I forgot to put the DOCTYPE in the static html files.. can be removed when in live envrionment..
+.carousel__item,
+.carousel__slider,
+.carousel__group {
+	height:auto !important;
+}
+
+.carousel__slider {
+	.carousel--spaced & {
+		padding:30px 0;
+	}
+}
+
+.carousel__group {
+	align-items:center;
+	display: flex;
+}
+
+.carousel__footer {
+	position:absolute;
+	top:50px;
+	z-index:$hero-pager-z;
+	width:80%;
+	left:10%;
+	text-align:center;
+
+	@media (min-width: $screen-md-min) {
+		bottom:30px;
+		top:unset;
+	}
+}
+
+.carousel__control {
+	@include font-size(40px);
+	color:black;
+	position:absolute;
+	top:50%;
+	margin-top:-40px;
+	transition:left 0.1s ease, right 0.1s ease;
+	z-index:$carousel-nav-z;
+
+	.hero & {
+		top:-165px;
+		color:white;
+	}
+	.hero--fullHeight & {
+		//top:-235px;
+
+		@media (min-height: 768px) {
+			top: calc(-50vh + 145px);
+		}
+		
+	}
+	.carousel--inline & {
+		@include font-size(25px);
+		top:auto;
+		bottom:25px;
+		background:white;
+		padding:10px;
+	}
+
+	&:focus {
+		outline:none;
+		text-decoration: none; 
+		color:black;
+	}
+
+	@media (max-width: $screen-md-min) {
+		display: none;
+	}
+
+	&:after,
+	&:before {
+		content:"";
+		height:3px;
+		display: block;
+		width:100%;
+		background:black;
+		position:absolute;
+
+		transition:top 0.1s ease, left 0.1s ease, width 0.1s ease;
+
+		.hero & {
+			background:white;
+		}
+		.carousel--inline & {
+			display: none;
+		}
+	}
+	&:before {
+		width:0;
+		top: 18px;
+	}
+	
+
+	&:hover {
+		text-decoration: none;
+		color:black;
+
+		&:after {
+			width:0;
+		}
+		.hero & {
+			color:white;
+		}
+	}
+
+	&.carousel__control--prev {
+		@media (min-width: $screen-md-min) {
+			left:-60px;
+		}
+		&:before {
+			left: 15px;
+		}
+		&:hover:before {
+			width:100%;
+		}
+		&:hover {
+			left:-70px;
+		}
+		.hero:hover & {
+			left:0px;
+		}
+		.carousel--inline & {
+			left:25px;
+		}
+		.p-nav__subnav & {
+			left:0px;
+			padding:10px 10px 0px 25px;
+			margin-bottom:-15px;
+			background-color: $wild-sand;
+		}
+	}
+
+	&.carousel__control--next {
+		@media (min-width: $screen-md-min) {
+			right:-60px;
+		}
+
+		&:before {
+			left: -15px;
+		}
+		&:hover:before {
+			width:100%;
+		}
+		&:hover {
+			right:-70px;
+		}
+		.hero:hover & {
+			right:0px;
+		}
+		.carousel--inline & {
+			right:25px;	
+		}
+		.p-nav__subnav & {
+			right:0px;
+			padding:10px 25px 0px 10px;
+			margin-bottom:-15px;
+			background-color: $wild-sand;
+		}
+	}
+
+	i {
+		pointer-events:none;
+
+		.carousel--inline & {
+			display: block;
+		}
+		
+		&:before {
+			.carousel--inline & {
+				display: block;
+			}
+		}
+	}
+}

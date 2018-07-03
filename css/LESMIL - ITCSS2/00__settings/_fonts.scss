@@ -1,0 +1,16 @@
+$font-path:'/fonts/';
+
+$font-default:400 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-menus: 900 1em 'Raleway', sans-serif;
+$font-menus-alt:700 1em 'Open Sans', sans-serif;
+
+$font-headings:400 1em 'Trade Gothic LT Std Bold Cn', sans-serif;
+$font-headings--lite:600 1em 'Trade Gothic LT Std Cn', sans-serif;
+$font-headings--wide: 600 1em 'Trade Gothic LT Std', sans-serif;
+
+$font-alt:400 1em "DINPro-Medium", sans-serif;
+$font-condensed:400 1em 'DIN-Condensed', sans-serif;
+
+@mixin icon-font {
+	font-family: "lesmil" !important;
+}

@@ -1,0 +1,190 @@
+<div class="hero--inner layout">
+    
+    <img src="/img/hero-inner/<?php echo $hero[0]['filename']; ?>" alt="" />
+
+    
+    <header class="hero__title"></header>
+    
+</div>
+    
+<div class="gbl__content">
+    <div class="layout">
+        <nav class="crumbs layout">
+            <ul>
+                <li><a href="#">home</a></li>
+                <li class="crumb__current"><?php echo strtolower($content['title']); ?></li>
+            </ul>
+        </nav>
+
+        <div class="gridify main">
+            <div class="grid__item g-tablet-8-12 layout__copy">
+                <h1 class="page-heading"><?php echo $content['title'];  ?></h1>
+
+                <div class="meta">
+                    <div class="rating meta__item">
+                        <?php 
+                        switch($rating) :
+                        case "1": ?>
+
+                        <div class="rating__inner rating--g">
+                            <span class="">G</span>
+                            suitable for all ages
+                        </div>
+
+                        <?php break;
+                        case "2": ?>
+
+                        <div class="rating__inner rating--r">
+                            <span class="">R</span>
+                            restricted 18
+                        </div>
+
+                        <?php break;
+                        case "3": ?>
+
+                        <div class="rating__inner rating--r">
+                            <span class="">R</span>
+                            restricted 21
+                        </div>
+                        
+                        <?php break;
+                        endswitch; ?>
+                    </div>
+
+                    <p class="meta__item"><i class="icon-clock-o"></i> <?php echo $content['duration']; ?></p>
+                    
+                    <p class="meta__item text--price">
+                        <i class="icon-money"></i> <strong>$<?php echo $content['price']; ?></strong>
+                    </p>
+                </div>
+
+                <div class="copy">
+                    <?php echo $content['full_desc'];  ?>
+
+                    <!-- <a href="#bookingform" class="txt-w-icon icon--left"><i class="icon-add"></i> request a booking</a> -->
+                </div>
+            </div>
+
+            <div class="grid__item g-tablet-4-12 layout__sidebar">
+                <div class="sidebar__block">
+                    <h2>Extras</h2>
+                    
+                    <div id="extras" class="table-2col">
+                        
+                        <?php if(!empty($extras)):
+                        foreach((array)$extras as $key=>$extra) : ?>
+                            <div class="gridify">
+                                <div class="grid__item g-laptop-3-5"><?php echo $extra['title']; ?> 
+                                    
+                                    <?php if( strlen($extra['description']) > 0 ): ?>
+                                        <i class="icon-help-outline"></i>
+                                    <?php endif; ?>
+
+                                </div>
+                                
+                                <div class="grid__item g-laptop-2-5">
+                                    <strong>$<?php echo $extra['price']; ?></strong>
+                                </div>
+                            </div>
+                           
+                            <?php if( strlen($extra['description']) > 0 ): ?>
+                                <div class="table__help gridify">
+                                    <div class="grid__item g-desktop-1-1">
+                                        <?php echo $extra['description']; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                        <?php endforeach;
+                        endif; ?>
+
+                        <div class="gridify">
+                            <div class="grid__item g-laptop-1-2">
+                                Travel <i class="icon-help-outline"></i>
+                            </div>
+                            <div class="grid__item g-laptop-1-2">
+                                <strong>$TBA</strong> 
+                            </div>
+                        </div>
+
+                        <div class="table__help gridify help--expenses">
+                            <div class="grid__item g-laptop-1-1">
+                                <p>I am able to travel throughout NZ however there will be an assosiated cost. Please use the tool below to get a rough estimate.</p>
+                                
+                                <form class="pricing-form form--inline form--light">
+                                    <div class="field">
+                                        <label for="input10" class="field__label">Location</label>
+                                        
+                                        <select id="input10" class="field__input">
+                                            <option value="">Select your location...</option>
+                                            
+                                            <?php foreach($locations as $key=>$region) : ?>
+                                                <option value="<?php echo formatPrice( $locations[$key] ); ?>">
+                                                    <?php echo $region['location']; ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+
+                                    <strong>TBA</strong>
+                                    <small>Please note prices are approximate.</small>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <?php if(is_array($outfits) || is_object($outfits)) : ?>
+        <div class="section section--outfits">
+            <div class="layout open">
+                <h1>Outfits<br/></h1>
+
+                <div class="gridify gallery">
+                    
+                        <!-- foreach -->
+                        <?php foreach($outfits as $key=>$img): ?>
+                            
+                            <div class="grid__item g-tablet-1-3">
+                                
+                                    
+                                    
+                                        <a class="stripe" href="/img/outfits/<?php echo $img['filename']; ?>"><img src="/img/outfits/<?php echo $img['filename']; ?>" alt="" /></a>
+                                    
+
+                                    <!-- <h3 class="media-block__title"><?php echo $img['label']; ?></h3> -->
+                                    
+                            </div>
+
+                        <?php endforeach; ?>
+                        <!-- /foreach -->
+
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+    
+    <?php if(!empty($video_link)) : ?>
+        <div class="section section--video">
+            <div class="media-grid layout open">
+                <h1>Video<br/>Preview</h1>
+
+                <div class="gridify">
+                    <div class="grid__item">
+                        <?php echo $video_link; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+
+
+    <div class="section section--invert">
+        <div class="layout">
+            <?php include(TMPL_DIR.'/_partials/booking_form.php'); ?>
+        </div>
+    </div>
+</div>

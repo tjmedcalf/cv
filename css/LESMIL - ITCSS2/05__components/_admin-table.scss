@@ -1,0 +1,83 @@
+.admin-table {
+    margin:0 15px;
+    width:calc(100% - 30px);
+    min-width:1041px;
+
+    @media (min-width: $screen-lg-min) {
+        width:100%;
+        max-width:$screen-lg-min;
+        margin:0 auto;
+    }
+}
+.admin-table__row {
+    border-bottom: 1px solid $quill-grey;
+    position: relative;
+
+    &:not(.admin-table__row--head) {
+        &:nth-child(even) {
+            background:$wild-sand;
+        }
+    }
+    
+    &.admin-table__row--head {
+        border-bottom-width: 2px;
+    }
+}
+
+.admin-table__head-icon {
+    vertical-align:-2px;
+}
+
+.admin-table__cell {
+    font:$font-headings;
+    @include font-size(14px);
+    padding:30px 10px 20px;
+    color:$boulder;
+    padding:30px 10px 20px;
+
+    .admin-table__row--head & {
+        @include heading-style;
+        color:black;
+    }
+}
+
+.admin-table__cell--w-action {
+    position: relative;
+    z-index:$base-z;
+    display: flex;
+    justify-content: center;
+
+
+    @media (max-width: 1041px) {
+        position: absolute;
+        left: 90%;
+        background:white;
+        z-index: 9999;
+        width:10%;
+        padding-bottom:26px;
+    }
+
+    @media all and (max-width:$bp-tablet){
+        left: 80%;
+        width:20%;
+    }
+
+    @media (min-width: $screen-md-min) {
+        text-align: center;
+    }
+
+    .admin-table__row--body:nth-child(even) & {
+        @media (max-width: 1041px) {
+            background:$wild-sand;
+        }
+    }
+}
+
+.admin-table__action {
+    align-self:center;
+    justify-self:center;
+
+    &:hover {
+        background-color:$chateau-green;
+    }
+}

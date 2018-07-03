@@ -1,0 +1,86 @@
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+[class^="social-"],
+[class*=" social-"] {
+    &:before {
+        font-family: "social-icons" !important;
+        font-style: normal !important;
+        font-weight: normal !important;
+        font-variant: normal !important;
+        text-transform: none !important;
+        speak: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        
+        color:$facebook-blue;
+        vertical-align: -1px;
+
+        position: relative;
+        z-index:$footer-icon-z;
+        left:0;
+    }
+    &:after {
+        @include position(-10px, null, null, -14px);
+        content:"";
+        background: $footer-social-icon-bg;
+        border-radius: 20px;
+        width: 41px;
+        height: 41px;
+        display: inline-block;
+        position:absolute;
+    }
+}
+.social--hoverEffect {
+    &:before {
+        transition:left 0.3s ease;
+        
+        a:hover & {
+            left:3px;
+        }
+    }
+    &:after {
+        transition: all 0.3s ease-in-out;
+
+        a:hover & {
+            width: 212px;
+            //border-radius: 10px;
+        }
+    }
+}
+
+
+
+.social-facebook:before {
+    content: "\e000";
+}
+.social-twitter:before {
+    content: "\e001";
+}
+.social-instagram:before {
+    content: "\e002";
+}
+

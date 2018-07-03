@@ -1,0 +1,39 @@
+.c-filterbox {
+	position: relative;
+	display: block;
+
+	&:after {
+		@extend .material-icons;
+		content:"arrow_drop_down_circle";
+		color:$filterbox-caret-color;
+
+		pointer-events:none;
+		position:absolute;
+		bottom:rem(20px);
+		right:rem(20px);
+	}
+}
+
+.c-filterbox__label {
+	@include f-filterboxLabel;
+	display: block;
+	color:$filterbox-label-color;
+	margin-bottom:rem(10px);
+	letter-spacing: 0.8px;
+}
+
+.c-filterbox__dropdown {
+	border: 3px solid $filterbox-border;
+	width: 100%;
+	padding: rem(18px) rem(26px);
+}
+
+.c-filterbox__resultsData {
+	text-align: center;
+	margin-bottom:100px;
+}
+
+.c-filterbox__resultsCount {
+	@include f-filterboxResults;
+	color:$filterbox-results-color;
+}

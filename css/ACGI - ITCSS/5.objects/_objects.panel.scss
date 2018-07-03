@@ -1,0 +1,245 @@
+.o-panel {
+	position: relative;
+	min-height:85vh;
+	padding:rem(96px) 0 rem(200px);
+	width:100%;
+	display: flex;
+
+	background-size:cover;
+	background-position:0 -23px; 
+	
+	margin-top:rem(-70px) !important;
+	margin-bottom: rem(-46px);
+	z-index:$base-z;
+
+	+ *:not(.o-panel) {
+		z-index:$base-z + 1;
+	}
+	
+	@include breakpoint($lg) {
+		padding:rem(150px) 0 rem(136px);
+	}
+
+	@include breakpoint($xxl) {
+		min-height:75vh;
+		margin-bottom: rem(-58px);
+	}
+}
+
+.o-panel--pseudoHero {
+	@media screen and (min-width: $lg) and (max-height: 900px) {
+		height:107vh;
+	}
+	
+	@media screen and (min-height: 900px) and (max-height: 1080px) {
+		height:92vh;
+	}
+}
+
+.o-panel--shorty {
+	min-height:75vh;
+}
+
+.o-panel__title {
+	@include f-panel-title;
+	color:$panel-title-color;
+	text-align:center;
+	text-transform: uppercase;
+
+	.o-panel--dark & {
+		color:$panel-title-color--dark;
+	}
+
+	@include breakpoint($lg) {
+		font-size:rem(70px);
+		margin-bottom:rem(90px);
+	}
+}
+
+.o-panel__title--wAccent {
+	position: relative;
+	padding-bottom:30px;
+
+	&:after {
+		content:"";
+		margin: 30px auto 0;
+		width:80px;
+		height:5px;
+		background:$panel-title-accent;
+		display: block;
+
+		.o-panel--light & {
+			background:$panel-title-color;
+		}
+	}
+
+	@include breakpoint($lg) {
+		margin-bottom:rem(60px);
+	}
+}
+.o-panel__title--yuge {
+	font-size:rem(70px);
+	
+	@include breakpoint($lg) {
+		font-size: 100px;
+	}
+}
+
+.o-panel__content {
+	position: relative;
+	z-index:$panel-content-z;
+	width:100%;
+	display: block;
+	
+	.o-panel:not(.o-panel--gridLines) & {
+		@include breakpoint($xxl) {
+			top:-60px;
+		}
+	}
+
+	&.o-panel__content--offsetY {
+		padding-top:rem(100px);
+	}
+
+	html.shit-browser-detected & {
+		@include breakpoint($lg) {
+			min-height:calc(80vh - 200px);
+		}
+	}
+}
+
+.o-panel__content--orientated {
+	@include breakpoint($lg) {
+		display: flex;
+		align-items:center;
+		flex-direction:row;
+	}
+	
+
+	.b {
+		@include breakpoint($lg) {
+			width: $bodyMax;
+		}
+	}
+}
+
+.o-panel__image {
+	height: 100%;
+    display: flex;
+
+	img {
+		display: flex;
+    	align-self: center;
+	}
+}
+
+.o-panel__content--right {
+	justify-content:flex-end;
+}
+.o-panel__content--left {
+	justify-content:flex-start;
+}
+
+.o-panel__psuedo {
+	@include position(-23px, null, null, 0);
+	position: absolute;
+	content:"";
+	background-size:cover;
+	
+	width:100%;
+	height: 100%;
+	z-index: $panel-psuedo-z;
+	overflow: hidden;
+	
+	background-position: 0 rem(-46px);
+    background-repeat: no-repeat;
+
+    transform: skewY(-1.5deg);
+    pointer-events:none;
+
+    .o-panel:nth-child(2n + 1) & {
+		transform: skewY(1.5deg);	
+	}
+
+	@include breakpoint($xxl) {
+		background-position: 0 rem(-58px);
+	}
+
+	@include breakpoint(1800px) {
+		@include position(-34px, null, null, 0);
+	}
+    
+	&:before {
+		@include position(-23px, null, null, 0);
+
+		position: relative;
+		content:"";
+		background-image:inherit;
+		background-size:cover;
+		background-repeat: no-repeat;
+
+		@include breakpoint($md) {
+			background-attachment: fixed;	
+		}
+
+		width:100%;
+		height: 100%;
+		display: block;
+
+		transform: skewY(1.5deg);
+
+		.o-panel:nth-child(2n + 1) & {
+			transform: skewY(-1.5deg);
+		}
+
+		@include breakpoint($xxl) {
+			@include position(-34px, null, null, 0);
+		}
+	}
+	
+	&:after {
+		.o-panel--gridLines & {
+			@include breakpoint(max-width 90rem) {
+				//background-size: 80%;	
+			}
+
+			content:"";
+			background-image: url("/img/grid-lines.png");
+			background-repeat:repeat-y;
+			background-position:center;
+
+			z-index:40;
+			position: absolute;
+			top: -300px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			
+			height:calc(100% + 300px);
+			width: 100%;
+			max-width: 90rem;
+			opacity: 0.2;
+		}
+	}
+
+	&.o-panel__psuedo--fixedBackground {
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		transform: skewY(0) !important;
+		background-position:0 0;
+		top:0;
+		right:0;
+		background-size:cover;
+
+		&:before {
+			display: none;
+		}
+	}
+	
+	&.o-panel__psuedo--tintedRed {
+		filter:sepia() saturate(350%) hue-rotate(310deg) contrast(1.5) brightness(0.6);
+	}
+}
+
+

@@ -1,0 +1,78 @@
+$live-path:'/static/visualDesign/fonts/';
+
+@font-face {
+  font-family: 'Trade Gothic LT Std Bold Cn';
+  src: url($live-path + 'TradeGothicLTStd-BdCn20.eot'); /* IE9 Compat Modes */
+  src: url($live-path + 'TradeGothicLTStd-BdCn20.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url($live-path + 'TradeGothicLTStd-BdCn20.woff') format('woff'), /* Modern Browsers */
+       url($live-path + 'TradeGothicLTStd-BdCn20.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url($live-path + 'TradeGothicLTStd-BdCn20.svg#4a676caccd9c0fcdbbd764a199edc43f') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+@font-face {
+  font-family: 'DINPro-Medium';
+  src: url($live-path + 'DINPro-Medium.eot'); /* IE9 Compat Modes */
+  src: url($live-path + 'DINPro-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url($live-path + 'DINPro-Medium.woff') format('woff'), /* Modern Browsers */
+       url($live-path + 'DINPro-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url($live-path + 'DINPro-Medium.svg#43a856eecb2199e640a1a5bf1dc4a1e7') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'DIN-Condensed';
+  src: url($live-path + 'DINNeuzeitGroteskStd-BdCond.eot'); /* IE9 Compat Modes */
+  src: url($live-path + 'DINNeuzeitGroteskStd-BdCond.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url($live-path + 'DINNeuzeitGroteskStd-BdCond.woff') format('woff'), /* Modern Browsers */
+       url($live-path + 'DINNeuzeitGroteskStd-BdCond.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url($live-path + 'DINNeuzeitGroteskStd-BdCond.svg#cc7e1320f593bcf9af86633d48852148') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Trade Gothic LT Std Cn'; 
+  src: url($live-path + 'TradeGothicLTStd-Cn18.eot'); /* IE9 Compat Modes */
+  src: url($live-path + 'TradeGothicLTStd-Cn18.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url($live-path + 'TradeGothicLTStd-Cn18.woff') format('woff'), /* Modern Browsers */
+       url($live-path + 'TradeGothicLTStd-Cn18.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url($live-path + 'TradeGothicLTStd-Cn18.svg#4a2dcf9aedd16ea80255ec374529e2b0') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Trade Gothic LT Std';
+  src: url($live-path + 'TradeGothicLTStd.eot'); /* IE9 Compat Modes */
+  src: url($live-path + 'TradeGothicLTStd.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url($live-path + 'TradeGothicLTStd.woff') format('woff'), /* Modern Browsers */
+       url($live-path + 'TradeGothicLTStd.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url($live-path + 'TradeGothicLTStd.svg#baa2b4336bfeb9872a50f10bdb06e378') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url($live-path + "bootstrap/glyphicons-halflings-regular.eot");
+  src: url($live-path + "bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url($live-path + "bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url($live-path + "bootstrap/glyphicons-halflings-regular.woff") format("woff"), url($live-path + "bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url($live-path + "bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+
+@font-face {
+  font-family: "lesmil";
+  src:url($live-path + "lesmil.eot");
+  src:url($live-path + "lesmil.eot?#iefix") format("embedded-opentype"),
+    url($live-path + "lesmil.woff") format("woff"),
+    url($live-path + "lesmil.ttf") format("truetype"),
+    url($live-path + "lesmil.svg#lesmil") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+

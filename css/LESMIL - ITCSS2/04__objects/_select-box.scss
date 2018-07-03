@@ -1,0 +1,206 @@
+select[selectbox="true"] {
+	position:absolute;
+}
+
+.selectbox {
+	&.selectbox--filter,
+	.field--select &,
+	&.selectbox--admin {
+		position:relative;	
+	}
+}
+
+.selectboxit-container {
+	position:static;
+	
+	.selectbox--filter & {
+		top:13px;
+	}
+}
+
+.selectboxit {
+	padding:15px 30px 13px;
+
+	.field--select & {
+		position: relative;
+		padding:0 0 0 0;
+		width:100%;
+		display: block;
+	}
+	.selectbox--admin & {
+		position:relative;
+	}
+}
+
+
+.selectboxit-text {
+	.selectbox--inline &,
+	.selectbox--filter & {
+		font: $font-headings;
+		@include font-size(18px);
+		text-transform: uppercase;
+	}
+
+	.field--select & {
+		@extend .field__input;
+	}
+	.field--select.field--w-control & {
+		width:calc(100% - 50px);
+		float:left;
+		border-radius:4px 0px 0px 4px;
+		border-right:none;
+		display: block;
+		max-width: none !important;
+	}
+}
+
+.selectboxit-btn {
+	.field--select & {
+		@include clearfix;
+	}
+	.selectbox--admin & {
+		background:white;
+		border:2px solid $quill-grey;
+		padding-left:20px;
+		padding-right:20px;
+
+		&.cd-active {
+			border-bottom:none;
+		}
+	}
+}
+
+.selectboxit-arrow-container {
+	.field--select & {
+		@extend .field__control;
+		display: inline-block;
+		padding:12px;
+	}
+}
+
+.selectboxit-arrow, 
+.selectboxit-default-arrow {
+	@include font-size(24px);
+	vertical-align: -5px;
+	margin-left:20px;
+
+	.field--select & {
+		margin:0;
+	}
+
+	.selectbox--filter & {
+		float:right;
+		margin-top:-4px;
+	}
+
+	&:before {
+		font-family: "lesmil" !important;
+		content: "\e002";
+			
+		.selectboxit-open & {
+			content: "\e001";
+		}
+	}
+	.selectbox--admin & {
+		vertical-align: -9px;
+   		margin-left: 3px;
+	}
+}
+
+.cd-active {
+	+ input + .selectboxit-list {
+		z-index:9998 !important;
+		overflow: visible;
+
+		a {
+			pointer-events:all;
+		}
+	}
+
+	z-index:9999 !important;
+} 
+
+.selectboxit-options,
+.selectboxit-list {
+	margin-top: 5px;
+	position:absolute;
+	z-index:$layer-hidden;
+	overflow: hidden;
+	width:100%;
+	
+	.field--select &,
+	.selectbox--admin & {
+		display: block !important;
+		top:0;
+	}
+
+	.selectbox--admin & {
+		top:-10px;
+	}
+
+	.selectbox--inline & {
+		left:0;
+	}
+
+	a {
+		&.selectboxit-option-anchor {
+			color:#595959;
+		}
+	}
+}
+
+.selectboxit-option {
+	position:absolute;
+
+	.field--select & {
+		background:white;	
+	}
+	.selectbox--admin & {
+		background:white;
+		border-left:2px solid $quill-grey;
+		border-right:2px solid $quill-grey;
+		
+	}
+
+	&.selectboxit-option-first {
+		border-radius:4px 4px 0 0;
+		
+		.selectbox--admin & {
+			border-radius:0 0 0 0;
+			//border-top:2px solid $quill-grey;
+		}
+	}
+	&.selectboxit-option-last {
+		.selectbox--admin & {
+			border-bottom:2px solid $quill-grey;
+		}
+	}	
+
+	a {
+		pointer-events:none;
+	}
+}
+.selectboxit-option-anchor {
+	all:unset;
+
+	.selectboxit-option & {
+		font: $font-headings;
+		text-transform: uppercase;
+		padding:15px 30px 10px;
+		cursor:pointer;
+		display: inline-block;
+		white-space: nowrap;
+	}
+
+	.selectbox--filter & {
+		color:white;
+
+		&:hover {
+			color:white;
+		}
+	}
+
+	&:hover {
+		color:inherit;
+	}
+}

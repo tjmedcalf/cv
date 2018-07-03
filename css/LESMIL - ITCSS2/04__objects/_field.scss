@@ -1,0 +1,291 @@
+.field {
+	margin-bottom:35px;
+	position:relative;
+
+	fieldset:last-child & {
+		margin-bottom:0;
+	}
+}
+
+.field--inline {
+	margin:0px 0 35px;
+}
+
+.field__label {
+	@include css-vars((
+		--field-state-color: $dusty-grey,
+	));
+
+	background:var(--field-state-color);
+	color: white;
+	@include font-size(12px);
+	padding:11px 20px 4px;
+	display: block;
+	position:absolute;
+	width:calc(100% - 30px);
+	pointer-events:none;
+	border-radius:4px 4px 0 0;
+	
+	transition-property: top, opacity;
+	transition-duration: 0.2s;
+
+	top:0;
+	opacity: 0;
+
+	.active &,
+	.field--error &,
+	.field--valid & {
+		top: -29px;
+		opacity: 1;
+	}
+
+	.field.active & {
+		@include css-vars((
+			--field-state-color: black,
+		))
+
+		background:var(--field-state-color);
+	}
+	.field.field--valid & {
+		@include css-vars((
+			--field-state-color:$forest-green,
+		))
+
+		background:var(--field-state-color);
+	}
+	.field.field--error & {
+		@include css-vars((
+			--field-state-color:$monza,
+		))
+
+		background:var(--field-state-color);
+	}
+}
+.field__label--block {
+	font: $font-default;
+	@include font-size(13px);
+	font-weight: 300;
+	margin-bottom:15px;
+	display: block;
+	text-transform: none;
+}
+.field__label--inline {
+	margin-top: 17px;
+    display: inline-block;
+}
+
+.field__input {
+	@include css-vars((
+		--field-state-color: $dusty-grey,
+	));
+
+	width:100%;
+	border:none;
+	padding:$space 20px;
+	background: white;
+	box-sizing:border-box;
+	border:3px solid transparent;
+	height:50px;
+	border-radius:4px;
+
+	outline:none;
+
+	&:focus,
+	.active &,
+	.field--error &,
+	.field--valid & {
+		border-radius:0 0 4px 4px;
+	}
+	
+	.field.active & {
+		@include css-vars((
+			--field-state-color: black,
+		))
+
+		border-color:var(--field-state-color);
+	}
+	.field.field--valid & {
+		@include css-vars((
+			--field-state-color:$forest-green,
+		))
+
+		border-color:var(--field-state-color);
+	}
+	.field.field--error & {
+		@include css-vars((
+			--field-state-color:$monza,
+		))
+
+		border-color:var(--field-state-color);
+	}
+
+
+	.field--w-control & {
+		width:calc(100% - 50px);
+		float:left;
+		border-radius:4px 0px 0px 4px;
+		border-right:none;
+
+		&:focus {
+			border-radius:4px 0px 0px 4px;
+		}
+	}
+	.field--w-control.active &,
+	.field--w-control.field--error &,
+	.field--w-control.field--valid & {
+		border-radius:0px 0px 0px 4px;
+	}
+	
+	&.field__input--textarea {
+		height:auto;
+	}
+
+	&.field__input--outline {
+		border:1px solid $dusty-grey;
+	}
+}
+
+.field__icon {
+	@include css-vars((
+		--field-state-color: $dusty-grey,
+	));
+
+	position:absolute;
+	right: 30px;
+    top: 15px;
+    @include font-size(24px);
+    pointer-events:none;
+	color:var(--field-state-color);
+
+	.field.field--valid & {
+		@include css-vars((
+			--field-state-color:$forest-green,
+		))
+
+		color:var(--field-state-color);
+	}
+	.field.field--error & {
+		@include css-vars((
+			--field-state-color:$monza,
+		))
+
+		color:var(--field-state-color);
+	}
+}
+
+.field__control {
+	@include css-vars((
+		--field-state-color: $dusty-grey,
+	));
+
+	@include font-size(23px);
+	background:var(--field-state-color);
+	border:none;
+	width:50px;
+	height:50px;
+	outline:none;
+	cursor:pointer;
+	border-radius:0 4px 4px 0px;
+	
+	i {
+		display: block;
+		color:white;
+		display: block;
+
+		&:before {
+			display: block;
+		}
+	}
+
+	.active &,
+	.field--valid &,
+	.field--error & {
+		border-radius:0 0px 4px 0px;
+	}
+
+	.field.active & {
+		@include css-vars((
+			--field-state-color: black,
+		))
+		
+		background:var(--field-state-color);
+	}
+	.field.field--valid & {
+		@include css-vars((
+			--field-state-color:$forest-green,
+		))
+
+		background:var(--field-state-color);
+	}
+	.field.field--error & {
+		@include css-vars((
+			--field-state-color:$monza,
+		))
+
+		background:var(--field-state-color);
+	}
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    position:relative;
+    transition-property: top, opacity, transform;
+	transition-duration: 0.3s;
+	top: 0px;
+	opacity: 1;
+	transform-origin:left center;
+  
+	.active &,
+	.field--error &,
+	.field--valid & {
+		top:-10px;
+		opacity: 0;
+		transform:scale(0.8);
+	}
+}
+
+.field--front {
+	z-index:$field-front-z;
+	position: relative;
+}
+
+.field__message {
+	@include font-size(12px);
+	position:absolute;
+	top: calc(100% + 5px);
+    letter-spacing: em(1,12);
+    /* white-space: nowrap;
+    overflow: hidden;
+  	text-overflow: ellipsis;
+  	max-width:87%; */
+	
+	.row & {
+		left: 15px;	
+	}
+
+    .field--error & {
+		color:var(--field-state-color);
+	}
+	&.field__message--rel {
+		position:static;
+	}
+}
+
+.field__comment {
+	@include font-size(14px);
+	line-height: em(18, 14);
+	font-weight:400;
+	padding:10px 0;
+
+	a {
+		color:$shark;
+
+		&:hover {
+			color:$monza;			
+		}
+	}
+}
+
+.field__separator {
+	margin:0 0 35px;
+	padding-top:0;
+}

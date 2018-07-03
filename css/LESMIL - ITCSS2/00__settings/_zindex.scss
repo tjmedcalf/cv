@@ -1,0 +1,70 @@
+$layer-hidden: -1;
+$layer0: 1;
+$layer1: 5;
+$layer2: 10;
+$layer3: 50;
+$layer4: 100;
+$layer5: 200;
+$layer6: 400;
+$layer7: 500;
+$layer8: 1000;
+$layer9: 2000;
+$layer10: 4000;
+$layer11: 5000;
+$layer12:9999;
+
+$ticky-header-z:$layer9;
+$global-alert-z:$layer5;
+
+$user-panel-z:$layer6;
+
+$zindex-modal-background:$layer11;
+$zindex-modal:$layer12;
+
+$sub-nav-z:$layer5;
+$sub-nav-z-top:$layer6;
+
+$base-z:$layer0;
+$section-content-z:$layer0;
+$section-front-z:$layer4;
+$section-front2-z:$layer5;
+$site-footer-z:$layer3;
+
+$hero-content-z:$layer4;
+$hero-overlay-z:$layer3;
+$hero-image-z:$layer2;
+$hero-pager-z:$layer5;
+$hero-expand-z:$layer6;
+$hero-progress-z:$layer6;
+
+$featured-card-content-z:$layer4;
+$featured-card-overlay-z:$layer3;
+$card-tag-z:$layer4;
+
+$badge-z:$layer5;
+
+$dropdown-z:$layer1;
+
+$dropdown-content-z:$layer10;
+
+$field-input-z:$layer1;
+$field-label-z:$layer0;
+
+$carousel-nav-z:$layer4;
+
+$sidebar-z:$layer3;
+$timetable-sticky-header-z:$layer2;
+$timetable-sticky-z:$layer1;
+
+$timetable-section-active-z:$layer1;
+$timetable-section-inactive-z:$layer0;
+
+$schedule-message-z:$layer4;
+
+$tertiary-nav-z:$layer4;
+
+$field-front-z:$layer9;
+$tooltip-z:$layer12;
+
+
+

@@ -1,0 +1,212 @@
+.primary-nav {
+	@include css-vars((
+		 --p-nav-link-color:white,
+		 --p-nav-border: $monza,
+		 --p-nav-sub-bg: $wild-sand
+	));
+
+	@media (max-width: $screen-md-min) {
+		background:black;
+		width:85%;
+		padding:10px 35px 10px 30px;
+		z-index:9999;
+		position:absolute;
+		top:70px;
+		left:calc(-100%);
+		transition:left 0.2s ease;
+		height:calc(100vh - 70px);
+		overflow: scroll;
+	}
+	@media (min-height: $screen-sm-min) and (max-width: $screen-md-min) {
+		padding-top:70px;
+	}
+	@media (min-width: $screen-md-min) {
+		position:static;
+	}
+
+	&[aria-expanded="true"] {
+		@media (max-width: $screen-md-min) {
+			left:0;
+		}
+	}
+}
+
+.p-nav__list {
+	position:static;
+
+	@media (max-width: $screen-md-min) {
+		margin-bottom:50px;
+	}
+    @media (min-width: $screen-md-min) {
+		display: flex;
+		align-items:center;
+	    justify-content: space-around;
+    }
+
+	.p-nav__subnav--carousel & {
+		margin: 0 100px;
+	}
+
+    .p-nav__subnav & {
+		height:auto;
+		display: unset;
+    }
+	&.carousel__group {
+		display: flex;
+	}
+}
+
+.p-nav__item {
+	overflow: hidden;
+
+	@media (max-width: $screen-md-min) {
+		margin:$space 0;
+	}
+	@media (min-width: $screen-md-min) {
+		display: inline-block;
+		padding:23px 0 21px;
+	}
+
+	.p-nav__subnav--carousel & {
+		width:auto;
+		display: block;
+	}
+
+	&.p-nav__item--child {
+		padding:0 0 0 0;
+		margin-right: 60px;
+
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	
+	.p-nav__subnav & {
+		@media (min-width: $screen-md-min) {
+			opacity: 0;
+			transition-property:opacity, left;
+			transition-duration:0.3s;
+			transition-timing-function:ease;
+			position:relative;
+			left:-5px;
+		}
+
+		li:hover > &,
+		.p-nav__item--current > & {
+			@media (min-width: $screen-md-min) {
+				left:0;
+				opacity:1;
+			}
+		}
+	}
+}
+
+.p-nav__link {
+	font: $font-menus;
+	@include font-size(12px);
+
+	color: var(--p-nav-link-color);
+	display: block;
+	line-height: em(14, 12);
+	position:relative;
+	padding:$space 0 12px;
+	text-transform: uppercase;
+	letter-spacing: em(1, 12);
+
+	@media (min-width: $screen-md-min) {
+		@include css-vars((
+			--p-nav-link-color: $mine-shaft
+		));
+
+		color:var(--p-nav-link-color);
+	}
+
+	.p-nav__subnav--carousel & { //DELETE THIS
+		width:auto !important;
+	}
+
+	&:hover {
+		color: unset;
+		text-decoration: unset;
+	}
+	&:before {
+		@media (min-width: $screen-md-min) {
+			content:"";
+			position:absolute;
+			left:100%;
+			bottom:0;
+			height:4px;
+			width:100%;
+			background:var(--p-nav-border);
+			transition:left 0.2s ease;
+		}
+
+		li:hover > &,
+		.p-nav__item--current > & {
+			@media (min-width: $screen-md-min) {
+				left:50%;
+				width:30%;
+				min-width:30px;
+				margin-left:-17px;
+			}
+		}
+	}
+
+	.p-nav__subnav & {
+		font:$font-menus-alt;
+		@include font-size(12px);
+	}
+}
+
+.p-nav__subnav {
+	padding:$space-half*2 0;
+	box-shadow:inset 0 2px 4px 0 rgba(black, 0.05);
+	transition:top, opacity;
+	transition-duration:0.2s;
+	transition-timing-function:ease-in-out;
+	pointer-events:none;
+
+	@media (min-width: $screen-md-min) {
+		opacity:0;
+		z-index:-1;
+		top:50px;
+		left:0;
+		position:absolute;
+		width:100%; 
+		background-color: var(--p-nav-sub-bg);
+	}
+
+	&.p-nav__subnav--carousel {
+
+		.container {
+			margin:0;
+			padding:0;
+			width:auto;
+		}
+	}
+
+	li:hover > &,
+	.p-nav__item--current > & {
+		z-index:$sub-nav-z;
+		pointer-events:auto;
+
+		@media (min-width: $screen-md-min) {
+			top:86px;
+			opacity:1;
+		}
+
+		@for $i from 1 through 15 {
+		  li:nth-child( n + #{$i} ) {
+		  	transition-delay:0.05s*$i;
+		  }
+		}
+	}
+	li:hover > & {
+		z-index:$sub-nav-z-top;
+	}
+
+	@media (max-width: $screen-md-min) {
+		display: none !important;
+	}
+}

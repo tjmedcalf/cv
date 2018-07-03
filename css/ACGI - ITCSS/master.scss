@@ -1,0 +1,117 @@
+/**
+ * MASTER.SCSS
+ *
+ * @Project     : Project Name
+ * @Author      : AuthorName [author.name@nvinteractive.com]
+ *
+ */
+
+
+// Set the viewport to resize responsively (similar to viewport meta tag)
+@viewport {
+	width: device-width;
+	zoom: 1;
+}
+
+//  0. PLUGINS
+@import '../../bower_components/breakpoint-sass/stylesheets/_breakpoint.scss';
+
+/**
+ * 1. SETTINGS
+ */
+@import '1.settings/settings.base';
+@import '1.settings/settings.breakpoints';
+@import '1.settings/settings.colors';
+@import '1.settings/settings.grid';
+@import '1.settings/settings.zindex';
+@import '1.settings/settings.font';
+
+
+/**
+ *  2. TOOLS
+ */
+@import '2.tools/tools.functions';
+@import '2.tools/tools.mixin.position';
+@import '2.tools/tools.mixin.baseline_grid';
+@import '2.tools/tools.mixin.hover-effects';
+@import '2.tools/tools.mixin.drop-shadows';
+@import '2.tools/tools.mixin.scrollbar';
+
+/**
+ * 3. GENERIC
+ */
+@import '3.generic/generic.fontface';
+@import '3.generic/generic.reset';
+@import '3.generic/generic.boxsizing';
+@import '3.generic/generic.clearfix';
+@import '3.generic/generic.animations';
+
+/**
+ *  4. ELEMENTS
+ *  Basic styles for raw HTML elements
+ *  No classes here
+ */
+@import '4.elements/elements.base';
+@import '4.elements/elements.disabled';
+@import '4.elements/elements.images';
+@import '4.elements/elements.type';
+
+
+/**
+ *  5. OBJECTS
+ *  These are repeating visual/structural patterns with no 'design' added
+ *  Must be built with classes only
+ */
+@import '5.objects/objects.grid';
+@import '5.objects/objects.layout';
+@import '5.objects/objects.icons';
+@import '5.objects/objects.panel';
+@import '5.objects/objects.form';
+@import '5.objects/objects.error';
+@import '5.objects/objects.btn-group';
+@import '5.objects/objects.article';
+@import '5.objects/objects.image-block';
+@import '5.objects/objects.carousel';
+@import '5.objects/objects.selectbox';
+@import '5.objects/objects.fixedElement';
+@import '5.objects/objects.offcanvas';
+@import '5.objects/objects.switcharoo';
+
+//@import '5.objects/objects.rect-buttons';
+//@import '5.objects/objects.square-button';
+
+
+/**
+ *  6. COMPONENTS
+ *  A component is a reusable chunk of UI that is clearly designed, as opposed to an object.
+ *  Clearly refers to a block of UI: pagination, buttons, modals, icons... etc
+ *  You should be able to take a component and paste it anywhere in the app
+ *  Must be built with classes only
+ */
+@import '6.components/components.buttons';
+@import '6.components/components.site-header';
+@import '6.components/components.site-content';
+@import '6.components/components.site-footer';
+@import '6.components/components.site-nav';
+@import '6.components/components.morph';
+@import '6.components/components.field';
+@import '6.components/components.text-block';
+@import '6.components/components.tile';
+@import '6.components/components.banner';
+@import '6.components/components.hero';
+@import '6.components/components.figure';
+@import '6.components/components.checkbox';
+@import '6.components/components.card';
+@import '6.components/components.option-card';
+@import '6.components/components.filterbox';
+@import '6.components/components.accordion';
+@import '6.components/components.weather-widget';
+@import '6.components/components.gmaps';
+@import '6.components/components.info-pane';
+
+/**
+ *  7. UTILITIES
+ */
+@import '7.utilities/utilities.layout';
+@import '7.utilities/utilities.type';
+@import '7.utilities/trumps';

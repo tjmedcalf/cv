@@ -1,0 +1,115 @@
+.c-text-block__title {
+	@include f-text-block-title;
+	color:$text-block-title;
+	text-transform: uppercase;
+	
+	@include breakpoint($lg) {
+		font-size:rem(70px);
+	}
+
+	.c-text-block--light & {
+		color:white;
+	}
+}
+.c-text-block__titleImage {
+	display: inline;
+
+	@include breakpoint("max-width" $md) {
+		display: none;
+	}
+}
+.c-text-block__titleSupp {
+	@include f-text-block-suppTitle;
+	color:$text-block-supp-title-color;
+	text-transform: uppercase;
+	margin-bottom: rem(30px);
+}
+
+.c-text-block__title--wAccent {
+	margin-bottom:30px;
+	padding-bottom:30px;
+	position:relative;
+
+	&:before {
+		content:"";
+		position: absolute;
+		left:0;
+		bottom:0px;
+		width:60px;
+		height:5px;
+		background:$text-block-title-accent-color;
+
+		transition: width 0.2s ease;
+
+		.c-text-block--light & {
+			//background:white;
+		}
+	}
+}
+
+.c-text-block__body {
+	@include f-text-block-body--bold;
+	line-height: 24px;
+	color:$text-block-body;
+
+	.c-text-block--light & {
+		color:white;
+	}
+}
+
+.c-text-block__body--twoCol {
+	@include breakpoint($md) {
+		column-count: 2;
+		column-gap: rem(50px);
+	}
+}
+
+.c-text-block__body--lightWeight {
+	@include f-text-block-body;
+}
+
+.c-text-block__cta {
+	margin-top:45px;
+}
+.c-text-block__cta--lower {
+	@include breakpoint($lg) {
+		margin-top:120px;
+	}
+}
+
+.c-text-block--floater {
+	box-sizing:content-box;
+	flex-direction:column;
+	position: relative;
+	margin:0 rem(50px);
+	
+	html:not(.shit-browser-detected) & {
+		display: flex;
+	}
+
+	@include breakpoint($lg) {
+		margin:0 0 0 0;
+		max-width:rem(376px);
+		top:rem(-100px);
+	}
+	@include breakpoint($xxl) {
+		top:0px;
+	}
+
+	&.c-text-block--align-right {
+		@include breakpoint($lg) {
+			padding-right: 10%;
+		}
+		@include breakpoint($xxl) {
+			padding-right: 20%;
+		}
+	}
+	&.c-text-block--align-left {
+		@include breakpoint($lg) {
+			padding-left: 10%;
+		}
+		@include breakpoint($xxl) {
+			padding-left: 20%;
+		}
+	}
+}

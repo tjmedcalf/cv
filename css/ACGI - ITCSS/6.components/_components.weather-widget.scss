@@ -1,0 +1,49 @@
+.weather-widget {
+	color:white;
+
+	@include breakpoint($lg) {
+		display: flex;
+		flex-direction:row;
+		justify-content:flex-end;
+		padding-right: 12px;
+	}
+}
+.weather-widget__data {
+	@include breakpoint($lg) {
+		padding-right: rem(20px);
+		border-bottom: 1px solid rgba(white, 0.5);
+	}
+}
+
+.weather-widget__forecast {
+	display: inline-block;
+	vertical-align: 4px;
+}
+
+.weather-widget__forecastItem {
+	@include breakpoint(max-width $lg) {
+		@include f-nav;
+	}
+
+	@include f-weather-widget;
+	display: inline-block;
+	margin-right:5px;
+
+	strong {
+		font-weight:900;
+	}
+	a {
+		color:white;
+		text-decoration: none;
+	}
+}
+
+.weather-widget__icon {
+	font-size:rem(20px);
+}
+
+.weather-widget__link {
+	@include breakpoint(max-width $lg) {
+		display: none;
+	}
+}

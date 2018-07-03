@@ -1,0 +1,52 @@
+.c-tile {
+	font-size: rem(28px);
+	text-transform: uppercase;
+	border: 2px solid black;
+	width: rem(130px);
+	height: rem(130px);
+	display: block;
+	
+	@include breakpoint($lg) {
+		font-size: rem(26px);
+	}
+	
+	&[href] {
+		display: flex;
+		justify-content:center;
+		align-items:center;	
+		text-decoration: none;
+		flex-direction: column;
+	}
+}
+
+.c-tile--nav {
+	@include breakpoint($lg) {
+		border:none;
+		height:rem(66px);
+		justify-content:flex-end;
+	}
+}
+.c-tile--yellow {
+	color: $nav-tile-color;
+	border-color:$nav-tile-border;
+}
+
+.c-tile__icon {
+	display: block;
+	margin-bottom: rem(10px);
+}
+
+.c-tile__text {
+	@include f-tiles;
+	display: block;
+
+	@include breakpoint($lg) {
+		display: inline-block;
+		position: relative;
+		padding-bottom:10px;
+		
+		//:before
+		@include animated-bottom-border($nav-tile-color);
+	}
+}
+

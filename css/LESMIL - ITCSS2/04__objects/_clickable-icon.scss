@@ -1,0 +1,17 @@
+.clickable-icon {
+	all: unset;
+	cursor: pointer;
+	border:none;
+
+	i {
+		display: block;
+
+		&:before {
+			display: block;
+		}
+	}
+
+	&:hover {
+		text-decoration: none;
+	}
+}

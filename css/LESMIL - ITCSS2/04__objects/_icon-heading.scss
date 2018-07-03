@@ -1,0 +1,250 @@
+.icon-heading {
+	@include css-vars((
+		--icon-heading-subtext:$boulder,
+		--icon-heading-theme:black,
+	));
+
+	text-align: center;
+	position:relative;
+
+	@media (min-width: $screen-md-min) {
+		margin-bottom:50px;
+	}
+
+	&.icon-heading--switch {
+		overflow:hidden;
+		padding-bottom:20px;
+
+		&:after {
+			position:absolute;
+			width: 0px;
+			content:"";
+			height:4px;
+			background:$chateau-green;
+			margin:14px auto 0;
+			display: block;
+			
+			left: -50%;
+
+    		transition-property:width, left, margin;
+    		transition-duration:0.2s;
+    		transition-timing-function:ease;
+		}
+	}
+	&[data-state="active"] {
+		&:after {
+			width: 43px;
+			left: 50%;
+    		margin-left: -21px;
+		}
+	}
+}
+
+.icon-heading--stack {
+	@media (max-width: $screen-sm-max) {
+		margin-bottom:35px;
+	}
+}
+.icon-heading--switch {
+	margin-bottom:0;
+}
+.icon-heading--inline {
+	margin-bottom:15px;	
+}
+.icon-heading--mini {
+	margin-bottom:35px;
+}
+.icon-heading--faux {
+	margin-bottom:50px;
+
+	@media (min-width: $screen-md-min) {
+		margin-bottom:0;
+	}
+}
+
+
+.icon-heading__icon {
+	@include font-size(26px);
+	display: block;
+	margin-bottom: 10px;
+	max-height:26px;
+	color:var(--icon-heading-theme);
+	transition:color 0.2s ease, font-size 0.2s ease;
+
+	.icon-heading--switch & {
+		color:$boulder;
+	}
+	
+	.icon-heading--faux & {
+		max-height:none;
+		margin-bottom:40px;
+	}
+
+	[data-state="active"] &,
+	[data-state="selected"] & {
+		color:black;
+	}
+
+	&:before {
+		display: block;
+	}
+
+	&.icon-multi-homes {
+		@include font-size(47px);
+
+		&:before {
+			position: relative;
+			top:-9px;
+		}
+	}
+
+	.icon-heading--mini & {
+		@include font-size(22px);
+		margin-bottom:10px;
+	}
+}
+
+.icon-heading__heading {
+	@include heading-style;
+	color:var(--icon-heading-theme);
+	@include font-size(16px);
+	transition:color 0.2s ease, font-size 0.2s ease;
+
+	.icon-heading--switch & {
+		color:$boulder;
+	}
+	.icon-heading--faux & {
+		@include font-size(20px);
+	}
+
+	[data-state="active"] & {
+		//Toggle state
+		@include font-size(18px);
+		color:black;
+	}
+
+	.icon-heading--contact & {
+		text-align: left;
+		margin-left:35px;
+		padding-left:17px;
+		border-left:1px solid $quill-grey;
+	}
+
+	.card__banner & {
+		@include font-size(45px);
+		color:black;
+
+		[data-state="selected"] &,
+		.card:hover & {
+			@include font-size(55px);	
+		}
+		@media (max-width: $screen-md-min) {
+			display: inline-block;
+		}
+	}
+
+	.card__body & {
+		@include font-size(28px);
+		color:$tundora;
+
+		@media (max-width: $screen-md-min) {
+			display: inline-block;
+		}
+	}
+
+	.icon-heading--mini & {
+		@include font-size(14px);
+	}
+
+	.summary & {
+		color:$boulder;
+	}
+
+	.modal & {
+		color:$alabaster;
+	}
+}
+
+.icon-heading__subtext {
+	@include heading-style;
+	@include font-size(12px);
+	color:$boulder;
+	margin-top:$space-half;
+
+	.icon-heading--faux & {
+		font:$font-default;
+		@include font-size(15px);
+		letter-spacing: em(1,15);
+		text-transform: none;
+	}
+
+	&.icon-heading__subtext--fine {
+		font:$font-default;
+		@include font-size(15px);
+		text-transform: none;
+		font-weight:300;
+
+		* {
+			@include font-size(15px);
+		}
+	}
+
+	.icon-heading--contact & {
+		text-align: left;
+		margin: 0 0 0 35px;
+		padding-top:$space-half;
+		border-left:1px solid $quill-grey;
+		padding-left:17px;
+		white-space: nowrap;
+
+		small {
+			color:black;
+		}
+		a {
+			color:$monza;
+			display: inline-block;
+			margin-top:3px;
+		}
+	}
+
+	.card__banner & {
+		margin-top:-7px;
+		--icon-heading-theme: black;
+		@include font-size(15px);
+	}
+
+	.card--membership & {
+		@include font-size(15px);
+
+		@media (max-width: $screen-md-min) {
+			display: inline-block;
+		}
+	}
+
+	[data-state="active"] & {
+		@include font-size(13px);
+	}
+
+	* {
+		color:$mine-shaft;
+		@include font-size(12px);
+		transition:color 0.2s ease;
+
+		.card__banner &,
+		.card__body & {
+			@include font-size(15px);
+		}
+		.icon-heading--faux & {
+			@include font-size(15px);
+		}
+
+		[data-state="active"] & {
+			@include font-size(13px);
+		}
+
+		
+		.modal & {
+			color:$alabaster;
+		}
+	}
+}

@@ -1,0 +1,60 @@
+﻿<div class="form" ng-controller="AddLandController">
+    <div class="form__section">
+        <h1 class="form__title">Whenua</h1>
+        <p class="form__field-intro">
+            The deceased's land interests to which this application relates (including Māori Incorporation interests) <br/>
+            <em>Find land blocks, or to enter land block names manually</em>
+        </p>
+
+    </div>
+
+    <div class="form__section">
+
+        <h2 class="form__section-title">Find land blocks</h2>
+	    <search-blocks sb-template="addLand" sb-action="searchBlock" sb-get="getBlock" ></search-blocks>
+
+         
+	</div>
+
+    <div class="form__section u-tc">
+        <h2 ng-show="selectedBlocks.length == 0">You have no land blocks selected. <br/>
+            
+            Start searching to add.<br/><br/>
+
+        OR <br/><br/></h2>
+
+        <div>
+            <button class="c-btn c-btn--pri" disabled>Add from bookmarks</button>
+            <button class="c-btn c-btn--pri" disabled>&nbsp;&nbsp;Add manually&nbsp;&nbsp;</button>
+        </div>
+    </div>
+
+
+	<div ng-show="selectedBlocks.length > 0">
+        <div class="form__sections">
+	        <div class="form__section">
+	            <h2 class="form__section-subtitle">Your selected land</h2>	
+	            <table class="c-table">
+	                <tr class="c-table__tableHead">
+	                    <th class="c-table__headerCell c-table__headerCell--small">Block ID</th>
+	                    <th class="c-table__headerCell c-table__headerCell--small">Block Name</th>
+	                    <th class="c-table__headerCell c-table__headerCell--small">District <i class="material-icons">swap_vert</i></th>
+	                    <th class="c-table__headerCell c-table__headerCell--small"></th>
+	                </tr>
+                    <tr ng-repeat="block in selectedBlocks" class="search-results__row">
+                        <td class="c-table__cell" ng-bind="block.blockId"></td>
+                        <td class="c-table__cell" ng-bind="block.blockName"></td>
+                        <td class="c-table__cell" ng-bind="block.districtName"></td>
+                        <td class="c-table__cell c-table__cell--action"><i ng-click="removeBlock(block.blockId)" class="material-icons search-results__icon search-results__icon--remove">add_circle</i></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="error">
+        <br/>
+        <h2>There's been a problem</h2>
+        <p>There's been an error retrieving your selected blocks. Please refresh the page until your land blocks appear.</p>
+    </div>
+</div>

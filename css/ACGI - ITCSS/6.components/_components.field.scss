@@ -1,0 +1,125 @@
+.c-field {
+    max-width:414px;
+    background-color: $field-bg-color;
+    color:$field-text-color;
+    margin:20px auto;
+
+    &.c-field--valid {
+        color:$field-valid-color;
+    }
+
+    &.c-field--seperated {
+        margin:30px auto;
+    }
+
+    &.c-checkbox {
+        background:none;
+    }
+    
+    &.c-field--option-cards {
+        background-color: transparent;
+        max-width:none;
+    }
+}
+
+.c-field--submit {
+    background-color: transparent;
+    text-align: center;
+    margin-bottom: 100px;
+
+    &:before {
+        display: block;
+        width:calc(80% - 40px);
+        max-width:414px;
+        margin:0 auto;
+        content:'';
+        background-color: $field-bg-color;
+        height:1px;
+        left:0;
+        right:0;
+        position: absolute;
+        
+        @media all and (min-width:$lg) {
+            width:100%;
+        }
+    }
+}
+
+.c-field__input--submit {
+    border:none;
+    @include f-submit-text;
+    text-transform: uppercase;
+    margin:30px auto;
+    padding:20px 40px;
+    -webkit-appearance: none;
+    border-radius:0;
+    
+    @media all and (min-width:$lg) {
+        margin:30px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.c-field__text-input {
+    @include f-field-text;
+    width:100%;
+    padding:20px;
+    border:none;
+    background-color: $field-bg-color;
+    
+    &:focus {
+        color:$field-active-text-color;
+        background-color: $field-active-bg-color;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.74);
+    }
+
+    .c-field--seperated & {
+        text-align: right;
+    }
+
+    .c-field--filled & {
+        background-color: $field-active-bg-color;
+    }
+}
+
+.c-field__label {
+    @include f-field-text;
+    position: absolute;
+    margin:20px; 
+
+    .c-field--filled & {
+        margin:-15px 20px 20px 20px;
+        color:$field-text-above-color;
+        font-size: 12px;
+    }
+    
+    .mandatory & {
+        &:after {
+            color:$error-red;
+            content:'*';
+        }
+    }
+    
+    .c-field--focused & {
+        margin:-15px 20px 20px 20px;
+        color:$field-text-above-color;
+        font-size: 12px;
+    }
+    
+    .c-field--seperated & {
+        opacity:1;
+        display: block;
+    }
+}
+
+.c-field__error {
+    display: none !important;
+}
+
+//Hide bootstrap
+.field-validation-error {
+    display: none;
+}

@@ -1,0 +1,248 @@
+.schedule {
+	@media (max-width: $screen-md-min) {
+		margin-bottom:20px;
+	}
+	@media (min-width: $screen-md-min) {
+		margin-top:-26px;
+	}
+
+	&.container {
+		margin-top:70px;
+	}
+
+	&.schedule--light {
+		color:$dusty-gray;
+	}
+}
+.schedule--gapped {
+	&.container {
+		@media (max-width: $screen-md-min) {
+			padding-left:0;
+			padding-right:0;	
+		}
+	}
+}
+
+.schedule__body {
+	background:white;
+	border-radius: 4px;
+	overflow: hidden;
+
+	.schedule--gapped & {
+		background:transparent;
+		
+		@media (max-width: $screen-md-min) {
+			border-radius: 0px;
+		}
+	}
+}
+.schedule__row {
+	background:white;
+	border-bottom:1px solid $quill-grey;
+	align-items:center;
+	margin:0 0 0 0;
+	padding:30px 5px 25px;
+	display: flex;
+	
+	.schedule--gapped & {
+		padding:0 0 0 0;
+		display: block;
+		
+		@media (min-width: $screen-md-min) {
+			margin-bottom:20px;
+			padding:18px 0px 15px 20px;
+			display: flex;
+			border-radius:4px 4px 0 0;
+		}
+	}
+
+	&.schedule__row--current {
+		@media (min-width: $screen-md-min) {
+			padding:40px 0px 25px 20px;
+			border-bottom-width:3px;
+			border-bottom-color:black;
+		}
+	}
+	
+	&[data-selected="true"] {
+		background:$wild-sand;
+	}
+
+	&:last-child {
+		margin-bottom:0;
+	}
+
+	&.schedule__row--no-divide {
+		border-bottom: none;
+	}
+
+	&.schedule__row--centered {
+		display:block;
+	}
+
+	&.schedule__row--stacked-cols {
+		display:flex;
+		flex-direction: column;
+
+		@media all and (min-width:992px) {
+			flex-direction: row;
+			// display:flex;
+		}
+	}
+}
+
+.schedule__row--empty {
+	@media (min-width: $screen-md-min) {
+		padding-right:12px;
+	}
+}
+
+.schedule__highlight {
+	
+}
+.schedule__row-key {
+	background-color:white;
+
+	@media (max-width: $screen-md-min) {
+		background:$tundora;
+		padding:20px 20px 14px;
+	}
+	@media (min-width: $screen-md-min) {
+		padding-top:10px;
+	}
+
+	.accordion & {
+		@media (max-width: $screen-md-min) {
+			padding-right:60px;
+		}
+	}
+
+	.schedule__row--current & {
+		@media (max-width: $screen-md-min) {
+			background:black;
+		}
+	}
+
+	.clickable-icon {
+		color:white;
+	}
+
+	&.schedule__row-key--deco {
+		@media all and (max-width:992px) {
+			background-color:white;
+			color: black;
+			font: $font-headings;
+			@include font-size(26px);
+			letter-spacing: em(4,48);
+			line-height: em(58,48);
+			text-align: center;
+			text-transform: uppercase;
+
+			&:after {
+				height:3px;
+				background:$monza;
+				width:70px;
+				content:"";
+				display: block;
+				margin-top:10px;
+				margin-left:auto;
+				margin-right:auto;
+			}
+		}
+	}
+}
+
+.schedule__date {
+	@include heading-style;
+	@include font-size(18px);
+	color:white;
+	line-height:1;
+
+	@media (min-width: $screen-md-min) {
+		color:$tundora;
+		@include font-size(28px);
+	}
+
+	.schedule__row--current & {
+		@media (min-width: $screen-md-min) {
+			color:black;
+		}
+
+		&:before {
+			content:"Today";
+			color:$monza;
+			display: inline-block;
+			margin-right:5px;
+		    
+		    @media (min-width: $screen-md-min) {
+				display: block;
+				margin-bottom: 5px;
+				@include font-size(14px);
+		    }
+		}
+	}
+}
+.schedule__date-cal {
+	@include font-size(18px);
+	display: block;
+	float:right;
+	
+	@media (min-width: $screen-md-min) {
+		@include font-size(14px);
+		position: relative;
+		top:4px;
+		float:none;
+	}
+
+	.schedule__row--current & {
+		color:$monza;
+	}
+}
+
+.schedule__head {
+	@media (max-width: $screen-md-min) {
+		display:none;
+	}
+
+	@include font-size(13px);
+	color:$dusty-gray;
+	padding:0px 20px;
+	padding-bottom:em(10,13);
+	margin:0 0 0 0;
+
+	&.schedule__row {
+		padding:30px 5px 25px;
+		margin:0;
+		@include font-size(16px);
+	}
+}
+
+.schedule__side-header {
+	display:block;
+	visibility:hidden;
+	color:black;
+	font: $font-headings;
+	text-align: right;
+
+	@include font-size(22px);
+
+	&:last-child {
+		visibility:visible;
+		line-height:15px;
+	}
+
+	@media all and (min-width:992px) {
+		position: relative;	
+		right:auto;
+		color:$dusty-gray;
+		font:$font-default;
+		visibility:visible;
+		text-align: left;
+		@include font-size(16px);
+
+		&:last-child {
+			display:none;
+			visibility:hidden;
+		}
+	}
+}

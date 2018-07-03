@@ -1,0 +1,10 @@
+body[data-modal='is-active'] {
+	//overflow: hidden;
+}
+.bodyMod--weatherApp {
+	.c-moprh__shape--navSide,
+	.c-site-header__navControl,
+	.c-site-footer {
+		display: none;
+	}
+}

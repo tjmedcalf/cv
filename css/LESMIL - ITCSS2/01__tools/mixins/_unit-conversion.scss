@@ -1,0 +1,27 @@
+$browser-context: 16;
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin resize-left-arrow($size) {
+	display: inline-block;
+	height: em($size/2, $size);
+	vertical-align: -#{em(16, $size)};
+
+	&:before {
+		display: inline-block;
+	    height: em(12, #{$size});
+	    vertical-align: em(8, $size);
+	}
+}

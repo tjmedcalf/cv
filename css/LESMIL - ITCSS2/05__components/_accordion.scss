@@ -1,0 +1,181 @@
+.accordion__controls {
+	.accordion__expander-icon--closer,
+	.accordion__expander-icon--opener {
+		transition-property:opacity;
+		transition-timing-function:ease;
+		transition-duration:0.2s;
+	}
+}
+
+.accordion__expander-icon {
+	@include font-size(28px);
+    display: block;
+	float: left;
+    margin: -8px 6px 0px;
+    transition-property:transform, font-size;
+    transition-duration:0.2s;
+    transition-timing-function:cubic-bezier(0, 0.03, 0.43, 1.58);
+
+	&:hover {
+		cursor:pointer;
+	}
+	
+	.accordion--numbered & {
+		float: right; 
+    	margin: -3px -5px 0px;
+	}
+
+	&:before {
+		display: block;
+	}
+
+	.accordion__controls--button & {
+		margin-top:10px; 
+	}
+
+	.accordion--mobile & {
+		@media (min-width: $screen-md-min) {
+			display: none;
+		}
+	}
+	.accordion--icon-right & {
+		position:absolute;
+		right: -2px;
+    	top: 13px;
+	}
+
+	&.icon-add {
+		[data-accordion="open"] & {
+			@include font-size(30px);
+			transform:rotate(45deg);
+		}
+	}
+}
+.accordion__expander-icon--closer {
+	margin-top:-25px;
+	opacity: 0;
+	
+	[data-accordion="open"] & {
+		margin:0px;
+		opacity: 1;
+	}
+}
+.accordion__expander-icon--opener {
+	opacity:1;
+
+	[data-accordion="open"] & {
+		margin-bottom:-25px;
+		opacity:0;
+	}
+}
+
+.accordion--numbered,
+.accordion--itemised > li {
+	counter-increment: my-badass-counter;
+}
+
+.accordion {
+	background:white;
+	list-style: decimal;
+	transition: height 0.35s ease-in-out;
+	overflow: hidden;
+	
+	@include css-vars((
+		--accordion-header-bg: $mercury,
+	));
+
+	p {
+		@include font-size(14px);
+		margin-bottom:1em;
+		line-height: em(18,14);
+
+		&:last-child {
+			margin-bottom:0;
+		}
+	}
+
+	&.accordion--numbered {
+		list-style: none;
+
+		&:before {
+			font:$font-headings;
+			@include font-size(18px);
+			content: counter(my-badass-counter);
+		    color:white;
+		    background-color: #000000;
+		    height: 47px;
+	    	width: 50px;
+	    	display: flex;
+	    	align-items:center;
+			position: absolute;
+			z-index: 1;
+	    	justify-content:center;
+	    	padding-top:5px;
+		}
+	}
+}
+
+.accordion__title {
+	@include font-size(18px);
+	color:black;
+	background-color:var(--accordion-header-bg);
+	padding:16px 20px 10px;
+
+	position:relative;
+
+	.accordion--numbered & {
+		padding-left:100px;
+	}
+
+	.accordion--itemised & {
+		padding-left:60px;
+
+		@media (min-width: $screen-md-min) {
+			padding-left:110px;
+		}
+
+		&:before {
+			font:$font-headings;
+			@include font-size(18px);
+			content: counter(my-badass-counter);
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    color:white;
+		    background-color: #000000;
+		    height: 100%;
+	    	width: 50px;
+	    	display: flex;
+	    	align-items:center;
+	    	justify-content:center;
+	    	padding-top:5px;
+		}
+	}
+}
+
+.accordion__content {
+	overflow: hidden; 
+	height:0;
+	
+	.accordion--mobile & {
+		@media (min-width: $screen-md-min) {
+			display: block;
+			height:100%;
+		}
+	}
+
+	[data-accordion="open"] &,
+	.accordion--locked & {
+		display: block !important;
+		height:auto;
+	}
+
+	.accordion--itemised[data-accordion="open"] &, .accordion--numbered[data-accordion="open"] &,
+	.accordion--locked & {
+		padding:20px;
+
+		@media (min-width: $screen-md-min) {
+			padding-left:110px;
+		}
+	}
+}

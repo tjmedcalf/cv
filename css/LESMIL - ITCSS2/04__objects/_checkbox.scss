@@ -1,0 +1,113 @@
+.checkbox {
+	min-height:30px;
+	display: block;
+
+	input[type="checkbox"] {
+		display: none;
+	}
+	
+	&.checkbox--disabled {
+		pointer-events: none;
+	}
+
+	@include css-vars((
+		--checkbox-color:$boulder,
+	));
+
+	.schedule__row & {
+		box-sizing: content-box;
+	}
+}
+
+.checkbox-list__label {
+	@include reading-style;
+	font-size:15px;
+	letter-spacing: em(1, 15);
+}
+
+.checkbox__link {
+	margin-left:4px;
+	color:$chateau-green;
+	text-decoration: underline;
+
+	&:hover, &:focus, &:active {
+		color:$chateau-green;
+	}
+}
+
+.checkbox__label {
+	@include font-size(14px);
+	cursor:pointer;
+	position:relative;
+	padding-left:50px;
+	color:var(--checkbox-color);
+	min-height: 30px;
+	display: flex;
+    align-items: center;
+
+    .checkbox--disabled & {
+		@include css-vars((
+			--checkbox-color:$quill-grey,
+		));
+
+		color:var(--checkbox-color);
+	}
+	.checkbox-list & {
+		color:black;
+		@include font-size(16px);
+		padding-left:32px;
+	}
+
+	.checkbox--noLabel & {
+		text-indent: -9999px;
+		display: block;
+	}
+
+	&:before {
+		@include css-vars((
+			--checkbox-color:$boulder,
+		));
+
+		@include font-size(18px);
+		@include icon-font;
+		content:"";
+		display: block;
+		background:white;
+		border:2px solid var(--checkbox-color);
+		border-radius: 4px;
+		height:30px;
+		width:30px;
+		position:absolute;
+		left:0;
+		top:0;
+		transition-property:border-radius, background, border-color;
+		transition-timing-function:ease;
+		transition-duration:0.5s;
+		text-indent: 0px;
+		padding:3px 0 0 3px;
+
+		.checkbox--disabled & {
+			@include css-vars((
+				--checkbox-color:$quill-grey,
+			));
+
+			border-color:var(--checkbox-color);
+		}
+		.checkbox-list & {
+			height:25px;
+			width:25px;
+			padding:1px 0 0 2px;
+		}
+
+		input[type="checkbox"]:checked + & {
+			content:"\e017";
+			border-radius: 100%;
+			color:white;
+			background:$shamrock;
+			border-color:$shamrock;
+		}
+	}
+	&:hover:before {
+		background:$mercury;
+	}
+}

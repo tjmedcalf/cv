@@ -1,0 +1,84 @@
+<div class="form" ng-controller="DeceasedController">
+    <div class="form__section">
+        <h1 class="form__title">The deceased</h1>
+        <h3 class="form__section-subtitle">Names of deceased</h3>
+        <p class="form__field-intro form__field-intro--margin">Add all possible names that the deceased may have been known by including any aliases. Add each name one by one, clicking on the Add name button (+) after each one.</p>
+
+        <div ng-if="parcel.contents.deceased.alias.length > 0">
+            <h3 class="c-label">Names</h3>
+            <div class="data-list">
+                <div class="data-list__row" ng-repeat="alias in parcel.contents.deceased.alias">
+                    {{alias.firstName}} {{alias.lastName}}
+                    <div class="data-list__actions">
+                        <i class="material-icons search-results__icon search-results__icon--edit">mode_edit</i>
+                        <i class="material-icons search-results__icon search-results__icon--remove" ng-click="parcel.contents.deceased.alias.splice($index, 1)">add_circle</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="g">
+            <div class="gi gi-5 field">
+                <label for="" class="c-label">First Name</label>
+                <input type="text" ng-model="fName" class="c-input c-input--100" placeholder="Add a first name">
+            </div>
+            <div class="gi gi-5 field">
+                <label for="" class="c-label">Last name</label>
+                <input type="text" ng-model="lName" class="c-input c-input--100" placeholder="Add a last name">
+
+            </div>
+            <div class="gi gi-2 field">
+                <i class="material-icons data-list__add c-btn" ng-click="addAlias()">add_circle</i>
+            </div>
+        </div>
+    </div>
+    <div class="form__section">
+        <h3 class="form__section-subtitle">The deceased died at</h3>
+        <div class="g">
+            <div class="gi gi-4 field">
+                <label for="" class="c-label">Location</label>
+                <input class="c-input c-input--100" type="text" ng-model="parcel.contents.deceased.location" placeholder="Place name">
+            </div>
+            <div class="gi gi-3 field">
+                <label for="" class="c-label">Date</label>
+                <input class="c-input c-input--100" type="text" placeholder="dd/mm/yyyy" ng-model="parcel.contents.deceased.date" date-picker>
+                
+                <div class="c-input__badge">
+                    <i class="material-icons">event</i>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="form__section">
+        <h3 class="form__section-subtitle">Relationships of the deceased</h3>
+        
+        <div class="g">
+            <div class="gi gi-7">
+                <p class="form__field-intro">Was the deceased at the time of death legally married or in a civil union?</p>
+            </div>
+            <div class="gi gi-1">
+            </div>
+            <div class="gi gi-2">
+                <input class="faux-radio" type="radio" value="yes" ng-model="parcel.contents.deceased.relationshipStatus" id="relationshipStatusYes"> 
+                <label class="faux-radio__label" for="relationshipStatusYes">Yes</label>
+
+            </div>
+            <div class="gi gi-2">
+                <input class="faux-radio" type="radio" value="no" ng-model="parcel.contents.deceased.relationshipStatus" id="relationshipStatusNo"> 
+                <label class="faux-radio__label" for="relationshipStatusNo">No</label>
+
+            </div>
+        </div>
+
+
+	
+    </div>
+    
+ 
+    
+    
+
+</div>
