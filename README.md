@@ -5,7 +5,7 @@ Author  :   Tim Medcalf [tjmedcalf@gmail.com]
 Version :   0.1
 ```
 
-Disclaimer: This repo is a work in progress. Better documentation coming soon!
+> Disclaimer: This repo is a work in progress. Better documentation coming soon!
 
 
 Table of Contents
@@ -20,8 +20,7 @@ Table of Contents
 
 2. CSS
 	1. BEM/ITCSS architecture from Auckland Coastguard website
-	2. Les Mils
-	3. 
+	2. BEM/ITCSS architecture from Les Mils website
 
 3. PHP
 	1. OOP+MVC database driven website
