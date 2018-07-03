@@ -1,4 +1,4 @@
-ReadMe – Multi-page form with Angular (2018)
+Multi-page form with Angular (2018)
 =================================
 
 Overview

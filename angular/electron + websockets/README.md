@@ -1,4 +1,4 @@
-ReadMe – Electron + Node + SignalR + Angular (2016)
+Electron + Node + SignalR + Angular (2016)
 ==============================
 
 Overview

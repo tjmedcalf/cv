@@ -1,4 +1,4 @@
-ReadMe – ARC-GIS + Angular (2018)
+ARC-GIS + Angular (2018)
 =================================
 
 Overview

@@ -1,6 +1,7 @@
-ReadMe – Google Maps API + Angular (2015)
+Google Maps API + Angular (2015)
 =================================
 
 Overview
 --------
 
+TBC

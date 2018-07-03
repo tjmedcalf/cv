@@ -1,4 +1,4 @@
-ReadMe – High Charts + Angular (2016)
+High Charts + Angular (2016)
 =================================
 
 TBC
